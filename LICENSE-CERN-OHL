@@ -1,0 +1,124 @@
+CERN Open Hardware License v2 - Strongly Reciprocal (CERN-OHL-S)
+
+Preamble
+
+CERN has developed this license to promote open-source hardware and to support
+the collaborative design and sharing of hardware designs. CERN-OHL is copyright
+© 2017 CERN. Anyone is welcome to use and share CERN-OHL, in unmodified form only.
+
+1. DEFINITIONS
+
+   "Documentation" means schematic diagrams, designs, circuit or circuit board
+   layouts, artwork and mechanical drawings, flow charts and descriptive text,
+   and other explanatory or design documents that are not source code or object
+   code.
+
+   "Firmware" means software contained in hardware devices and which normally
+   does not need to be changed.
+
+   "Licensor" means any natural or legal person distributing or communicating
+   the Work under this License.
+
+   "Licensee" means any natural or legal person exercising rights under this
+   License.
+
+   "Open Source Hardware" means hardware whose design is made publicly available
+   so that anyone can study, modify, distribute and manufacture the hardware
+   based on that design.
+
+   "Part" means any constituent element, sub-assembly, assembly or subsystem of
+   a Product.
+
+   "Product" means any device or thing, whether assembled or partly assembled,
+   produced or fabricated by application of the Work.
+
+   "Source" means design information such as schematics, HDL, netlist, or other
+   specifications of a device from which Products may be made by a Licensee.
+
+   "Work" means a design, in any medium of expression (including but not limited
+   to any hardware design, schematic diagram, or firmware code), whether or not
+   supported by drawings, specifications, and documentation, to the extent that
+   it would be protected by copyright but for this License. Where a Work
+   utilizes interface definitions supplied by a third party as permitted by
+   section 3.2, designing the Work to be compatible with such interface shall
+   not be considered a derivative work of the supplied interface.
+
+2. APPLICABILITY
+
+   2.1 This License governs the use, copying, modification and distribution of
+   the Work.
+
+   2.2 This License applies to the Work as defined in the preamble. The Work
+   may be a product in its entirety or, where the context so permits, part of
+   a larger product. Where the Work constitutes only a part of a larger
+   product, this License shall apply only to that part of the larger product
+   and not to the product as a whole.
+
+   2.3 The Work is provided "as-is" and the Licensor shall not be liable for
+   any loss, damage or liability arising out of its use, non-use or otherwise.
+
+3. COPYING, MODIFICATION AND DISTRIBUTION
+
+   3.1 You may copy, modify and distribute the Work and Products made from the
+   Work, provided that you prominently license the Work under an identical
+   version of this License.
+
+   3.2 You may copy, modify and distribute the Work under the terms of this
+   License, and you may use the Work to make Products, provided that you do all
+   the following:
+
+      a) include, prominently and without alteration, all notices that refer to
+      this License, including the copyright notice associated with the Work and
+      these terms and conditions;
+
+      b) indicate that modifications have been made to the Work;
+
+      c) ensure all modified versions, derivative works and products use an
+      identical version of this Licence for any hardware, documentation or
+      other elements licensed under this Licence;
+
+      d) license any firmware or software elements designed to interface with
+      the Work under the same licence or under Open Source Software/firmware
+      licences that are compatible with this licence;
+
+      e) where you modify the Work, you shall, upon request from any third
+      party, make available to them, free of charge and under the terms of
+      section 3.2, the design information necessary to manufacture Products
+      incorporating or based on the modified Work.
+
+3.3 The foregoing shall not oblige a Licensor to support or warrant Products
+made from the Work and the Licensor shall not be responsible or liable for any
+losses, damages or costs associated with Products made from the Work. By way of
+clarification, Products made from the Work may not incorporate or be derived
+from Licensor materials without explicit permission.
+
+4. PATENTS
+
+   4.1 Subject to the terms and conditions of this License, each Licensor grants
+   you a worldwide, royalty-free, non-exclusive, non-transferable licence under
+   its own intellectual property rights (whether owned now or acquired in the
+   future) to make, have made, use, sell, offer for sale, sell, import and
+   otherwise transfer the Work.
+
+   4.2 If you institute patent litigation against any entity (including a cross-
+   claim or counterclaim in a lawsuit) alleging that the Work or a Product
+   constitutes direct or contributory patent infringement, then any rights
+   granted to you under section 4.1 terminate as of the date such litigation is
+   filed.
+
+5. GENERAL
+
+   5.1 If any provision of this License is held to be invalid or unenforceable,
+   the remaining provisions of the License remain in full force and effect.
+
+   5.2 This License shall be governed by the laws of Switzerland. Any litigation
+   relating to this License shall be subject to the exclusive jurisdiction of
+   the competent court in Vaud, Switzerland.
+
+   5.3 The Work provided under this License is provided free of charge and, as
+   such, comes "as is" without warranty of any kind either expressed or
+   implied. The Licensor shall not be liable, in contract, tort or otherwise,
+   for any special, indirect, lost, punitive or consequential loss, damage,
+   cost or expense incurred in connection with the Work or use of the Work.
+
+END OF LICENSE
