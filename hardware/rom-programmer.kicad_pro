@@ -249,6 +249,12 @@
     "pinned_footprint_libs": [],
     "pinned_symbol_libs": []
   },
+  "project": {
+    "title": "28C EEPROM Programmer",
+    "author": "The Network Entropologist",
+    "license": "CERN Open Hardware License v2 - Strongly Reciprocal (CERN-OHL-S)",
+    "comments": "Arduino-based EEPROM programmer for 28Cx family"
+  },
   "meta": {
     "filename": "rom-programmer.kicad_pro",
     "version": 3
