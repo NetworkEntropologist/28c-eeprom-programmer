@@ -30,3 +30,15 @@ void addressTestLoop() {
         delay(DEBUG_DELAY);
     }
 }
+
+void addressWalkRead() {
+    // Loop through all addresses from 0 to MAX_ADDRESS and read the value at each address, printing it to the serial monitor
+    for (uint16_t address = 0; address <= MAX_ADDRESS; address++) {
+        uint8_t data = readByte(address);
+        Serial.print("Address 0x");
+        Serial.print(address, HEX);
+        Serial.print(": 0x");
+        Serial.println(data, HEX);
+        delay(DEBUG_DELAY);
+    }
+}

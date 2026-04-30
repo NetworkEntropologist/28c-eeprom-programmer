@@ -9,10 +9,21 @@
 #ifndef EEPROM_H
 #define EEPROM_H
 
+#include <Arduino.h>
+
+enum ROMMode { // Current EEPROM mode
+    STANDBY,
+    READ,
+    WRITE
+};
+
 void setupEEPROMPins();
-void clearDataBus();
+void setMode(ROMMode mode);
 void setDataBus(uint8_t data);
-void writeByte(uint16_t address, uint8_t data);
+uint8_t writeByte(uint16_t address, uint8_t data);
 void doWrite();
+uint8_t readByte(uint16_t address);
+
+extern ROMMode currentMode;
 
 #endif // EEPROM_H

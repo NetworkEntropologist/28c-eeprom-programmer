@@ -33,9 +33,6 @@ void setupShiftRegisterPins() {
     digitalWrite(SEROE, LOW); // Enable output
     digitalWrite(DATA, LOW);
 
-    if (DEBUG_MODE) {
-        Serial.println("Shift register control pins initialized.");
-    }
     delayMicroseconds(ADDRDELAY);
 
     setAddress(0x0000); // Clear the address lines
@@ -52,40 +49,17 @@ void setAddress(uint16_t address) {
     // Shift out the address to the shift registers.
 
     // Disable output
-    if (DEBUG_MODE) {
-        Serial.println("Disabling shift register output...");
-    }
-    digitalWrite(SEROE, HIGH); // Disable output while shifting new address
-    delayMicroseconds(ADDRDELAY);
+    digitalWrite(SEROE, HIGH);
         
     // Disable latch
-    if (DEBUG_MODE) {
-        Serial.println("Disabling shift register latch...");
-    }
-    digitalWrite(RCLK, LOW); // Disable latch to prepare for shifting new address
-    delayMicroseconds(ADDRDELAY);
-            
+    digitalWrite(RCLK, LOW);
+                
     // Shift out the new address (MSB first)
-    if (DEBUG_MODE) {
-        Serial.print("Shifting out address: 0x");
-        Serial.println(address, HEX);
-    }
     shiftOut(DATA, SRCLK, MSBFIRST, address >> 8); // Upper byte
     shiftOut(DATA, SRCLK, MSBFIRST, address); // Lower byte
-    delayMicroseconds(ADDRDELAY);
-    
-    // Latch the new address
-    if (DEBUG_MODE) {
-        Serial.println("Latching new address...");
-    }
-    digitalWrite(RCLK, HIGH); // Latch the new address
-    delayMicroseconds(ADDRDELAY);
         
-    // Re-enable output
-    if (DEBUG_MODE) {
-        Serial.println("Re-enabling shift register output...");
-    }
-    digitalWrite(SEROE, LOW); // Re-enable output to apply new address 
-    delayMicroseconds(ADDRDELAY);
-    
+    // Latch the new address
+    digitalWrite(RCLK, HIGH);
+    digitalWrite(SEROE, LOW);
+        
 }

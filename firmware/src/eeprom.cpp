@@ -11,29 +11,69 @@
 #include "shiftregister.h"
 #include "eeprom.h"
 
+ROMMode currentMode = STANDBY; // Global variable to track the current mode of the EEPROM (read/write/standby)
+
 void setupEEPROMPins() {
 
     // Setup control pins as outputs
-    if (DEBUG_MODE) {
-        Serial.println("Setting up EEPROM control pins...");
-    }
     pinMode(ROM_WE, OUTPUT);
     pinMode(ROM_OE, OUTPUT);
     pinMode(ROM_CE, OUTPUT);
 
     // Set control lines to inactive state. These are active low, so setting to HIGH means inactive.
-    if (DEBUG_MODE) {
-        Serial.println("Setting EEPROM control lines to default state...");
-    }
     digitalWrite(ROM_WE, HIGH); // /WE inactive, so cannot write until this line is taken low
-    digitalWrite(ROM_OE, LOW); // /OE defaults to low, as this is active low, and indicates a read cycle
-    digitalWrite(ROM_CE, HIGH); // /CE inactive and chip not selected
+    digitalWrite(ROM_OE, HIGH); // /OE defaults to low, as this is active low, and indicates a read cycle
+    digitalWrite(ROM_CE, LOW); // /CE inactive and chip not selected
 
     // Setup data bus pins as outputs
     setDataBus(0x00); // Clear the data bus on startup
     delayMicroseconds(GENDELAY);
 
 }   
+
+void setMode(ROMMode mode) { // True for write mode, false for read mode
+    
+    // TODO: Add logic to set mode correctly
+
+    switch (mode)
+    {
+    case WRITE:
+        if (currentMode != WRITE) {
+            for (unsigned int i = 0; i < 8; i++) {
+                pinMode(D0 + i, OUTPUT);
+            }
+        
+            digitalWrite(ROM_CE, LOW);
+            digitalWrite(ROM_OE, HIGH);
+            digitalWrite(ROM_WE, HIGH);
+        
+            delayMicroseconds(GENDELAY);
+            currentMode = WRITE;
+        }
+        break;
+    case READ:
+        if (currentMode != READ) {
+            for (unsigned int i = 0; i < 8; i++) {
+                pinMode(D0 + i, INPUT);
+            }
+        
+            digitalWrite(ROM_CE, LOW);
+            digitalWrite(ROM_OE, LOW);
+            digitalWrite(ROM_WE, HIGH);
+        
+            delayMicroseconds(GENDELAY);
+            currentMode = READ;
+        }
+        break;
+    default: // Default to standby mode
+        digitalWrite(ROM_OE, LOW);
+        digitalWrite(ROM_CE, HIGH);
+        digitalWrite(ROM_WE, HIGH);
+        currentMode = STANDBY;
+        break;
+    }
+
+}
 
 /**
 * @brief Set the data bus pins to the specified data value
@@ -43,17 +83,21 @@ void setupEEPROMPins() {
 *          value of that bit.
 */
 void setDataBus(uint8_t data) {
+
     for (int i = 0; i < 8; i++) {
-        uint8_t bitValue = (data >> i) & 0x01; // Extract the i-th bit
-        digitalWrite(D7 - i, bitValue); // Set the corresponding data pin
+        pinMode(D0 + i, OUTPUT);
+        uint8_t bitValue = (data >> i) & 0x01;
+        digitalWrite(D7 - i, bitValue);
+    }  
+
+}
+
+uint8_t readBus() {
+    uint8_t data = 0;
+    for (int i = 0; i < 8; i++) {
+        data |= (digitalRead(D0 + i) << i);
     }
-    if (DEBUG_MODE) {
-        delay(DEBUG_DELAY);
-    }
-    else {
-        delayMicroseconds(DATADELAY);
-    }
-    
+    return data;
 }
 
 /**
@@ -64,19 +108,45 @@ void setDataBus(uint8_t data) {
  *          set the data bus to the desired value, and then perform the necessary 
  *          control line manipulations to execute a write operation to the EEPROM. 
  */
-void writeByte(uint16_t address, uint8_t data) {
-    // Set the address lines using the shift register
+uint8_t writeByte(uint16_t address, byte data) {
+
     setAddress(address);
-
-    // Set the data bus to the desired value
+    setMode(WRITE);
     setDataBus(data);
+    delayMicroseconds(DATADELAY);
 
-    // Perform the write operation to the EEPROM
-    doWrite();
+    digitalWrite(ROM_WE, LOW);
+    delayMicroseconds(GENDELAY);
+    digitalWrite(ROM_WE, HIGH);
+    delayMicroseconds(GENDELAY);
 
-    delay(DEBUG_DELAY);
+    setMode(STANDBY);
 
-    setDataBus(0x00); // Clear the data bus
+    return readByte(address);
+
+}
+
+uint8_t readByte(uint16_t address) {
+    byte data = 0;
+
+    for (int pin = D0; pin <= D7; pin++) {
+        pinMode(pin, INPUT);
+    }
+
+    // digitalWrite(ROM_CE, HIGH);
+    digitalWrite(ROM_OE, HIGH);
+    setAddress(address);
+    digitalWrite(ROM_CE, LOW);
+    digitalWrite(ROM_OE, LOW);
+
+    for (int pin = D0; pin <= D7; pin++) {
+        data = (data << 1) | digitalRead(pin);
+    }
+
+    digitalWrite(ROM_OE, HIGH);
+    // digitalWrite(ROM_CE, HIGH);
+
+    return data;
 }
 
 /**
@@ -89,39 +159,13 @@ void writeByte(uint16_t address, uint8_t data) {
 */
 void doWrite() {
     
-    // Set /OE high to indicate a write cycle is about to start
-    if (DEBUG_MODE) {
-        Serial.println("Starting EEPROM write cycle...");
-        Serial.println("Setting /OE high...");
-    }
-    digitalWrite(ROM_OE, HIGH);
+    // setMode(true); // Ensure write mode is set
 
-    // Now pulse /WE low to write the data
-    if (DEBUG_MODE) {
-        Serial.println("Doing write...");
-    }
-    digitalWrite(ROM_WE, LOW); // Set low to initiate the write
-    if (DEBUG_MODE) {
-        delay(DEBUG_DELAY);
-    }
-    else {
-        delayMicroseconds(PROGDELAY);
-    }
-    digitalWrite(ROM_WE, HIGH);
+    // digitalWrite(ROM_WE, LOW); // Set low to initiate the write
+    // delayMicroseconds(PROGDELAY);
+    // delay(DEBUG_DELAY);
+    // digitalWrite(ROM_WE, HIGH);
 
-    // Set /OE high to disable writing
-    if (DEBUG_MODE) {
-        Serial.println("Ending EEPROM write cycle...");
-        Serial.println("Setting /OE high...");
-    }
-    digitalWrite(ROM_OE, LOW); //Returns to low to end the write and return to the default read state
-    if (DEBUG_MODE) {
-        delay(DEBUG_DELAY);
-    }
-    else {
-        delayMicroseconds(PROGDELAY);
-    }
-
-    // TODO: Add data polling support to confirm successful write
+    // setMode(false); // Return to read mode
 
 }

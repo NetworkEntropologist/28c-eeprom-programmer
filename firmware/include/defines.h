@@ -26,18 +26,18 @@
 #define DATA 11 // Arduino pin D11 connected to 74HC595 SER - pin 14
 
 // Timing Parameters
-#define PROGDELAY 100 // Delay in microseconds for programming operations
-#define READDELAY 50 // Delay in microseconds for read operations
-#define ADDRDELAY 50 // Delay in microseconds for address setup
-#define DATADELAY 50 // Delay in microseconds for data setup
-#define GENDELAY 100 // General delay in microseconds
+#define PROGDELAY 1 // Delay in microseconds for programming operations
+#define READDELAY 1 // Delay in microseconds for read operations
+#define ADDRDELAY 1 // Delay in microseconds for address setup
+#define DATADELAY 1 // Delay in microseconds for data setup
+#define GENDELAY 10 // General delay in microseconds
 
-#define MAX_ADDRESS 0x7FFF // Maximum address for 28C512 EEPROM (32KB)
+//#define MAX_ADDRESS 0x7FFF // Maximum address for 28C512 EEPROM (32KB)
+#define MAX_ADDRESS 0x2000 // Maximum address for 28C64 EEPROM (8KB)
 
 // Debug parameters
-extern bool DEBUG_MODE; // Global variable to control debug mode
 #define DEBUG_DATA 0xAA // Test data value to write during address test loop
-#define DEBUG_DELAY 50 // Delay in milliseconds for debugging loops to allow visual verification of blinkenlights
+#define DEBUG_DELAY 250 // Delay in milliseconds for debugging loops to allow visual verification of blinkenlights
 
 // Serial comms parameters
 #define SERIAL_BAUD 115200 // Baud rate for serial communication with Python control script

@@ -11,5 +11,6 @@
 #define DEBUGGING_H
 
 void addressTestLoop();
+void addressWalkRead();
 
 #endif // DEBUGGING_H

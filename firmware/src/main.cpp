@@ -21,31 +21,53 @@
 #include "shiftregister.h"
 #include "debugging.h"
 
-// Start with DEBUG_MODE set to false
-// Set this to true to enable debug mode
-// VERY IMPORTANT: Will NOT accept serial commands while in debug mode!!!
-bool DEBUG_MODE = true;
+void testing() {
+
+  delay(DEBUG_DELAY);
+  
+  for (uint8_t addr = 0; addr <= 0xf; addr++) {
+
+    // uint8_t data = readByte(addr);
+    // Serial.print("A0x");
+    // Serial.print(addr, HEX);
+    // Serial.print(" reads as: 0x");
+    // Serial.println(data, HEX);
+    
+    uint8_t data_written = writeByte(addr, DEBUG_DATA);
+    Serial.print("Address 0x");
+    Serial.print(addr, HEX);
+    Serial.print(" should be : 0x");
+    Serial.print(DEBUG_DATA, HEX);
+    Serial.print(" and reads back as: 0x");
+    Serial.println(data_written, HEX);
+
+    // Serial.print("Address: 0x");
+    // Serial.print(addr, HEX);
+    // Serial.print(" is 0x");
+    // Serial.println(readByte(addr), HEX);
+    // delay(DEBUG_DELAY);
+
+  }
+
+}
 
 void setup() {
   
-  // First initialise the serial port
   Serial.begin(SERIAL_BAUD);
 
-  // Setup the EEPROM control pins and data bus
   setupEEPROMPins();
 
   // Setup the shift register control pins
   setupShiftRegisterPins();
 
+
+  testing();
+
 }
 
 void loop() {
 
-  // For debugging purposes, we are simply going to run the addressTestLoop function for now
-  if (DEBUG_MODE) {
-    Serial.println("DEBUG MODE ENABLED: Starting address test loop...");
-    addressTestLoop(); 
-  } 
+  
   
 }
 
