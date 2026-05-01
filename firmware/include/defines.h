@@ -26,17 +26,31 @@
 #define DATA 11 // Arduino pin D11 connected to 74HC595 SER - pin 14
 
 // Timing Parameters
-#define PROGDELAY 1 // Delay in microseconds for programming operations
-#define READDELAY 1 // Delay in microseconds for read operations
-#define ADDRDELAY 1 // Delay in microseconds for address setup
-#define DATADELAY 1 // Delay in microseconds for data setup
-#define GENDELAY 10 // General delay in microseconds
+#define WRITE_DELAY 10 // Delay in microseconds for programming operations
+#define READ_DELAY 1 // Delay in microseconds for read operations
+#define ADDR_DELAY 1 // Delay in microseconds for address setup
+#define DATA_DELAY 1 // Delay in microseconds for data setup
+#define GEN_DELAY 10 // General delay in microseconds
+
+// More timing parameters
+#define tAS 1 // Address setup time in microseconds
+#define tOES 1 // Output enable setup time in microseconds
+#define tAH 5 // Address hold time in microseconds
+#define tWP 10 // Write pulse width in microseconds
+#define tDS 5 // Data setup time in microseconds
+#define tDH 5 // Data hold time in microseconds
+#define tOEH 1 // Output enable hold time in microseconds
+#define tCS 1 // Chip select setup time in microseconds
+#define tCH 1 // Chip select hold time in microseconds
+#define tDB 5 // Device busy time in microseconds
+#define tWC 2 // Write cycle time in miliseconds (!!!)
+
 
 //#define MAX_ADDRESS 0x7FFF // Maximum address for 28C512 EEPROM (32KB)
 #define MAX_ADDRESS 0x2000 // Maximum address for 28C64 EEPROM (8KB)
 
 // Debug parameters
-#define DEBUG_DATA 0xAA // Test data value to write during address test loop
+#define DEBUG_DATA 0xA9 // Test data value to write during address test loop
 #define DEBUG_DELAY 250 // Delay in milliseconds for debugging loops to allow visual verification of blinkenlights
 
 // Serial comms parameters

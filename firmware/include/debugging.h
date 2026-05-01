@@ -12,5 +12,8 @@
 
 void addressTestLoop();
 void addressWalkRead();
+void quickReadTest(uint16_t startAddress, uint16_t endAddress);
+void writeTest(uint16_t startAddress, uint16_t endAddress);
+void eraseTest(uint16_t startAddress, uint16_t endAddress);
 
 #endif // DEBUGGING_H

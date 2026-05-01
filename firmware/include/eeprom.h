@@ -21,8 +21,9 @@ void setupEEPROMPins();
 void setMode(ROMMode mode);
 void setDataBus(uint8_t data);
 uint8_t writeByte(uint16_t address, uint8_t data);
-void doWrite();
 uint8_t readByte(uint16_t address);
+uint8_t writeTimingTest(uint16_t address, uint8_t data);
+void setDataDirection(uint8_t direction);
 
 extern ROMMode currentMode;
 

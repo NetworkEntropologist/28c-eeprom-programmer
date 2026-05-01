@@ -20,36 +20,7 @@
 #include "eeprom.h"
 #include "shiftregister.h"
 #include "debugging.h"
-
-void testing() {
-
-  delay(DEBUG_DELAY);
-  
-  for (uint8_t addr = 0; addr <= 0xf; addr++) {
-
-    // uint8_t data = readByte(addr);
-    // Serial.print("A0x");
-    // Serial.print(addr, HEX);
-    // Serial.print(" reads as: 0x");
-    // Serial.println(data, HEX);
-    
-    uint8_t data_written = writeByte(addr, DEBUG_DATA);
-    Serial.print("Address 0x");
-    Serial.print(addr, HEX);
-    Serial.print(" should be : 0x");
-    Serial.print(DEBUG_DATA, HEX);
-    Serial.print(" and reads back as: 0x");
-    Serial.println(data_written, HEX);
-
-    // Serial.print("Address: 0x");
-    // Serial.print(addr, HEX);
-    // Serial.print(" is 0x");
-    // Serial.println(readByte(addr), HEX);
-    // delay(DEBUG_DELAY);
-
-  }
-
-}
+#include "wozmon.h"
 
 void setup() {
   
@@ -60,8 +31,11 @@ void setup() {
   // Setup the shift register control pins
   setupShiftRegisterPins();
 
-
-  testing();
+  //writeTest(0x00, 0x2000);
+  //eraseTest(0x00, 0x2000);
+  //delay(5000);
+  //writeWozMon();
+  quickReadTest(0x00, 0x2000);
 
 }
 

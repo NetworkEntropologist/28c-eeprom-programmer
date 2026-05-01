@@ -33,7 +33,7 @@ void setupShiftRegisterPins() {
     digitalWrite(SEROE, LOW); // Enable output
     digitalWrite(DATA, LOW);
 
-    delayMicroseconds(ADDRDELAY);
+    delayMicroseconds(ADDR_DELAY);
 
     setAddress(0x0000); // Clear the address lines
 
