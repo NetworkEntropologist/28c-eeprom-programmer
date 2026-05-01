@@ -3,3 +3,5 @@
 *.code-workspace
 
 .DS_Store
+
+pins.xlsx
