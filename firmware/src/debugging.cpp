@@ -116,7 +116,11 @@ void eraseTest(uint16_t startAddress, uint16_t endAddress) {
         
         Serial.print("Erasing address 0x");
         Serial.println(address, HEX);
-        writeByte(address, 0x00); // Write 0x00 to erase the byte at the specified address
+        uint8_t readback = writeByte(address, 0x00); // Write 0x00 to erase the byte at the specified address
+        if (readback != 0x00) {
+            writeByte(address, 0x00); // Write 0x00 to erase the byte at the specified address
+        }
+        
     }
 
 }

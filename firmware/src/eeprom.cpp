@@ -207,7 +207,8 @@ uint8_t writeByte(uint16_t address, byte data) {
 
     // Now set the data bus and wait 
     setDataBus(data);
-    delay(tDS);
+    //delay(tDS);
+    delayMicroseconds(tDS);
     // Wait the required time as specified in tWP, which is the write pulse width, and is the time that WE needs 
     // to be held low for a successful write operation.
     // Actually, this is more like tDS, which we have already done.
@@ -218,7 +219,8 @@ uint8_t writeByte(uint16_t address, byte data) {
     delayMicroseconds(tDH);
 
     // One last delay, just to make sure the chip is done
-    delay(tWC);
+    //delay(tWC);
+    delayMicroseconds(GEN_DELAY);
 
     // Now reset both busses back to defaults
     setDataBus(0x00);

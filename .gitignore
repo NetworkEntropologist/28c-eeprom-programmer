@@ -5,3 +5,8 @@
 .DS_Store
 
 pins.xlsx
+
+venv/
+hardware/plots
+hardware/rom-programmer-backups
+hardware/*.zip

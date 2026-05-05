@@ -6,7 +6,7 @@
 
 void writeWozMon();
 
-const uint16_t WOZMON_START_ADDRESS = 0x1F08;
+const uint16_t WOZMON_START_ADDRESS = 0x1F01;
 
 const byte WOZMON_CODE[] = {
     0xD8, 0x58, 0xA0, 0x7F, 0x8C, 0x12, 0xD0, 0xA9,
