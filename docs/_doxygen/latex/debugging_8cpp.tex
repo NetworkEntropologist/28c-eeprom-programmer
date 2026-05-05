@@ -1,0 +1,54 @@
+\doxysection{firmware/\+src/\+debugging.cpp File Reference}
+\hypertarget{debugging_8cpp}{}\label{debugging_8cpp}\index{firmware/src/debugging.cpp@{firmware/src/debugging.cpp}}
+
+
+Debugging utilities for 28Cx EEPROM programmer firmware.  
+
+
+{\ttfamily \+\#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \+\#include "{}defines.\+h"{}}\newline
+{\ttfamily \+\#include "{}debugging.\+h"{}}\newline
+{\ttfamily \+\#include "{}eeprom.\+h"{}}\newline
+{\ttfamily \+\#include "{}shiftregister.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{debugging_8cpp_a59e1e24701095ec3ce6364dcebedcf4e}{address\+Test\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em Test function to loop through all addresses and set the address lines and data bus for each address. \end{DoxyCompactList}\item 
+\Hypertarget{debugging_8cpp_a20d5ed84fb218add21cd2274a38f0b11}\label{debugging_8cpp_a20d5ed84fb218add21cd2274a38f0b11} 
+void {\bfseries address\+Walk\+Read} ()
+\item 
+\Hypertarget{debugging_8cpp_ae196f049c3a0b207119caca684b601c7}\label{debugging_8cpp_ae196f049c3a0b207119caca684b601c7} 
+void {\bfseries quick\+Read\+Test} (uint16\+\_\+t start\+Address, uint16\+\_\+t end\+Address)
+\item 
+\Hypertarget{debugging_8cpp_a3c3c673380892f0e4194b3c9333fbe73}\label{debugging_8cpp_a3c3c673380892f0e4194b3c9333fbe73} 
+void {\bfseries write\+Test} (uint16\+\_\+t start\+Address, uint16\+\_\+t end\+Address)
+\item 
+\Hypertarget{debugging_8cpp_aad14d0618a2d4850fb39276cf292c4ad}\label{debugging_8cpp_aad14d0618a2d4850fb39276cf292c4ad} 
+void {\bfseries erase\+Test} (uint16\+\_\+t start\+Address, uint16\+\_\+t end\+Address)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Debugging utilities for 28Cx EEPROM programmer firmware. 
+
+EEPROM Programmer Firmware
+
+Contains functions for debugging and testing the EEPROM programmer firmware. This may include functions for testing pin states, timing, and communication with the Python control script. These functions can be called from the main loop or setup to verify correct operation of the hardware and firmware. 
+
+\label{doc-func-members}
+\Hypertarget{debugging_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{debugging_8cpp_a59e1e24701095ec3ce6364dcebedcf4e}\index{debugging.cpp@{debugging.cpp}!addressTestLoop@{addressTestLoop}}
+\index{addressTestLoop@{addressTestLoop}!debugging.cpp@{debugging.cpp}}
+\doxysubsubsection{\texorpdfstring{addressTestLoop()}{addressTestLoop()}}
+{\footnotesize\ttfamily \label{debugging_8cpp_a59e1e24701095ec3ce6364dcebedcf4e} 
+void address\+Test\+Loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test function to loop through all addresses and set the address lines and data bus for each address. 
+
+This function is intended for debugging purposes. It will iterate through all possible addresses, set the address lines accordingly, place a known data value on the data bus, and perform a programming cycle. This allows verification of the hardware setup and the correct operation of the firmware. The function can be called from the main loop or setup to visually verify the blinkenlights on the board while writing the firmware code. \begin{DoxyNote}{Note}
+This function is for testing and debugging only. It should not be called during normal operation of the EEPROM programmer, as it will overwrite data on the EEPROM. 
+\end{DoxyNote}

@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="shiftregister_8h" kind="file" language="C++">
+    <compoundname>shiftregister.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includedby refid="debugging_8cpp" local="yes">firmware/src/debugging.cpp</includedby>
+    <includedby refid="eeprom_8cpp" local="yes">firmware/src/eeprom.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">firmware/src/main.cpp</includedby>
+    <includedby refid="shiftregister_8cpp" local="yes">firmware/src/shiftregister.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>firmware/include/shiftregister.h</label>
+        <link refid="shiftregister_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>firmware/include/shiftregister.h</label>
+        <link refid="shiftregister_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>firmware/src/debugging.cpp</label>
+        <link refid="debugging_8cpp"/>
+      </node>
+      <node id="3">
+        <label>firmware/src/eeprom.cpp</label>
+        <link refid="eeprom_8cpp"/>
+      </node>
+      <node id="4">
+        <label>firmware/src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="5">
+        <label>firmware/src/shiftregister.cpp</label>
+        <link refid="shiftregister_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="shiftregister_8h_1a230620afa578b202c7084b4a19222987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setupShiftRegisterPins</definition>
+        <argsstring>()</argsstring>
+        <name>setupShiftRegisterPins</name>
+        <briefdescription>
+<para>Initialize all 74HC595 shift register control pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets all shift register pins to OUTPUT mode and initializes them to safe states. Clears the shift register on startup to ensure a known state. This function should be called once during system initialization. <simplesect kind="note"><para>Must be called before any shift register operations </para>
+</simplesect>
+<simplesect kind="see"><para>clearShiftRegister() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/include/shiftregister.h" line="13" column="6" bodyfile="firmware/src/shiftregister.cpp" bodystart="20" bodyend="40" declfile="firmware/include/shiftregister.h" declline="13" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="shiftregister_8h_1a2c6522a8020bbb8f1642f3d20b2ef720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clearShiftRegister</definition>
+        <argsstring>()</argsstring>
+        <name>clearShiftRegister</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/include/shiftregister.h" line="14" column="6" declfile="firmware/include/shiftregister.h" declline="14" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setAddress</definition>
+        <argsstring>(uint16_t address)</argsstring>
+        <name>setAddress</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Set the address lines on the EEPROM using the shift register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 16-bit address to set on the EEPROM</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function shifts out the address to the 74HC595 shift register(s) to set the address lines on the EEPROM. The implementation depends on the hardware configuration and how the shift registers are connected to the EEPROM address lines. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/include/shiftregister.h" line="15" column="6" bodyfile="firmware/src/shiftregister.cpp" bodystart="48" bodyend="65" declfile="firmware/include/shiftregister.h" declline="15" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Shift register control logic for 28Cx EEPROM programmer. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Contains functions for setting up and controlling the shift register. This includes pin initialization and any low-level control functions needed to interface with the shift register. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SHIFTREGISTER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHIFTREGISTER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="shiftregister_8h_1a230620afa578b202c7084b4a19222987" kindref="member">setupShiftRegisterPins</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clearShiftRegister();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(uint16_t<sp/>address);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SHIFTREGISTER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/include/shiftregister.h"/>
+  </compounddef>
+</doxygen>

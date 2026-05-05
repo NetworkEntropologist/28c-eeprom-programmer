@@ -146,25 +146,7 @@ uint8_t readBus() {
  *          write was successful.
  */
 uint8_t writeByte(uint16_t address, byte data) {
-
-
-    // TODO: Uncomment this block when testing works. Or don't depending on outcome of testing.
-
-    // setAddress(address);
-    // setMode(WRITE);
-    
-    // setDataBus(data);
-    // delayMicroseconds(DATA_DELAY);
-
-    // digitalWrite(ROM_WE, LOW);
-    // delayMicroseconds(WRITE_DELAY);
-    // digitalWrite(ROM_WE, HIGH);
-    // delayMicroseconds(WRITE_DELAY);
-
-    // setMode(STANDBY);
-
-    // TODO: Remove this code block once writing operations work reliably. Or implement it... Who knows which option will work...
-    // Following the WE Controlled AC waveform diagram to the letter this time... 
+    // Excuse the verbosity of the comments in this method, the timing on this is very sensitive and complex.
     
     // Start by making sure we are in standby mode
     setMode(STANDBY);
@@ -174,21 +156,10 @@ uint8_t writeByte(uint16_t address, byte data) {
     setDataBus(0x00); // Clear the data bus before starting the write operation
     delayMicroseconds(GEN_DELAY);
 
-    // TODO: Might be a good idea at this point to also define all the datasheet wait times as well and use those instead of arbitrary delays. 
-    // This would make it easier to tweak the timing parameters as needed for reliable operation based on the specific EEPROM being programmed 
-    // and the characteristics of the hardware setup. For now, we'll just use some arbitrary delays that are long enough to ensure reliable 
-    // operation, but in the future it would be good to define these as constants based on the datasheet specifications.
-    
-    // This is all according to the timing diagram in the datasheet, with some added delays for good measure. 
-    // The timing parameters can be tweaked as needed for reliable operation based on the specific EEPROM being 
-    // programmed and the characteristics of the hardware setup.
-
-    // First take the OE high to disable output and wait for tOES, which is a minimum of 10ns according to the datasheet, 
-    // but we'll give it a bit more time, say 1us just to be safe.
     digitalWrite(ROM_OE, HIGH);
     delayMicroseconds(tOES);
 
-    // Now set the address and wait tAS, which is also 10ns according to the datasheet, but again we'll give it a bit more time, say 1us just to be safe.
+    // Now set the address and wait tAS
     setAddress(address);
     delayMicroseconds(tAS);
 
@@ -196,10 +167,7 @@ uint8_t writeByte(uint16_t address, byte data) {
     digitalWrite(ROM_CE, LOW);
     delayMicroseconds(tCS);
 
-    // Now take WE low. It seems weird that WE is taken low before setting the data, but this is what the timing 
-    // diagram in the datasheet shows, so we'll follow it to the letter and see if it works. Here we need to now wait for tAH, which is a minimum of 50ns 
-    // according to the datasheet, but we'll give it a bit more time, say 1us just to be safe. This is the time that WE needs to be held low before we can 
-    // set the data.
+    // Now take WE low
     // In fact, if we read the datasheet correctly, it seems that the data should be set about halfway through tWP, which is 100-1000 ns according to the 
     // datasheet, so we can set the data after waiting for tAH, which is 50ns, and then wait for the remainder of tWP before taking WE high again.
     digitalWrite(ROM_WE, LOW);
@@ -207,19 +175,12 @@ uint8_t writeByte(uint16_t address, byte data) {
 
     // Now set the data bus and wait 
     setDataBus(data);
-    //delay(tDS);
     delayMicroseconds(tDS);
-    // Wait the required time as specified in tWP, which is the write pulse width, and is the time that WE needs 
-    // to be held low for a successful write operation.
-    // Actually, this is more like tDS, which we have already done.
 
-    // Now take WE high and wait for tDH, which is the data hold time after WE goes high, and is a minimum of 50ns according to the datasheet, 
-    // but we'll give it a bit more time, say 1us just to be safe.
     digitalWrite(ROM_WE, HIGH);
     delayMicroseconds(tDH);
 
     // One last delay, just to make sure the chip is done
-    //delay(tWC);
     delayMicroseconds(GEN_DELAY);
 
     // Now reset both busses back to defaults
@@ -234,29 +195,6 @@ uint8_t writeByte(uint16_t address, byte data) {
 
 }
 
-uint8_t writeTimingTest(uint16_t address, byte data) {
-
-    setAddress(address);
-
-    setMode(WRITE);
-
-    // load data byte
-    for (unsigned int i = 0; i < 8; i++) {
-        digitalWrite(D0 + i, (data >> i) & 1);
-    }
-    delayMicroseconds(10);
-
-    digitalWrite(ROM_WE, LOW);
-    delayMicroseconds(10);
-    digitalWrite(ROM_WE, HIGH);
-
-    delayMicroseconds(10);
-    setMode(STANDBY);
-
-    return 0;
-
-}
-
 /**
  * @brief Read a byte of data from the EEPROM at the specified address
  * @param address The 16-bit address to read from
@@ -266,24 +204,7 @@ uint8_t writeTimingTest(uint16_t address, byte data) {
  *          result of the read operation.
  */
 uint8_t readByte(uint16_t address) {
-    // byte data = 0;
-
-    // setAddress(address);
-    // delayMicroseconds(ADDR_DELAY);
-
-    // setMode(READ);
-    // delayMicroseconds(GEN_DELAY);
-    // digitalWrite(ROM_CE, LOW);
-    // delayMicroseconds(READ_DELAY);
-    // digitalWrite(ROM_OE, LOW);
-    // delayMicroseconds(READ_DELAY);
-
-    // for (int pin = D0; pin <= D7; pin++) {
-    //     data |= (digitalRead(pin) << pin);
-    // }
-
-    // setMode(STANDBY);
-
+    
     setMode(READ);
     setAddress(address);
     delayMicroseconds(10);

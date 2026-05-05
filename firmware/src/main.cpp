@@ -31,11 +31,12 @@ void setup() {
   // Setup the shift register control pins
   setupShiftRegisterPins();
 
+  // These are some testing methods used during debugging. Leaving them here, as they are useful for debugging purposes.
   //writeTest(0x00, 0x2000);
-  eraseTest(0x00, 0x000f);
+  //eraseTest(0x00, 0x000f);
   //delay(5000);
   //writeWozMon();
-  quickReadTest(0x00, 0x2000);
+  //quickReadTest(0x00, 0x2000);
 
 }
 

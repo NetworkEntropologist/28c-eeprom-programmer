@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="shiftregister_8cpp" kind="file" language="C++">
+    <compoundname>shiftregister.cpp</compoundname>
+    <includes refid="shiftregister_8h" local="yes">shiftregister.h</includes>
+    <includes refid="defines_8h" local="yes">defines.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>defines.h</label>
+        <link refid="defines_8h"/>
+      </node>
+      <node id="2">
+        <label>shiftregister.h</label>
+        <link refid="shiftregister_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>firmware/src/shiftregister.cpp</label>
+        <link refid="shiftregister_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Arduino.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="shiftregister_8cpp_1a230620afa578b202c7084b4a19222987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setupShiftRegisterPins</definition>
+        <argsstring>()</argsstring>
+        <name>setupShiftRegisterPins</name>
+        <briefdescription>
+<para>Initialize all 74HC595 shift register control pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets all shift register pins to OUTPUT mode and initializes them to safe states. Clears the shift register on startup to ensure a known state. This function should be called once during system initialization. <simplesect kind="note"><para>Must be called before any shift register operations </para>
+</simplesect>
+<simplesect kind="see"><para>clearShiftRegister() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/src/shiftregister.cpp" line="20" column="6" bodyfile="firmware/src/shiftregister.cpp" bodystart="20" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="shiftregister_8cpp_1af768db025489be1159ec18a8fc4edb7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setAddress</definition>
+        <argsstring>(uint16_t address)</argsstring>
+        <name>setAddress</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Set the address lines on the EEPROM using the shift register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 16-bit address to set on the EEPROM</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function shifts out the address to the 74HC595 shift register(s) to set the address lines on the EEPROM. The implementation depends on the hardware configuration and how the shift registers are connected to the EEPROM address lines. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/src/shiftregister.cpp" line="48" column="6" bodyfile="firmware/src/shiftregister.cpp" bodystart="48" bodyend="65"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Functions for controlling 74HC595 shift register for 28Cx EEPROM programmer. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>EEPROM Programmer Firmware</para>
+<para>Contains functions for setting up and controlling the shift register itself. This includes pin initialization and any low-level control functions needed to interface with the shift register. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="shiftregister_8h" kindref="compound">shiftregister.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="defines_8h" kindref="compound">defines.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="shiftregister_8cpp_1a230620afa578b202c7084b4a19222987" kindref="member">setupShiftRegisterPins</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>shift<sp/>register<sp/>control<sp/>pins<sp/>as<sp/>outputs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(SRCLK,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(SRCLR,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(RCLK,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(SEROE,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(DATA,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>control<sp/>pins<sp/>to<sp/>default<sp/>states</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(SRCLK,<sp/>LOW);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(SRCLR,<sp/>HIGH);<sp/></highlight><highlight class="comment">//<sp/>Not<sp/>clearing<sp/>the<sp/>shift<sp/>register</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(RCLK,<sp/>LOW);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(SEROE,<sp/>LOW);<sp/></highlight><highlight class="comment">//<sp/>Enable<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(DATA,<sp/>LOW);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(ADDR_DELAY);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8cpp_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(0x0000);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>address<sp/>lines</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="shiftregister_8cpp_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(uint16_t<sp/>address)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Shift<sp/>out<sp/>the<sp/>address<sp/>to<sp/>the<sp/>shift<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Disable<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(SEROE,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Disable<sp/>latch</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(RCLK,<sp/>LOW);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Shift<sp/>out<sp/>the<sp/>new<sp/>address<sp/>(MSB<sp/>first)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>shiftOut(DATA,<sp/>SRCLK,<sp/>MSBFIRST,<sp/>address<sp/>&gt;&gt;<sp/>8);<sp/></highlight><highlight class="comment">//<sp/>Upper<sp/>byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>shiftOut(DATA,<sp/>SRCLK,<sp/>MSBFIRST,<sp/>address);<sp/></highlight><highlight class="comment">//<sp/>Lower<sp/>byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Latch<sp/>the<sp/>new<sp/>address</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(RCLK,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(SEROE,<sp/>LOW);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="firmware/src/shiftregister.cpp"/>
+  </compounddef>
+</doxygen>

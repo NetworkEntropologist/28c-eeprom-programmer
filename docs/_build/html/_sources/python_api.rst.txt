@@ -1,0 +1,18 @@
+Python API Reference
+=====================
+
+.. toctree::
+   :maxdepth: 2
+
+This section documents Python modules in the project.
+
+Software
+--------
+
+pyserial-demo
+~~~~~~~~~~~~~
+
+.. automodule:: software.pyserial_demo
+   :members:
+   :undoc-members:
+   :show-inheritance:

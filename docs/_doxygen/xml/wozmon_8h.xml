@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+  <compounddef id="wozmon_8h" kind="file" language="C++">
+    <compoundname>wozmon.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includedby refid="main_8cpp" local="yes">firmware/src/main.cpp</includedby>
+    <includedby refid="wozmon_8cpp" local="yes">firmware/src/wozmon.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>firmware/include/wozmon.h</label>
+        <link refid="wozmon_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>firmware/include/wozmon.h</label>
+        <link refid="wozmon_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>firmware/src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="wozmon_8h_1ad44708fa7044c849654b2aa0301e49f2" prot="public" static="no" mutable="no">
+        <type>const uint16_t</type>
+        <definition>const uint16_t WOZMON_START_ADDRESS</definition>
+        <argsstring></argsstring>
+        <name>WOZMON_START_ADDRESS</name>
+        <initializer>= 0x1F01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/include/wozmon.h" line="9" column="16" bodyfile="firmware/include/wozmon.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="wozmon_8h_1ad5e94373f42ba39c9bf6180056c66969" prot="public" static="no" mutable="no">
+        <type>const byte</type>
+        <definition>const byte WOZMON_CODE[]</definition>
+        <argsstring>[]</argsstring>
+        <name>WOZMON_CODE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/include/wozmon.h" line="11" column="12" bodyfile="firmware/include/wozmon.h" bodystart="11" bodyend="44"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="wozmon_8h_1ab64f1beee79bed2a4dbfca110a0febd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void writeWozMon</definition>
+        <argsstring>()</argsstring>
+        <name>writeWozMon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/include/wozmon.h" line="7" column="6" bodyfile="firmware/src/wozmon.cpp" bodystart="6" bodyend="19" declfile="firmware/include/wozmon.h" declline="7" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>WOZMON_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WOZMON_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeWozMon();</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/>WOZMON_START_ADDRESS<sp/>=<sp/>0x1F01;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>WOZMON_CODE[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>0xD8,<sp/>0x58,<sp/>0xA0,<sp/>0x7F,<sp/>0x8C,<sp/>0x12,<sp/>0xD0,<sp/>0xA9,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>0xA7,<sp/>0x8D,<sp/>0x11,<sp/>0xD0,<sp/>0x8D,<sp/>0x13,<sp/>0xD0,<sp/>0xC9,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>0xDF,<sp/>0xF0,<sp/>0x13,<sp/>0xC9,<sp/>0x9B,<sp/>0xF0,<sp/>0x03,<sp/>0xC8,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>0x10,<sp/>0x0F,<sp/>0xA9,<sp/>0xDC,<sp/>0x20,<sp/>0xEF,<sp/>0xFF,<sp/>0xA9,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>0x8D,<sp/>0x20,<sp/>0xEF,<sp/>0xFF,<sp/>0xA0,<sp/>0x01,<sp/>0x88,<sp/>0x30,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>0xF6,<sp/>0xAD,<sp/>0x11,<sp/>0xD0,<sp/>0x10,<sp/>0xFB,<sp/>0xAD,<sp/>0x10,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>0xD0,<sp/>0x99,<sp/>0x00,<sp/>0x02,<sp/>0x20,<sp/>0xEF,<sp/>0xFF,<sp/>0xC9,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>0x8D,<sp/>0xD0,<sp/>0xD4,<sp/>0xA0,<sp/>0xFF,<sp/>0xA9,<sp/>0x00,<sp/>0xAA,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>0x0A,<sp/>0x85,<sp/>0x2B,<sp/>0xC8,<sp/>0xB9,<sp/>0x00,<sp/>0x02,<sp/>0xC9,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>0x8D,<sp/>0xF0,<sp/>0xD4,<sp/>0xC9,<sp/>0xAE,<sp/>0x90,<sp/>0xF4,<sp/>0xF0,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>0xF0,<sp/>0xC9,<sp/>0xBA,<sp/>0xF0,<sp/>0xEB,<sp/>0xC9,<sp/>0xD2,<sp/>0xF0,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>0x3B,<sp/>0x86,<sp/>0x28,<sp/>0x86,<sp/>0x29,<sp/>0x84,<sp/>0x2A,<sp/>0xB9,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>0x00,<sp/>0x02,<sp/>0x49,<sp/>0xB0,<sp/>0xC9,<sp/>0x0A,<sp/>0x90,<sp/>0x06,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>0x69,<sp/>0x88,<sp/>0xC9,<sp/>0xFA,<sp/>0x90,<sp/>0x11,<sp/>0x0A,<sp/>0x0A,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>0x0A,<sp/>0x0A,<sp/>0xA2,<sp/>0x04,<sp/>0x0A,<sp/>0x26,<sp/>0x28,<sp/>0x26,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>0x29,<sp/>0xCA,<sp/>0xD0,<sp/>0xF8,<sp/>0xC8,<sp/>0xD0,<sp/>0xE0,<sp/>0xC4,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>0x2A,<sp/>0xF0,<sp/>0x97,<sp/>0x24,<sp/>0x2B,<sp/>0x50,<sp/>0x10,<sp/>0xA5,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>0x28,<sp/>0x81,<sp/>0x26,<sp/>0xE6,<sp/>0x26,<sp/>0xD0,<sp/>0xB5,<sp/>0xE6,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>0x27,<sp/>0x4C,<sp/>0x44,<sp/>0xFF,<sp/>0x6C,<sp/>0x24,<sp/>0x00,<sp/>0x30,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>0x2B,<sp/>0xA2,<sp/>0x02,<sp/>0xB5,<sp/>0x27,<sp/>0x95,<sp/>0x25,<sp/>0x95,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>0x23,<sp/>0xCA,<sp/>0xD0,<sp/>0xF7,<sp/>0xD0,<sp/>0x14,<sp/>0xA9,<sp/>0x8D,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>0x20,<sp/>0xEF,<sp/>0xFF,<sp/>0xA5,<sp/>0x25,<sp/>0x20,<sp/>0xDC,<sp/>0xFF,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>0xA5,<sp/>0x24,<sp/>0x20,<sp/>0xDC,<sp/>0xFF,<sp/>0xA9,<sp/>0xBA,<sp/>0x20,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>0xEF,<sp/>0xFF,<sp/>0xA9,<sp/>0xA0,<sp/>0x20,<sp/>0xEF,<sp/>0xFF,<sp/>0xA1,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>0x24,<sp/>0x20,<sp/>0xDC,<sp/>0xFF,<sp/>0x86,<sp/>0x2B,<sp/>0xA5,<sp/>0x24,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>0xC5,<sp/>0x28,<sp/>0xA5,<sp/>0x25,<sp/>0xE5,<sp/>0x29,<sp/>0xB0,<sp/>0xC1,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>0xE6,<sp/>0x24,<sp/>0xD0,<sp/>0x02,<sp/>0xE6,<sp/>0x25,<sp/>0xA5,<sp/>0x24,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>0x29,<sp/>0x07,<sp/>0x10,<sp/>0xC8,<sp/>0x48,<sp/>0x4A,<sp/>0x4A,<sp/>0x4A,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>0x4A,<sp/>0x20,<sp/>0xE5,<sp/>0xFF,<sp/>0x68,<sp/>0x29,<sp/>0x0F,<sp/>0x09,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>0xB0,<sp/>0xC9,<sp/>0xBA,<sp/>0x90,<sp/>0x02,<sp/>0x69,<sp/>0x06,<sp/>0x2C,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>0x12,<sp/>0xD0,<sp/>0x30,<sp/>0xFB,<sp/>0x8D,<sp/>0x12,<sp/>0xD0,<sp/>0x60,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x0F,<sp/>0x00,<sp/>0xFF,<sp/>0x00,<sp/>0x00</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>WOZMON_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/include/wozmon.h"/>
+  </compounddef>
+</doxygen>
