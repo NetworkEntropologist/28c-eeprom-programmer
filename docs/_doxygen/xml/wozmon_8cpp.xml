@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="wozmon_8cpp" kind="file" language="C++">
     <compoundname>wozmon.cpp</compoundname>
     <includes local="no">Arduino.h</includes>
@@ -14,7 +14,7 @@
       </node>
       <node id="3">
         <label>wozmon.h</label>
-        <link refid="wozmon_8h_source"/>
+        <link refid="wozmon_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
@@ -39,8 +39,14 @@
         <argsstring>()</argsstring>
         <name>writeWozMon</name>
         <briefdescription>
+<para>Write the WOZMON monitor code to the EEPROM. </para>
         </briefdescription>
         <detaileddescription>
+<para>Write the WOZMON monitor code to the EEPROM starting at the address defined by WOZMON_START_ADDRESS. <simplesect kind="see"><para><ref refid="wozmon_8h_1ad44708fa7044c849654b2aa0301e49f2" kindref="member">WOZMON_START_ADDRESS</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="wozmon_8h_1ad5e94373f42ba39c9bf6180056c66969" kindref="member">WOZMON_CODE</ref> </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
@@ -54,20 +60,20 @@
     <programlisting>
 <codeline lineno="1"><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wozmon.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="wozmon_8h" kindref="compound">wozmon.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="eeprom_8h" kindref="compound">eeprom.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeWozMon()<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="wozmon_8h_1ab64f1beee79bed2a4dbfca110a0febd9" kindref="member">writeWozMon</ref>()<sp/>{</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(WOZMON_CODE);<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>readback<sp/>=<sp/>writeByte(WOZMON_START_ADDRESS<sp/>+<sp/>i,<sp/>WOZMON_CODE[i]);</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(readback<sp/>!=<sp/>WOZMON_CODE[i])<sp/>{</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writeByte(WOZMON_START_ADDRESS<sp/>+<sp/>i,<sp/>WOZMON_CODE[i]);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="wozmon_8h_1ad5e94373f42ba39c9bf6180056c66969" kindref="member">WOZMON_CODE</ref>);<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>readback<sp/>=<sp/><ref refid="eeprom_8h_1a9af545f680d306617989f152a7d5a0bd" kindref="member">writeByte</ref>(<ref refid="wozmon_8h_1ad44708fa7044c849654b2aa0301e49f2" kindref="member">WOZMON_START_ADDRESS</ref><sp/>+<sp/>i,<sp/><ref refid="wozmon_8h_1ad5e94373f42ba39c9bf6180056c66969" kindref="member">WOZMON_CODE</ref>[i]);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(readback<sp/>!=<sp/><ref refid="wozmon_8h_1ad5e94373f42ba39c9bf6180056c66969" kindref="member">WOZMON_CODE</ref>[i])<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8h_1a9af545f680d306617989f152a7d5a0bd" kindref="member">writeByte</ref>(<ref refid="wozmon_8h_1ad44708fa7044c849654b2aa0301e49f2" kindref="member">WOZMON_START_ADDRESS</ref><sp/>+<sp/>i,<sp/><ref refid="wozmon_8h_1ad5e94373f42ba39c9bf6180056c66969" kindref="member">WOZMON_CODE</ref>[i]);</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;Written<sp/>byte<sp/>0x&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(WOZMON_CODE[i],<sp/>HEX);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="wozmon_8h_1ad5e94373f42ba39c9bf6180056c66969" kindref="member">WOZMON_CODE</ref>[i],<sp/>HEX);</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;<sp/>to<sp/>address<sp/>0x&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(WOZMON_START_ADDRESS<sp/>+<sp/>i,<sp/>HEX);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(<ref refid="wozmon_8h_1ad44708fa7044c849654b2aa0301e49f2" kindref="member">WOZMON_START_ADDRESS</ref><sp/>+<sp/>i,<sp/>HEX);</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>delay(10);<sp/>//<sp/>Small<sp/>delay<sp/>to<sp/>allow<sp/>the<sp/>chip<sp/>to<sp/>settle<sp/>and<sp/>cool<sp/>down</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="19"><highlight class="normal">}</highlight></codeline>

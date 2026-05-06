@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="dir_d9edf6c004b4a7ff14fe9ae7a92214ee" kind="dir">
     <compoundname>firmware</compoundname>
     <innerdir refid="dir_e8eb43238681f7e6a184956a147fbc3b">firmware/include</innerdir>

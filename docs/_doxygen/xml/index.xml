@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.16.1" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.14.0" xml:lang="en-US">
   <compound refid="debugging_8h" kind="file"><name>debugging.h</name>
     <member refid="debugging_8h_1a59e1e24701095ec3ce6364dcebedcf4e" kind="function"><name>addressTestLoop</name></member>
     <member refid="debugging_8h_1a20d5ed84fb218add21cd2274a38f0b11" kind="function"><name>addressWalkRead</name></member>
@@ -53,11 +53,8 @@
     <member refid="eeprom_8h_1ac5e9c815cef4531d7fa762a6861828af" kind="function"><name>writeTimingTest</name></member>
     <member refid="eeprom_8h_1a4a0157ee152fdd69de5c7814bff993a6" kind="function"><name>setDataDirection</name></member>
   </compound>
-  <compound refid="io_8h" kind="file"><name>io.h</name>
-  </compound>
   <compound refid="shiftregister_8h" kind="file"><name>shiftregister.h</name>
     <member refid="shiftregister_8h_1a230620afa578b202c7084b4a19222987" kind="function"><name>setupShiftRegisterPins</name></member>
-    <member refid="shiftregister_8h_1a2c6522a8020bbb8f1642f3d20b2ef720" kind="function"><name>clearShiftRegister</name></member>
     <member refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kind="function"><name>setAddress</name></member>
   </compound>
   <compound refid="wozmon_8h" kind="file"><name>wozmon.h</name>
@@ -81,9 +78,6 @@
     <member refid="eeprom_8cpp_1ab8c7bee711ce247da5790015bc621418" kind="function"><name>readBus</name></member>
     <member refid="eeprom_8cpp_1a70bc2a24525a4bde9cde19e084c72b38" kind="function"><name>writeByte</name></member>
     <member refid="eeprom_8cpp_1a9b1a788dd1d21e36076b29ac34f93d63" kind="function"><name>readByte</name></member>
-  </compound>
-  <compound refid="io_8cpp" kind="file"><name>io.cpp</name>
-    <member refid="io_8cpp_1a1ff2127237db2f689a995138847aad78" kind="function"><name>formatOutputLine</name></member>
   </compound>
   <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
     <member refid="main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" kind="function"><name>setup</name></member>

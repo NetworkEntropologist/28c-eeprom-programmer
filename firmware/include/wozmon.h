@@ -1,13 +1,28 @@
+/**
+ * @file wozmon.h
+ * @brief Header file for WOZMON monitor code and related functions
+ * @details This file contains the declaration of the writeWozMon() function, which is responsible for writing the 
+ *          WOZMON monitor code to the EEPROM. It also defines the starting address for the WOZMON code in the EEPROM.
+ */
+
 
 #ifndef WOZMON_H
 #define WOZMON_H
 
 #include <Arduino.h>
 
+/**
+ * @brief Write the WOZMON monitor code to the EEPROM
+ * @details Write the WOZMON monitor code to the EEPROM starting at the address defined by WOZMON_START_ADDRESS.
+ * @see WOZMON_START_ADDRESS
+ * @see WOZMON_CODE
+ */
 void writeWozMon();
 
+/** Starting address for the WOZMON monitor code in the EEPROM */
 const uint16_t WOZMON_START_ADDRESS = 0x1F01;
 
+/** WOZMON monitor code to be written to the EEPROM */
 const byte WOZMON_CODE[] = {
     0xD8, 0x58, 0xA0, 0x7F, 0x8C, 0x12, 0xD0, 0xA9,
     0xA7, 0x8D, 0x11, 0xD0, 0x8D, 0x13, 0xD0, 0xC9,

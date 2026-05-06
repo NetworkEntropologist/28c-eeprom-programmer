@@ -1,106 +1,236 @@
-\doxysection{firmware/\+include/\+defines.h File Reference}
+\doxysection{firmware/include/defines.h File Reference}
 \hypertarget{defines_8h}{}\label{defines_8h}\index{firmware/include/defines.h@{firmware/include/defines.h}}
 
 
-Pin definitions and timing constants for 28Cx EEPROM programmer.  
+Definitions and constants for the 28C EEPROM programmer firmware.  
 
 
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{defines_8h_afae8930bb534ee26131ed1798c00b8d6}\label{defines_8h_afae8930bb534ee26131ed1798c00b8d6} 
-\+\#define {\bfseries ROM\+\_\+\+WE}~14
+\#define \mbox{\hyperlink{defines_8h_afae8930bb534ee26131ed1798c00b8d6}{ROM\+\_\+\+WE}}~14
 \item 
-\Hypertarget{defines_8h_ad64529dc156c3bdcd452cd47569b77d0}\label{defines_8h_ad64529dc156c3bdcd452cd47569b77d0} 
-\+\#define {\bfseries ROM\+\_\+\+OE}~15
+\#define \mbox{\hyperlink{defines_8h_ad64529dc156c3bdcd452cd47569b77d0}{ROM\+\_\+\+OE}}~15
 \item 
-\Hypertarget{defines_8h_aa0bb35b764716f7a257cfa18efeee763}\label{defines_8h_aa0bb35b764716f7a257cfa18efeee763} 
-\+\#define {\bfseries ROM\+\_\+\+CE}~16
+\#define \mbox{\hyperlink{defines_8h_aa0bb35b764716f7a257cfa18efeee763}{ROM\+\_\+\+CE}}~16
 \item 
-\Hypertarget{defines_8h_ae0b2360d4b8e961bf2709b0663fd9f2a}\label{defines_8h_ae0b2360d4b8e961bf2709b0663fd9f2a} 
-\+\#define {\bfseries D0}~2
+\#define \mbox{\hyperlink{defines_8h_ae0b2360d4b8e961bf2709b0663fd9f2a}{D0}}~2
 \item 
-\Hypertarget{defines_8h_a2ba78f059a7ebebc95e7beef690e88d6}\label{defines_8h_a2ba78f059a7ebebc95e7beef690e88d6} 
-\+\#define {\bfseries D7}~9
+\#define \mbox{\hyperlink{defines_8h_a2ba78f059a7ebebc95e7beef690e88d6}{D7}}~9
 \item 
-\Hypertarget{defines_8h_aac4e779549d986cb2818b94d2a1a2931}\label{defines_8h_aac4e779549d986cb2818b94d2a1a2931} 
-\+\#define {\bfseries SRCLK}~12
+\#define \mbox{\hyperlink{defines_8h_aac4e779549d986cb2818b94d2a1a2931}{SRCLK}}~12
 \item 
-\Hypertarget{defines_8h_a2037a623db91c076c583aa722e11153f}\label{defines_8h_a2037a623db91c076c583aa722e11153f} 
-\+\#define {\bfseries SRCLR}~17
+\#define \mbox{\hyperlink{defines_8h_a2037a623db91c076c583aa722e11153f}{SRCLR}}~17
 \item 
-\Hypertarget{defines_8h_a44a1ca2c7678c780de06d4c9afc2e610}\label{defines_8h_a44a1ca2c7678c780de06d4c9afc2e610} 
-\+\#define {\bfseries RCLK}~10
+\#define \mbox{\hyperlink{defines_8h_a44a1ca2c7678c780de06d4c9afc2e610}{RCLK}}~10
 \item 
-\Hypertarget{defines_8h_a4dd916025fc4a52e475a927a9b589ccb}\label{defines_8h_a4dd916025fc4a52e475a927a9b589ccb} 
-\+\#define {\bfseries SEROE}~18
+\#define \mbox{\hyperlink{defines_8h_a4dd916025fc4a52e475a927a9b589ccb}{SEROE}}~18
 \item 
-\Hypertarget{defines_8h_aad9ae913bdfab20dd94ad04ee2d5b045}\label{defines_8h_aad9ae913bdfab20dd94ad04ee2d5b045} 
-\+\#define {\bfseries DATA}~11
+\#define \mbox{\hyperlink{defines_8h_aad9ae913bdfab20dd94ad04ee2d5b045}{DATA}}~11
 \item 
 \Hypertarget{defines_8h_ae5c06dba796c468f3d219d4850c7afa2}\label{defines_8h_ae5c06dba796c468f3d219d4850c7afa2} 
-\+\#define {\bfseries WRITE\+\_\+\+DELAY}~10
+\#define {\bfseries WRITE\+\_\+\+DELAY}~10
 \item 
 \Hypertarget{defines_8h_a9718811a51e9aca0b2cef22ca84435cc}\label{defines_8h_a9718811a51e9aca0b2cef22ca84435cc} 
-\+\#define {\bfseries READ\+\_\+\+DELAY}~1
+\#define {\bfseries READ\+\_\+\+DELAY}~1
 \item 
 \Hypertarget{defines_8h_a732f20b030f83c0583fce0305e3e9ff7}\label{defines_8h_a732f20b030f83c0583fce0305e3e9ff7} 
-\+\#define {\bfseries ADDR\+\_\+\+DELAY}~1
+\#define {\bfseries ADDR\+\_\+\+DELAY}~1
 \item 
 \Hypertarget{defines_8h_a2040ced0a42073c0cc97fd87ffc7a3aa}\label{defines_8h_a2040ced0a42073c0cc97fd87ffc7a3aa} 
-\+\#define {\bfseries DATA\+\_\+\+DELAY}~1
+\#define {\bfseries DATA\+\_\+\+DELAY}~1
 \item 
 \Hypertarget{defines_8h_a3f33bf77abbf35c245956489f8f7e3a7}\label{defines_8h_a3f33bf77abbf35c245956489f8f7e3a7} 
-\+\#define {\bfseries GEN\+\_\+\+DELAY}~10
+\#define {\bfseries GEN\+\_\+\+DELAY}~10
 \item 
-\Hypertarget{defines_8h_ac56760c658182c144e058ffd559c3c78}\label{defines_8h_ac56760c658182c144e058ffd559c3c78} 
-\+\#define {\bfseries t\+AS}~1
+\#define \mbox{\hyperlink{defines_8h_ac56760c658182c144e058ffd559c3c78}{t\+AS}}~1
 \item 
-\Hypertarget{defines_8h_ac2d0aecafd254acad7a67f4bd47d1f26}\label{defines_8h_ac2d0aecafd254acad7a67f4bd47d1f26} 
-\+\#define {\bfseries t\+OES}~1
+\#define \mbox{\hyperlink{defines_8h_ac2d0aecafd254acad7a67f4bd47d1f26}{t\+OES}}~1
 \item 
-\Hypertarget{defines_8h_af550844e8e2c57129820ae56d4901688}\label{defines_8h_af550844e8e2c57129820ae56d4901688} 
-\+\#define {\bfseries t\+AH}~5
+\#define \mbox{\hyperlink{defines_8h_af550844e8e2c57129820ae56d4901688}{t\+AH}}~5
 \item 
-\Hypertarget{defines_8h_ab734baf489cce373bd1e3ae5362c6392}\label{defines_8h_ab734baf489cce373bd1e3ae5362c6392} 
-\+\#define {\bfseries t\+WP}~10
+\#define \mbox{\hyperlink{defines_8h_ab734baf489cce373bd1e3ae5362c6392}{t\+WP}}~10
 \item 
-\Hypertarget{defines_8h_a38a490adc454917fca46c648660b0a89}\label{defines_8h_a38a490adc454917fca46c648660b0a89} 
-\+\#define {\bfseries t\+DS}~5
+\#define \mbox{\hyperlink{defines_8h_a38a490adc454917fca46c648660b0a89}{t\+DS}}~5
 \item 
-\Hypertarget{defines_8h_adb37363e220e083a2c2d4d4538ad116e}\label{defines_8h_adb37363e220e083a2c2d4d4538ad116e} 
-\+\#define {\bfseries t\+DH}~5
+\#define \mbox{\hyperlink{defines_8h_adb37363e220e083a2c2d4d4538ad116e}{t\+DH}}~5
 \item 
-\Hypertarget{defines_8h_a2674a2997c54ccd37fbd9e634ccceb52}\label{defines_8h_a2674a2997c54ccd37fbd9e634ccceb52} 
-\+\#define {\bfseries t\+OEH}~1
+\#define \mbox{\hyperlink{defines_8h_a2674a2997c54ccd37fbd9e634ccceb52}{t\+OEH}}~1
 \item 
-\Hypertarget{defines_8h_aeea102f16b04db8bc42b25d3723f3bbc}\label{defines_8h_aeea102f16b04db8bc42b25d3723f3bbc} 
-\+\#define {\bfseries t\+CS}~1
+\#define \mbox{\hyperlink{defines_8h_aeea102f16b04db8bc42b25d3723f3bbc}{t\+CS}}~1
 \item 
-\Hypertarget{defines_8h_af58d3d5c2bb19d2c231b8b97a497d34b}\label{defines_8h_af58d3d5c2bb19d2c231b8b97a497d34b} 
-\+\#define {\bfseries t\+CH}~1
+\#define \mbox{\hyperlink{defines_8h_af58d3d5c2bb19d2c231b8b97a497d34b}{t\+CH}}~1
 \item 
-\Hypertarget{defines_8h_adef42a1825691ebd7ff3d5c469063316}\label{defines_8h_adef42a1825691ebd7ff3d5c469063316} 
-\+\#define {\bfseries t\+DB}~5
+\#define \mbox{\hyperlink{defines_8h_adef42a1825691ebd7ff3d5c469063316}{t\+DB}}~5
 \item 
-\Hypertarget{defines_8h_a593ce8267503fc4f887c4b604fd309aa}\label{defines_8h_a593ce8267503fc4f887c4b604fd309aa} 
-\+\#define {\bfseries t\+WC}~2
+\#define \mbox{\hyperlink{defines_8h_a593ce8267503fc4f887c4b604fd309aa}{t\+WC}}~2
 \item 
-\Hypertarget{defines_8h_aaba07841c3e227bc8bdd8ccdad149349}\label{defines_8h_aaba07841c3e227bc8bdd8ccdad149349} 
-\+\#define {\bfseries MAX\+\_\+\+ADDRESS}~0x2000
+\#define \mbox{\hyperlink{defines_8h_aaba07841c3e227bc8bdd8ccdad149349}{MAX\+\_\+\+ADDRESS}}~0x2000
 \item 
-\Hypertarget{defines_8h_a9963735b77f69bc98bafdc000b6f5551}\label{defines_8h_a9963735b77f69bc98bafdc000b6f5551} 
-\+\#define {\bfseries DEBUG\+\_\+\+DATA}~0x\+A9
+\#define \mbox{\hyperlink{defines_8h_a9963735b77f69bc98bafdc000b6f5551}{DEBUG\+\_\+\+DATA}}~0x\+A9
 \item 
-\Hypertarget{defines_8h_ad2979c59efeeb3591b34ca1d3a711b88}\label{defines_8h_ad2979c59efeeb3591b34ca1d3a711b88} 
-\+\#define {\bfseries DEBUG\+\_\+\+DELAY}~250
+\#define \mbox{\hyperlink{defines_8h_ad2979c59efeeb3591b34ca1d3a711b88}{DEBUG\+\_\+\+DELAY}}~250
 \item 
-\Hypertarget{defines_8h_a94df10e7efe7613d074c105099c7fd0e}\label{defines_8h_a94df10e7efe7613d074c105099c7fd0e} 
-\+\#define {\bfseries SERIAL\+\_\+\+BAUD}~115200
+\#define \mbox{\hyperlink{defines_8h_a94df10e7efe7613d074c105099c7fd0e}{SERIAL\+\_\+\+BAUD}}~115200
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Pin definitions and timing constants for 28Cx EEPROM programmer. 
+Definitions and constants for the 28C EEPROM programmer firmware. 
 
-Configure these values based on your hardware design and EEPROM requirements. Pin assignments:\+ Update based on your Arduino connections. Timing parameters:\+ Consult the specific EEPROM datasheet for accurate values. 
+Configure these values based on your hardware design and EEPROM requirements. Pin assignments\+: Update based on your Arduino connections. Timing parameters\+: Consult the specific EEPROM datasheet for accurate values. 
+
+\label{doc-define-members}
+\Hypertarget{defines_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{defines_8h_ae0b2360d4b8e961bf2709b0663fd9f2a}\index{defines.h@{defines.h}!D0@{D0}}
+\index{D0@{D0}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{D0}{D0}}
+{\footnotesize\ttfamily \label{defines_8h_ae0b2360d4b8e961bf2709b0663fd9f2a} 
+\#define D0~2}
+
+EEPROM data bus pin D0, defaults to Arduino pin D2 \Hypertarget{defines_8h_a2ba78f059a7ebebc95e7beef690e88d6}\index{defines.h@{defines.h}!D7@{D7}}
+\index{D7@{D7}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{D7}{D7}}
+{\footnotesize\ttfamily \label{defines_8h_a2ba78f059a7ebebc95e7beef690e88d6} 
+\#define D7~9}
+
+EEPROM data bus pin D7, defaults to Arduino pin D9 \Hypertarget{defines_8h_aad9ae913bdfab20dd94ad04ee2d5b045}\index{defines.h@{defines.h}!DATA@{DATA}}
+\index{DATA@{DATA}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{DATA}{DATA}}
+{\footnotesize\ttfamily \label{defines_8h_aad9ae913bdfab20dd94ad04ee2d5b045} 
+\#define DATA~11}
+
+74HC595 shift register data pin, defaults to Arduino pin D11 \Hypertarget{defines_8h_a9963735b77f69bc98bafdc000b6f5551}\index{defines.h@{defines.h}!DEBUG\_DATA@{DEBUG\_DATA}}
+\index{DEBUG\_DATA@{DEBUG\_DATA}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_DATA}{DEBUG\_DATA}}
+{\footnotesize\ttfamily \label{defines_8h_a9963735b77f69bc98bafdc000b6f5551} 
+\#define DEBUG\+\_\+\+DATA~0x\+A9}
+
+Debug data value to write during address test loop \Hypertarget{defines_8h_ad2979c59efeeb3591b34ca1d3a711b88}\index{defines.h@{defines.h}!DEBUG\_DELAY@{DEBUG\_DELAY}}
+\index{DEBUG\_DELAY@{DEBUG\_DELAY}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_DELAY}{DEBUG\_DELAY}}
+{\footnotesize\ttfamily \label{defines_8h_ad2979c59efeeb3591b34ca1d3a711b88} 
+\#define DEBUG\+\_\+\+DELAY~250}
+
+Delay in milliseconds for debugging loops to allow visual verification of blinkenlights \Hypertarget{defines_8h_aaba07841c3e227bc8bdd8ccdad149349}\index{defines.h@{defines.h}!MAX\_ADDRESS@{MAX\_ADDRESS}}
+\index{MAX\_ADDRESS@{MAX\_ADDRESS}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_ADDRESS}{MAX\_ADDRESS}}
+{\footnotesize\ttfamily \label{defines_8h_aaba07841c3e227bc8bdd8ccdad149349} 
+\#define MAX\+\_\+\+ADDRESS~0x2000}
+
+Max address default. This will potentially be overidable in software. This default value if for a 28C64 EEPROM (8KB) \Hypertarget{defines_8h_a44a1ca2c7678c780de06d4c9afc2e610}\index{defines.h@{defines.h}!RCLK@{RCLK}}
+\index{RCLK@{RCLK}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{RCLK}{RCLK}}
+{\footnotesize\ttfamily \label{defines_8h_a44a1ca2c7678c780de06d4c9afc2e610} 
+\#define RCLK~10}
+
+74HC595 shift register latch pin, defaults to Arduino pin D10 \Hypertarget{defines_8h_aa0bb35b764716f7a257cfa18efeee763}\index{defines.h@{defines.h}!ROM\_CE@{ROM\_CE}}
+\index{ROM\_CE@{ROM\_CE}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{ROM\_CE}{ROM\_CE}}
+{\footnotesize\ttfamily \label{defines_8h_aa0bb35b764716f7a257cfa18efeee763} 
+\#define ROM\+\_\+\+CE~16}
+
+EEPROM /\+CE (Chip Enable) pin, defaults to Arduino pin D16 (A2) \Hypertarget{defines_8h_ad64529dc156c3bdcd452cd47569b77d0}\index{defines.h@{defines.h}!ROM\_OE@{ROM\_OE}}
+\index{ROM\_OE@{ROM\_OE}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{ROM\_OE}{ROM\_OE}}
+{\footnotesize\ttfamily \label{defines_8h_ad64529dc156c3bdcd452cd47569b77d0} 
+\#define ROM\+\_\+\+OE~15}
+
+EEPROM /\+OE (Output Enable) pin, defaults to Arduino pin D15 (A1) \Hypertarget{defines_8h_afae8930bb534ee26131ed1798c00b8d6}\index{defines.h@{defines.h}!ROM\_WE@{ROM\_WE}}
+\index{ROM\_WE@{ROM\_WE}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{ROM\_WE}{ROM\_WE}}
+{\footnotesize\ttfamily \label{defines_8h_afae8930bb534ee26131ed1798c00b8d6} 
+\#define ROM\+\_\+\+WE~14}
+
+EEPROM /\+WE (Write Enable) pin, defaults to Arduino pin D14 (A0) \Hypertarget{defines_8h_a94df10e7efe7613d074c105099c7fd0e}\index{defines.h@{defines.h}!SERIAL\_BAUD@{SERIAL\_BAUD}}
+\index{SERIAL\_BAUD@{SERIAL\_BAUD}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_BAUD}{SERIAL\_BAUD}}
+{\footnotesize\ttfamily \label{defines_8h_a94df10e7efe7613d074c105099c7fd0e} 
+\#define SERIAL\+\_\+\+BAUD~115200}
+
+Baud rate for serial communication with Python control script \Hypertarget{defines_8h_a4dd916025fc4a52e475a927a9b589ccb}\index{defines.h@{defines.h}!SEROE@{SEROE}}
+\index{SEROE@{SEROE}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{SEROE}{SEROE}}
+{\footnotesize\ttfamily \label{defines_8h_a4dd916025fc4a52e475a927a9b589ccb} 
+\#define SEROE~18}
+
+74HC595 shift register output enable pin, defaults to Arduino pin D18 (A4) \Hypertarget{defines_8h_aac4e779549d986cb2818b94d2a1a2931}\index{defines.h@{defines.h}!SRCLK@{SRCLK}}
+\index{SRCLK@{SRCLK}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{SRCLK}{SRCLK}}
+{\footnotesize\ttfamily \label{defines_8h_aac4e779549d986cb2818b94d2a1a2931} 
+\#define SRCLK~12}
+
+74HC595 shift register clock pin, defaults to Arduino pin D12 \Hypertarget{defines_8h_a2037a623db91c076c583aa722e11153f}\index{defines.h@{defines.h}!SRCLR@{SRCLR}}
+\index{SRCLR@{SRCLR}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{SRCLR}{SRCLR}}
+{\footnotesize\ttfamily \label{defines_8h_a2037a623db91c076c583aa722e11153f} 
+\#define SRCLR~17}
+
+74HC595 shift register clear pin, defaults to Arduino pin D17 (A3) \Hypertarget{defines_8h_af550844e8e2c57129820ae56d4901688}\index{defines.h@{defines.h}!tAH@{tAH}}
+\index{tAH@{tAH}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tAH}{tAH}}
+{\footnotesize\ttfamily \label{defines_8h_af550844e8e2c57129820ae56d4901688} 
+\#define t\+AH~5}
+
+Address hold time in microseconds \Hypertarget{defines_8h_ac56760c658182c144e058ffd559c3c78}\index{defines.h@{defines.h}!tAS@{tAS}}
+\index{tAS@{tAS}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tAS}{tAS}}
+{\footnotesize\ttfamily \label{defines_8h_ac56760c658182c144e058ffd559c3c78} 
+\#define t\+AS~1}
+
+Address setup time in microseconds \Hypertarget{defines_8h_af58d3d5c2bb19d2c231b8b97a497d34b}\index{defines.h@{defines.h}!tCH@{tCH}}
+\index{tCH@{tCH}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tCH}{tCH}}
+{\footnotesize\ttfamily \label{defines_8h_af58d3d5c2bb19d2c231b8b97a497d34b} 
+\#define t\+CH~1}
+
+Chip select hold time in microseconds \Hypertarget{defines_8h_aeea102f16b04db8bc42b25d3723f3bbc}\index{defines.h@{defines.h}!tCS@{tCS}}
+\index{tCS@{tCS}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tCS}{tCS}}
+{\footnotesize\ttfamily \label{defines_8h_aeea102f16b04db8bc42b25d3723f3bbc} 
+\#define t\+CS~1}
+
+Chip select setup time in microseconds \Hypertarget{defines_8h_adef42a1825691ebd7ff3d5c469063316}\index{defines.h@{defines.h}!tDB@{tDB}}
+\index{tDB@{tDB}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tDB}{tDB}}
+{\footnotesize\ttfamily \label{defines_8h_adef42a1825691ebd7ff3d5c469063316} 
+\#define t\+DB~5}
+
+Device busy time in microseconds \Hypertarget{defines_8h_adb37363e220e083a2c2d4d4538ad116e}\index{defines.h@{defines.h}!tDH@{tDH}}
+\index{tDH@{tDH}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tDH}{tDH}}
+{\footnotesize\ttfamily \label{defines_8h_adb37363e220e083a2c2d4d4538ad116e} 
+\#define t\+DH~5}
+
+Data hold time in microseconds \Hypertarget{defines_8h_a38a490adc454917fca46c648660b0a89}\index{defines.h@{defines.h}!tDS@{tDS}}
+\index{tDS@{tDS}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tDS}{tDS}}
+{\footnotesize\ttfamily \label{defines_8h_a38a490adc454917fca46c648660b0a89} 
+\#define t\+DS~5}
+
+Data setup time in microseconds \Hypertarget{defines_8h_a2674a2997c54ccd37fbd9e634ccceb52}\index{defines.h@{defines.h}!tOEH@{tOEH}}
+\index{tOEH@{tOEH}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tOEH}{tOEH}}
+{\footnotesize\ttfamily \label{defines_8h_a2674a2997c54ccd37fbd9e634ccceb52} 
+\#define t\+OEH~1}
+
+Output enable hold time in microseconds \Hypertarget{defines_8h_ac2d0aecafd254acad7a67f4bd47d1f26}\index{defines.h@{defines.h}!tOES@{tOES}}
+\index{tOES@{tOES}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tOES}{tOES}}
+{\footnotesize\ttfamily \label{defines_8h_ac2d0aecafd254acad7a67f4bd47d1f26} 
+\#define t\+OES~1}
+
+Output enable setup time in microseconds \Hypertarget{defines_8h_a593ce8267503fc4f887c4b604fd309aa}\index{defines.h@{defines.h}!tWC@{tWC}}
+\index{tWC@{tWC}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tWC}{tWC}}
+{\footnotesize\ttfamily \label{defines_8h_a593ce8267503fc4f887c4b604fd309aa} 
+\#define t\+WC~2}
+
+Write cycle time in milliseconds. Note\+: This value is in milliseconds, not microseconds like the rest of these timing parameters. \Hypertarget{defines_8h_ab734baf489cce373bd1e3ae5362c6392}\index{defines.h@{defines.h}!tWP@{tWP}}
+\index{tWP@{tWP}!defines.h@{defines.h}}
+\doxysubsubsection{\texorpdfstring{tWP}{tWP}}
+{\footnotesize\ttfamily \label{defines_8h_ab734baf489cce373bd1e3ae5362c6392} 
+\#define t\+WP~10}
+
+Write pulse width in microseconds 

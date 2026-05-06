@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EEPROM Module &mdash; 28C EEPROM Programmer  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="WozMon Module" href="wozmon.html" />
+    <link rel="prev" title="Shift Register Module" href="shiftregister.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            28C EEPROM Programmer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Hardware Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="defines.html">Defines and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shiftregister.html">Shift Register Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EEPROM Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv47ROMMode"><code class="docutils literal notranslate"><span class="pre">ROMMode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7ROMMode7STANDBYE"><code class="docutils literal notranslate"><span class="pre">STANDBY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7ROMMode4READE"><code class="docutils literal notranslate"><span class="pre">READ</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N7ROMMode5WRITEE"><code class="docutils literal notranslate"><span class="pre">WRITE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv415setupEEPROMPinsv"><code class="docutils literal notranslate"><span class="pre">setupEEPROMPins()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv47setMode7ROMMode"><code class="docutils literal notranslate"><span class="pre">setMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv410setDataBus7uint8_t"><code class="docutils literal notranslate"><span class="pre">setDataBus()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv49writeByte8uint16_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">writeByte()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv48readByte8uint16_t"><code class="docutils literal notranslate"><span class="pre">readByte()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv415writeTimingTest8uint16_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">writeTimingTest()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv416setDataDirection7uint8_t"><code class="docutils literal notranslate"><span class="pre">setDataDirection()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv411currentMode"><code class="docutils literal notranslate"><span class="pre">currentMode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wozmon.html">WozMon Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">28C EEPROM Programmer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">EEPROM Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/eeprom.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="eeprom-module">
+<h1>EEPROM Module<a class="headerlink" href="#eeprom-module" title="Link to this heading"></a></h1>
+<p>EEPROM control logic for 28Cx EEPROM programmer. </p>
+<p>Contains functions for setting up and controlling the EEPROM itself. This includes pin initialization and any low-level control functions needed to interface with the EEPROM. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv47ROMMode">
+<span id="_CPPv37ROMMode"></span><span id="_CPPv27ROMMode"></span><span class="target" id="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ROMMode</span></span></span><a class="headerlink" href="#_CPPv47ROMMode" title="Link to this definition"></a><br /></dt>
+<dd><p>Enumeration for the different modes the EEPROM can be in (READ, WRITE, STANDBY) </p>
+<p>This enum is used to track the current mode of the EEPROM and to configure the control lines and data bus pins accordingly when changing modes. The modes are:<ul class="simple">
+<li><p>STANDBY: The EEPROM is in a low-power standby state, with control lines configured to disable both reading and writing.</p></li>
+<li><p>READ: The EEPROM is configured for reading, with control lines set to enable reading and data bus pins set as inputs.</p></li>
+<li><p>WRITE: The EEPROM is configured for writing, with control lines set to enable writing and data bus pins set as outputs. </p></li>
+</ul>
+</p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N7ROMMode7STANDBYE">
+<span id="_CPPv3N7ROMMode7STANDBYE"></span><span id="_CPPv2N7ROMMode7STANDBYE"></span><span class="target" id="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6ae4634ae4352b512b38c5da9dc1610ca6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">STANDBY</span></span></span><a class="headerlink" href="#_CPPv4N7ROMMode7STANDBYE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N7ROMMode4READE">
+<span id="_CPPv3N7ROMMode4READE"></span><span id="_CPPv2N7ROMMode4READE"></span><span class="target" id="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6acb9be765f361bb7efb9073730aac92c6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">READ</span></span></span><a class="headerlink" href="#_CPPv4N7ROMMode4READE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N7ROMMode5WRITEE">
+<span id="_CPPv3N7ROMMode5WRITEE"></span><span id="_CPPv2N7ROMMode5WRITEE"></span><span class="target" id="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6a61aa7ff70b76bff0fda378cf61d6afbc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WRITE</span></span></span><a class="headerlink" href="#_CPPv4N7ROMMode5WRITEE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415setupEEPROMPinsv">
+<span id="_CPPv315setupEEPROMPinsv"></span><span id="_CPPv215setupEEPROMPinsv"></span><span id="setupEEPROMPins"></span><span class="target" id="eeprom_8h_1af9f53f8812ee3b5268b0df847be5225a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setupEEPROMPins</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415setupEEPROMPinsv" title="Link to this definition"></a><br /></dt>
+<dd><p>Initialize the EEPROM control and data pins. </p>
+<p>This function will set the pin modes for the EEPROM control lines (/WE, /OE, /CE) and the data bus pins (D0-D7). It will also set the control lines to their default inactive states (active low, so set to HIGH) and clear the data bus. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv47setMode7ROMMode">
+<span id="_CPPv37setMode7ROMMode"></span><span id="_CPPv27setMode7ROMMode"></span><span id="setMode__ROMMode"></span><span class="target" id="eeprom_8h_1a293f70ed7a84e05cbd673f22782fe19f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setMode</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv47ROMMode" title="ROMMode"><span class="n"><span class="pre">ROMMode</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47setMode7ROMMode" title="Link to this definition"></a><br /></dt>
+<dd><p>Set the current mode of the EEPROM (READ, WRITE, or STANDBY) </p>
+<p>
+This function will configure the control lines and data bus pins based on the desired mode. For WRITE mode, it will set the data bus pins as outputs and configure the control lines for writing.</p>
+<p>For READ mode, it will set the data bus pins as inputs and configure the control lines for reading. For STANDBY mode, it will set the control lines to disable both reading and writing, effectively putting the EEPROM in a low-power standby state. The function also checks the current mode to avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> – The desired mode to set the EEPROM to (See enum <a class="reference internal" href="#eeprom_8h_1aa45819052ed50f125c644ff22066b7d6"><span class="std std-ref">ROMMode</span></a> for details).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410setDataBus7uint8_t">
+<span id="_CPPv310setDataBus7uint8_t"></span><span id="_CPPv210setDataBus7uint8_t"></span><span id="setDataBus__uint8_t"></span><span class="target" id="eeprom_8h_1acc77748500a9050a21642ec9fe66a379"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setDataBus</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410setDataBus7uint8_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Set the data bus pins to the specified data value. </p>
+<p>
+This function will set the data bus pins (D0-D7) to the corresponding bits of the data value. It will iterate through each bit of the data byte and set the corresponding data pin HIGH or LOW based on the value of that bit. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – The 8-bit data value to set on the data bus</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49writeByte8uint16_t7uint8_t">
+<span id="_CPPv39writeByte8uint16_t7uint8_t"></span><span id="_CPPv29writeByte8uint16_t7uint8_t"></span><span id="writeByte__uint16_t.uint8_t"></span><span class="target" id="eeprom_8h_1a9af545f680d306617989f152a7d5a0bd"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">writeByte</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">address</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49writeByte8uint16_t7uint8_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Read the current value on the data bus pins. </p>
+<p>
+This function will read the state of the data bus pins (D0-D7) and construct an 8-bit value based on their states. It will iterate through each data pin, read its state (HIGH or LOW), and set the corresponding bit in the returned byte accordingly. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The 8-bit value currently present on the data bus pins (D0-D7)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48readByte8uint16_t">
+<span id="_CPPv38readByte8uint16_t"></span><span id="_CPPv28readByte8uint16_t"></span><span id="readByte__uint16_t"></span><span class="target" id="eeprom_8h_1a9b1a788dd1d21e36076b29ac34f93d63"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">readByte</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">address</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48readByte8uint16_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Write a byte of data to the EEPROM at the specified address. </p>
+<p>
+This function will set the address lines using the shift register, set the data bus to the desired value, and then perform the necessary control line manipulations to execute a write operation to the EEPROM. After writing, it will return the value read back from the same address to verify that the write was successful. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – The 16-bit address to write to </p></li>
+<li><p><strong>data</strong> – The 8-bit data value to write to the EEPROM</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415writeTimingTest8uint16_t7uint8_t">
+<span id="_CPPv315writeTimingTest8uint16_t7uint8_t"></span><span id="_CPPv215writeTimingTest8uint16_t7uint8_t"></span><span id="writeTimingTest__uint16_t.uint8_t"></span><span class="target" id="eeprom_8h_1ac5e9c815cef4531d7fa762a6861828af"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">writeTimingTest</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">address</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415writeTimingTest8uint16_t7uint8_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Read a byte of data from the EEPROM at the specified address. </p>
+<p>
+This function will set the address lines using the shift register, configure the control lines for reading, and then read the value present on the data bus to return it as the result of the read operation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>address</strong> – The 16-bit address to read from </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The 8-bit data value read from the EEPROM at the specified address</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416setDataDirection7uint8_t">
+<span id="_CPPv316setDataDirection7uint8_t"></span><span id="_CPPv216setDataDirection7uint8_t"></span><span id="setDataDirection__uint8_t"></span><span class="target" id="eeprom_8h_1a4a0157ee152fdd69de5c7814bff993a6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setDataDirection</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">direction</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416setDataDirection7uint8_t" title="Link to this definition"></a><br /></dt>
+<dd><p>Set the data bus direction (input or output) </p>
+<p>
+This function will set the pin modes for the data bus pins (D0-D7) based on the specified direction. If the direction is OUTPUT, the pins will be configured as outputs to allow writing data to the EEPROM. If the direction is INPUT, the pins will be configured as inputs to allow reading data from the EEPROM. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>direction</strong> – The desired direction for the data bus pins (INPUT or OUTPUT - default Arduino constants)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv411currentMode">
+<span id="_CPPv311currentMode"></span><span id="_CPPv211currentMode"></span><span id="currentMode__ROMMode"></span><span class="target" id="eeprom_8h_1ae62b40760e005390fc65e89b57b7b9b4"></span><a class="reference internal" href="#_CPPv47ROMMode" title="ROMMode"><span class="n"><span class="pre">ROMMode</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">currentMode</span></span></span><a class="headerlink" href="#_CPPv411currentMode" title="Link to this definition"></a><br /></dt>
+<dd><p>Global variable to track the current mode of the EEPROM (READ, WRITE, or STANDBY) </p>
+<p>This variable is used to keep track of the current mode of the EEPROM so that the setMode function can avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode. </p>
+</dd></dl>
+
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="shiftregister.html" class="btn btn-neutral float-left" title="Shift Register Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wozmon.html" class="btn btn-neutral float-right" title="WozMon Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, The Network Entropologist.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

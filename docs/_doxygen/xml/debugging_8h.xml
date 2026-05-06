@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="debugging_8h" kind="file" language="C++">
     <compoundname>debugging.h</compoundname>
     <includedby refid="debugging_8cpp" local="yes">firmware/src/debugging.cpp</includedby>
@@ -29,16 +29,12 @@
         <argsstring>()</argsstring>
         <name>addressTestLoop</name>
         <briefdescription>
-<para>Test function to loop through all addresses and set the address lines and data bus for each address. </para>
         </briefdescription>
         <detaileddescription>
-<para>This function is intended for debugging purposes. It will iterate through all possible addresses, set the address lines accordingly, place a known data value on the data bus, and perform a programming cycle. This allows verification of the hardware setup and the correct operation of the firmware. The function can be called from the main loop or setup to visually verify the blinkenlights on the board while writing the firmware code. <simplesect kind="note"><para>This function is for testing and debugging only. It should not be called during normal operation of the EEPROM programmer, as it will overwrite data on the EEPROM. </para>
-</simplesect>
-</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/debugging.h" line="13" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="24" bodyend="32" declfile="firmware/include/debugging.h" declline="13" declcolumn="6"/>
+        <location file="firmware/include/debugging.h" line="16" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="16" bodyend="24" declfile="firmware/include/debugging.h" declline="16" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="debugging_8h_1a20d5ed84fb218add21cd2274a38f0b11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -51,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/debugging.h" line="14" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="34" bodyend="44" declfile="firmware/include/debugging.h" declline="14" declcolumn="6"/>
+        <location file="firmware/include/debugging.h" line="17" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="26" bodyend="36" declfile="firmware/include/debugging.h" declline="17" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="debugging_8h_1ae196f049c3a0b207119caca684b601c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -72,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/debugging.h" line="15" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="46" bodyend="98" declfile="firmware/include/debugging.h" declline="15" declcolumn="6"/>
+        <location file="firmware/include/debugging.h" line="18" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="38" bodyend="90" declfile="firmware/include/debugging.h" declline="18" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="debugging_8h_1a3c3c673380892f0e4194b3c9333fbe73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -93,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/debugging.h" line="16" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="100" bodyend="111" declfile="firmware/include/debugging.h" declline="16" declcolumn="6"/>
+        <location file="firmware/include/debugging.h" line="19" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="92" bodyend="103" declfile="firmware/include/debugging.h" declline="19" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="debugging_8h_1aad14d0618a2d4850fb39276cf292c4ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -114,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/debugging.h" line="17" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="113" bodyend="126" declfile="firmware/include/debugging.h" declline="17" declcolumn="6"/>
+        <location file="firmware/include/debugging.h" line="20" column="6" bodyfile="firmware/src/debugging.cpp" bodystart="105" bodyend="118" declfile="firmware/include/debugging.h" declline="20" declcolumn="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -122,21 +118,23 @@
     </briefdescription>
     <detaileddescription>
 <para>EEPROM Programmer Firmware</para>
-<para>Contains functions for debugging and testing the EEPROM programmer firmware. This may include functions for testing pin states, timing, and communication with the Python control script. These functions can be called from the main loop or setup to verify correct operation of the hardware and firmware. </para>
+<para>Contains functions for debugging and testing the EEPROM programmer firmware. This may include functions for testing pin states, timing, and communication with the Python control script. These functions can be called from the main loop or setup to verify correct operation of the hardware and firmware. <simplesect kind="note"><para>These functions (w)ere used while debugging the initial release of this firmware and as such is provided as-is, without any further documentation or comments. They may be useful for future debugging and testing, but are not intended for regular use in the main firmware operation. </para>
+</simplesect>
+</para>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DEBUGGING_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUGGING_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="debugging_8h_1a59e1e24701095ec3ce6364dcebedcf4e" kindref="member">addressTestLoop</ref>();</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addressWalkRead();</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>quickReadTest(uint16_t<sp/>startAddress,<sp/>uint16_t<sp/>endAddress);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeTest(uint16_t<sp/>startAddress,<sp/>uint16_t<sp/>endAddress);</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eraseTest(uint16_t<sp/>startAddress,<sp/>uint16_t<sp/>endAddress);</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>DEBUGGING_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DEBUGGING_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUGGING_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addressTestLoop();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addressWalkRead();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>quickReadTest(uint16_t<sp/>startAddress,<sp/>uint16_t<sp/>endAddress);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writeTest(uint16_t<sp/>startAddress,<sp/>uint16_t<sp/>endAddress);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>eraseTest(uint16_t<sp/>startAddress,<sp/>uint16_t<sp/>endAddress);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>DEBUGGING_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="firmware/include/debugging.h"/>
   </compounddef>

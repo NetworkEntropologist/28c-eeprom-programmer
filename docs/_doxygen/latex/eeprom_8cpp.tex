@@ -1,38 +1,38 @@
-\doxysection{firmware/\+src/\+eeprom.cpp File Reference}
+\doxysection{firmware/src/eeprom.cpp File Reference}
 \hypertarget{eeprom_8cpp}{}\label{eeprom_8cpp}\index{firmware/src/eeprom.cpp@{firmware/src/eeprom.cpp}}
 
 
 Functions for controlling 28Cx EEPROM programming and reading.  
 
 
-{\ttfamily \+\#include $<$Arduino.\+h$>$}\newline
-{\ttfamily \+\#include "{}defines.\+h"{}}\newline
-{\ttfamily \+\#include "{}shiftregister.\+h"{}}\newline
-{\ttfamily \+\#include "{}eeprom.\+h"{}}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}defines.\+h"{}}\newline
+{\ttfamily \#include "{}shiftregister.\+h"{}}\newline
+{\ttfamily \#include "{}eeprom.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{eeprom_8cpp_af9f53f8812ee3b5268b0df847be5225a}{setup\+EEPROMPins}} ()
+void \mbox{\hyperlink{eeprom_8cpp_af9f53f8812ee3b5268b0df847be5225a}{setup\+EEPROMPins}} ()
 \begin{DoxyCompactList}\small\item\em Initialize the EEPROM control and data pins. \end{DoxyCompactList}\item 
-\Hypertarget{eeprom_8cpp_a4a0157ee152fdd69de5c7814bff993a6}\label{eeprom_8cpp_a4a0157ee152fdd69de5c7814bff993a6} 
-void {\bfseries set\+Data\+Direction} (uint8\+\_\+t direction)
-\item 
-void \doxymbox{\hyperlink{eeprom_8cpp_a293f70ed7a84e05cbd673f22782fe19f}{set\+Mode}} (ROMMode mode)
-\begin{DoxyCompactList}\small\item\em Set the current mode of the EEPROM (READ, WRITE, or STANDBY). \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{eeprom_8cpp_acc77748500a9050a21642ec9fe66a379}{set\+Data\+Bus}} (uint8\+\_\+t data)
+void \mbox{\hyperlink{eeprom_8cpp_a4a0157ee152fdd69de5c7814bff993a6}{set\+Data\+Direction}} (uint8\+\_\+t direction)
+\begin{DoxyCompactList}\small\item\em Set the data bus direction (input or output) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{eeprom_8cpp_a293f70ed7a84e05cbd673f22782fe19f}{set\+Mode}} (\mbox{\hyperlink{eeprom_8h_aa45819052ed50f125c644ff22066b7d6}{ROMMode}} mode)
+\begin{DoxyCompactList}\small\item\em Set the current mode of the EEPROM (READ, WRITE, or STANDBY) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{eeprom_8cpp_acc77748500a9050a21642ec9fe66a379}{set\+Data\+Bus}} (uint8\+\_\+t data)
 \begin{DoxyCompactList}\small\item\em Set the data bus pins to the specified data value. \end{DoxyCompactList}\item 
-uint8\+\_\+t \doxymbox{\hyperlink{eeprom_8cpp_ab8c7bee711ce247da5790015bc621418}{read\+Bus}} ()
-\begin{DoxyCompactList}\small\item\em Read the current value on the data bus pins. \end{DoxyCompactList}\item 
-uint8\+\_\+t \doxymbox{\hyperlink{eeprom_8cpp_a70bc2a24525a4bde9cde19e084c72b38}{write\+Byte}} (uint16\+\_\+t address, byte data)
-\begin{DoxyCompactList}\small\item\em Write a byte of data to the EEPROM at the specified address. \end{DoxyCompactList}\item 
-uint8\+\_\+t \doxymbox{\hyperlink{eeprom_8cpp_a9b1a788dd1d21e36076b29ac34f93d63}{read\+Byte}} (uint16\+\_\+t address)
-\begin{DoxyCompactList}\small\item\em Read a byte of data from the EEPROM at the specified address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\Hypertarget{eeprom_8cpp_ab8c7bee711ce247da5790015bc621418}\label{eeprom_8cpp_ab8c7bee711ce247da5790015bc621418} 
+uint8\+\_\+t {\bfseries read\+Bus} ()
+\item 
+\Hypertarget{eeprom_8cpp_a70bc2a24525a4bde9cde19e084c72b38}\label{eeprom_8cpp_a70bc2a24525a4bde9cde19e084c72b38} 
+uint8\+\_\+t {\bfseries write\+Byte} (uint16\+\_\+t address, byte data)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{eeprom_8cpp_a9b1a788dd1d21e36076b29ac34f93d63}{read\+Byte}} (uint16\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Write a byte of data to the EEPROM at the specified address. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{eeprom_8cpp_ae62b40760e005390fc65e89b57b7b9b4}\label{eeprom_8cpp_ae62b40760e005390fc65e89b57b7b9b4} 
-ROMMode {\bfseries current\+Mode} = STANDBY
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{eeprom_8h_aa45819052ed50f125c644ff22066b7d6}{ROMMode}} \mbox{\hyperlink{eeprom_8cpp_ae62b40760e005390fc65e89b57b7b9b4}{current\+Mode}} = STANDBY
+\begin{DoxyCompactList}\small\item\em Global variable to track the current mode of the EEPROM (READ, WRITE, or STANDBY) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -45,20 +45,7 @@ Contains functions for setting up and controlling the EEPROM itself. This includ
 \label{doc-func-members}
 \Hypertarget{eeprom_8cpp_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{eeprom_8cpp_ab8c7bee711ce247da5790015bc621418}\index{eeprom.cpp@{eeprom.cpp}!readBus@{readBus}}
-\index{readBus@{readBus}!eeprom.cpp@{eeprom.cpp}}
-\doxysubsubsection{\texorpdfstring{readBus()}{readBus()}}
-{\footnotesize\ttfamily \label{eeprom_8cpp_ab8c7bee711ce247da5790015bc621418} 
-uint8\+\_\+t read\+Bus (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Read the current value on the data bus pins. 
-
-\begin{DoxyReturn}{Returns}
-The 8-\/bit value currently present on the data bus pins (D0-\/\+D7)
-\end{DoxyReturn}
-This function will read the state of the data bus pins (D0-\/\+D7) and construct an 8-\/bit value based on their states. It will iterate through each data pin, read its state (HIGH or LOW), and set the corresponding bit in the returned byte accordingly. \Hypertarget{eeprom_8cpp_a9b1a788dd1d21e36076b29ac34f93d63}\index{eeprom.cpp@{eeprom.cpp}!readByte@{readByte}}
+\Hypertarget{eeprom_8cpp_a9b1a788dd1d21e36076b29ac34f93d63}\index{eeprom.cpp@{eeprom.cpp}!readByte@{readByte}}
 \index{readByte@{readByte}!eeprom.cpp@{eeprom.cpp}}
 \doxysubsubsection{\texorpdfstring{readByte()}{readByte()}}
 {\footnotesize\ttfamily \label{eeprom_8cpp_a9b1a788dd1d21e36076b29ac34f93d63} 
@@ -66,17 +53,16 @@ uint8\+\_\+t read\+Byte (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{address}
 
 
 
-Read a byte of data from the EEPROM at the specified address. 
+Write a byte of data to the EEPROM at the specified address. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em address} & The 16-\/bit address to read from \\
+{\em address} & The 16-\/bit address to write to \\
+\hline
+{\em data} & The 8-\/bit data value to write to the EEPROM\\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The 8-\/bit data value read from the EEPROM at the specified address
-\end{DoxyReturn}
-This function will set the address lines using the shift register, configure the control lines for reading, and then read the value present on the data bus to return it as the result of the read operation. \Hypertarget{eeprom_8cpp_acc77748500a9050a21642ec9fe66a379}\index{eeprom.cpp@{eeprom.cpp}!setDataBus@{setDataBus}}
+This function will set the address lines using the shift register, set the data bus to the desired value, and then perform the necessary control line manipulations to execute a write operation to the EEPROM. After writing, it will return the value read back from the same address to verify that the write was successful. \Hypertarget{eeprom_8cpp_acc77748500a9050a21642ec9fe66a379}\index{eeprom.cpp@{eeprom.cpp}!setDataBus@{setDataBus}}
 \index{setDataBus@{setDataBus}!eeprom.cpp@{eeprom.cpp}}
 \doxysubsubsection{\texorpdfstring{setDataBus()}{setDataBus()}}
 {\footnotesize\ttfamily \label{eeprom_8cpp_acc77748500a9050a21642ec9fe66a379} 
@@ -91,22 +77,39 @@ Set the data bus pins to the specified data value.
 {\em data} & The 8-\/bit data value to set on the data bus\\
 \hline
 \end{DoxyParams}
-This function will set the data bus pins (D0-\/\+D7) to the corresponding bits of the data value. It will iterate through each bit of the data byte and set the corresponding data pin HIGH or LOW based on the value of that bit. \Hypertarget{eeprom_8cpp_a293f70ed7a84e05cbd673f22782fe19f}\index{eeprom.cpp@{eeprom.cpp}!setMode@{setMode}}
-\index{setMode@{setMode}!eeprom.cpp@{eeprom.cpp}}
-\doxysubsubsection{\texorpdfstring{setMode()}{setMode()}}
-{\footnotesize\ttfamily \label{eeprom_8cpp_a293f70ed7a84e05cbd673f22782fe19f} 
-void set\+Mode (\begin{DoxyParamCaption}\item[{ROMMode}]{mode}{}\end{DoxyParamCaption})}
+This function will set the data bus pins (D0-\/\+D7) to the corresponding bits of the data value. It will iterate through each bit of the data byte and set the corresponding data pin HIGH or LOW based on the value of that bit. \Hypertarget{eeprom_8cpp_a4a0157ee152fdd69de5c7814bff993a6}\index{eeprom.cpp@{eeprom.cpp}!setDataDirection@{setDataDirection}}
+\index{setDataDirection@{setDataDirection}!eeprom.cpp@{eeprom.cpp}}
+\doxysubsubsection{\texorpdfstring{setDataDirection()}{setDataDirection()}}
+{\footnotesize\ttfamily \label{eeprom_8cpp_a4a0157ee152fdd69de5c7814bff993a6} 
+void set\+Data\+Direction (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{direction}{}\end{DoxyParamCaption})}
 
 
 
-Set the current mode of the EEPROM (READ, WRITE, or STANDBY). 
+Set the data bus direction (input or output) 
 
 
 \begin{DoxyParams}{Parameters}
-{\em mode} & The desired mode to set the EEPROM to (READ, WRITE, or STANDBY)\\
+{\em direction} & The desired direction for the data bus pins (INPUT or OUTPUT -\/ default Arduino constants)\\
 \hline
 \end{DoxyParams}
-This function will configure the control lines and data bus pins based on the desired mode. For WRITE mode, it will set the data bus pins as outputs and configure the control lines for writing. For READ mode, it will set the data bus pins as inputs and configure the control lines for reading. For STANDBY mode, it will set the control lines to disable both reading and writing, effectively putting the EEPROM in a low-\/power standby state. The function also checks the current mode to avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode. \Hypertarget{eeprom_8cpp_af9f53f8812ee3b5268b0df847be5225a}\index{eeprom.cpp@{eeprom.cpp}!setupEEPROMPins@{setupEEPROMPins}}
+This function will set the pin modes for the data bus pins (D0-\/\+D7) based on the specified direction. If the direction is OUTPUT, the pins will be configured as outputs to allow writing data to the EEPROM. If the direction is INPUT, the pins will be configured as inputs to allow reading data from the EEPROM. \Hypertarget{eeprom_8cpp_a293f70ed7a84e05cbd673f22782fe19f}\index{eeprom.cpp@{eeprom.cpp}!setMode@{setMode}}
+\index{setMode@{setMode}!eeprom.cpp@{eeprom.cpp}}
+\doxysubsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily \label{eeprom_8cpp_a293f70ed7a84e05cbd673f22782fe19f} 
+void set\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_aa45819052ed50f125c644ff22066b7d6}{ROMMode}}}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Set the current mode of the EEPROM (READ, WRITE, or STANDBY) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The desired mode to set the EEPROM to (See enum \doxylink{eeprom_8h_aa45819052ed50f125c644ff22066b7d6}{ROMMode} for details).\\
+\hline
+\end{DoxyParams}
+This function will configure the control lines and data bus pins based on the desired mode. For WRITE mode, it will set the data bus pins as outputs and configure the control lines for writing.
+
+For READ mode, it will set the data bus pins as inputs and configure the control lines for reading. For STANDBY mode, it will set the control lines to disable both reading and writing, effectively putting the EEPROM in a low-\/power standby state. The function also checks the current mode to avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode. \Hypertarget{eeprom_8cpp_af9f53f8812ee3b5268b0df847be5225a}\index{eeprom.cpp@{eeprom.cpp}!setupEEPROMPins@{setupEEPROMPins}}
 \index{setupEEPROMPins@{setupEEPROMPins}!eeprom.cpp@{eeprom.cpp}}
 \doxysubsubsection{\texorpdfstring{setupEEPROMPins()}{setupEEPROMPins()}}
 {\footnotesize\ttfamily \label{eeprom_8cpp_af9f53f8812ee3b5268b0df847be5225a} 
@@ -116,21 +119,19 @@ void setup\+EEPROMPins (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Initialize the EEPROM control and data pins. 
 
-This function will set the pin modes for the EEPROM control lines (/\+\+WE, /\+\+OE, /\+\+CE) and the data bus pins (D0-\/\+D7). It will also set the control lines to their default inactive states (active low, so set to HIGH) and clear the data bus. \Hypertarget{eeprom_8cpp_a70bc2a24525a4bde9cde19e084c72b38}\index{eeprom.cpp@{eeprom.cpp}!writeByte@{writeByte}}
-\index{writeByte@{writeByte}!eeprom.cpp@{eeprom.cpp}}
-\doxysubsubsection{\texorpdfstring{writeByte()}{writeByte()}}
-{\footnotesize\ttfamily \label{eeprom_8cpp_a70bc2a24525a4bde9cde19e084c72b38} 
-uint8\+\_\+t write\+Byte (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{address}{, }\item[{byte}]{data}{}\end{DoxyParamCaption})}
+This function will set the pin modes for the EEPROM control lines (/\+WE, /\+OE, /\+CE) and the data bus pins (D0-\/\+D7). It will also set the control lines to their default inactive states (active low, so set to HIGH) and clear the data bus. 
+
+\label{doc-var-members}
+\Hypertarget{eeprom_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{eeprom_8cpp_ae62b40760e005390fc65e89b57b7b9b4}\index{eeprom.cpp@{eeprom.cpp}!currentMode@{currentMode}}
+\index{currentMode@{currentMode}!eeprom.cpp@{eeprom.cpp}}
+\doxysubsubsection{\texorpdfstring{currentMode}{currentMode}}
+{\footnotesize\ttfamily \label{eeprom_8cpp_ae62b40760e005390fc65e89b57b7b9b4} 
+\mbox{\hyperlink{eeprom_8h_aa45819052ed50f125c644ff22066b7d6}{ROMMode}} current\+Mode = STANDBY}
 
 
 
-Write a byte of data to the EEPROM at the specified address. 
+Global variable to track the current mode of the EEPROM (READ, WRITE, or STANDBY) 
 
-
-\begin{DoxyParams}{Parameters}
-{\em address} & The 16-\/bit address to write to \\
-\hline
-{\em data} & The 8-\/bit data value to write to the EEPROM\\
-\hline
-\end{DoxyParams}
-This function will set the address lines using the shift register, set the data bus to the desired value, and then perform the necessary control line manipulations to execute a write operation to the EEPROM. After writing, it will return the value read back from the same address to verify that the write was successful. 
+This variable is used to keep track of the current mode of the EEPROM so that the set\+Mode function can avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode. 

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="defines_8h" kind="file" language="C++">
     <compoundname>defines.h</compoundname>
     <includedby refid="debugging_8cpp" local="yes">firmware/src/debugging.cpp</includedby>
@@ -43,10 +43,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>EEPROM /WE (Write Enable) pin, defaults to Arduino pin D14 (A0) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="13" column="9" bodyfile="firmware/include/defines.h" bodystart="13" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="14" column="9" bodyfile="firmware/include/defines.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" prot="public" static="no">
         <name>ROM_OE</name>
@@ -54,10 +55,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>EEPROM /OE (Output Enable) pin, defaults to Arduino pin D15 (A1) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="14" column="9" bodyfile="firmware/include/defines.h" bodystart="14" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="16" column="9" bodyfile="firmware/include/defines.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" prot="public" static="no">
         <name>ROM_CE</name>
@@ -65,10 +67,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>EEPROM /CE (Chip Enable) pin, defaults to Arduino pin D16 (A2) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="15" column="9" bodyfile="firmware/include/defines.h" bodystart="15" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="18" column="9" bodyfile="firmware/include/defines.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1ae0b2360d4b8e961bf2709b0663fd9f2a" prot="public" static="no">
         <name>D0</name>
@@ -76,10 +79,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>EEPROM data bus pin D0, defaults to Arduino pin D2 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="18" column="9" bodyfile="firmware/include/defines.h" bodystart="18" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="22" column="9" bodyfile="firmware/include/defines.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a2ba78f059a7ebebc95e7beef690e88d6" prot="public" static="no">
         <name>D7</name>
@@ -87,10 +91,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>EEPROM data bus pin D7, defaults to Arduino pin D9 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="19" column="9" bodyfile="firmware/include/defines.h" bodystart="19" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="24" column="9" bodyfile="firmware/include/defines.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1aac4e779549d986cb2818b94d2a1a2931" prot="public" static="no">
         <name>SRCLK</name>
@@ -98,10 +103,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>74HC595 shift register clock pin, defaults to Arduino pin D12 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="22" column="9" bodyfile="firmware/include/defines.h" bodystart="22" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="28" column="9" bodyfile="firmware/include/defines.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a2037a623db91c076c583aa722e11153f" prot="public" static="no">
         <name>SRCLR</name>
@@ -109,10 +115,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>74HC595 shift register clear pin, defaults to Arduino pin D17 (A3) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="23" column="9" bodyfile="firmware/include/defines.h" bodystart="23" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="30" column="9" bodyfile="firmware/include/defines.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a44a1ca2c7678c780de06d4c9afc2e610" prot="public" static="no">
         <name>RCLK</name>
@@ -120,10 +127,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>74HC595 shift register latch pin, defaults to Arduino pin D10 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="24" column="9" bodyfile="firmware/include/defines.h" bodystart="24" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="32" column="9" bodyfile="firmware/include/defines.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a4dd916025fc4a52e475a927a9b589ccb" prot="public" static="no">
         <name>SEROE</name>
@@ -131,10 +139,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>74HC595 shift register output enable pin, defaults to Arduino pin D18 (A4) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="25" column="9" bodyfile="firmware/include/defines.h" bodystart="25" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="34" column="9" bodyfile="firmware/include/defines.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1aad9ae913bdfab20dd94ad04ee2d5b045" prot="public" static="no">
         <name>DATA</name>
@@ -142,10 +151,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>74HC595 shift register data pin, defaults to Arduino pin D11 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="26" column="9" bodyfile="firmware/include/defines.h" bodystart="26" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="36" column="9" bodyfile="firmware/include/defines.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1ae5c06dba796c468f3d219d4850c7afa2" prot="public" static="no">
         <name>WRITE_DELAY</name>
@@ -156,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="29" column="9" bodyfile="firmware/include/defines.h" bodystart="29" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="39" column="9" bodyfile="firmware/include/defines.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a9718811a51e9aca0b2cef22ca84435cc" prot="public" static="no">
         <name>READ_DELAY</name>
@@ -167,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="30" column="9" bodyfile="firmware/include/defines.h" bodystart="30" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="40" column="9" bodyfile="firmware/include/defines.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a732f20b030f83c0583fce0305e3e9ff7" prot="public" static="no">
         <name>ADDR_DELAY</name>
@@ -178,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="31" column="9" bodyfile="firmware/include/defines.h" bodystart="31" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="41" column="9" bodyfile="firmware/include/defines.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a2040ced0a42073c0cc97fd87ffc7a3aa" prot="public" static="no">
         <name>DATA_DELAY</name>
@@ -189,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="32" column="9" bodyfile="firmware/include/defines.h" bodystart="32" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="42" column="9" bodyfile="firmware/include/defines.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a3f33bf77abbf35c245956489f8f7e3a7" prot="public" static="no">
         <name>GEN_DELAY</name>
@@ -200,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="33" column="9" bodyfile="firmware/include/defines.h" bodystart="33" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="43" column="9" bodyfile="firmware/include/defines.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1ac56760c658182c144e058ffd559c3c78" prot="public" static="no">
         <name>tAS</name>
@@ -208,10 +218,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Address setup time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="36" column="9" bodyfile="firmware/include/defines.h" bodystart="36" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="47" column="9" bodyfile="firmware/include/defines.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1ac2d0aecafd254acad7a67f4bd47d1f26" prot="public" static="no">
         <name>tOES</name>
@@ -219,10 +230,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Output enable setup time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="37" column="9" bodyfile="firmware/include/defines.h" bodystart="37" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="49" column="9" bodyfile="firmware/include/defines.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1af550844e8e2c57129820ae56d4901688" prot="public" static="no">
         <name>tAH</name>
@@ -230,10 +242,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Address hold time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="38" column="9" bodyfile="firmware/include/defines.h" bodystart="38" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="51" column="9" bodyfile="firmware/include/defines.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1ab734baf489cce373bd1e3ae5362c6392" prot="public" static="no">
         <name>tWP</name>
@@ -241,10 +254,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Write pulse width in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="39" column="9" bodyfile="firmware/include/defines.h" bodystart="39" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="53" column="9" bodyfile="firmware/include/defines.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a38a490adc454917fca46c648660b0a89" prot="public" static="no">
         <name>tDS</name>
@@ -252,10 +266,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Data setup time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="40" column="9" bodyfile="firmware/include/defines.h" bodystart="40" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="55" column="9" bodyfile="firmware/include/defines.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1adb37363e220e083a2c2d4d4538ad116e" prot="public" static="no">
         <name>tDH</name>
@@ -263,10 +278,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Data hold time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="41" column="9" bodyfile="firmware/include/defines.h" bodystart="41" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="57" column="9" bodyfile="firmware/include/defines.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a2674a2997c54ccd37fbd9e634ccceb52" prot="public" static="no">
         <name>tOEH</name>
@@ -274,10 +290,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Output enable hold time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="42" column="9" bodyfile="firmware/include/defines.h" bodystart="42" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="59" column="9" bodyfile="firmware/include/defines.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1aeea102f16b04db8bc42b25d3723f3bbc" prot="public" static="no">
         <name>tCS</name>
@@ -285,10 +302,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Chip select setup time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="43" column="9" bodyfile="firmware/include/defines.h" bodystart="43" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="61" column="9" bodyfile="firmware/include/defines.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1af58d3d5c2bb19d2c231b8b97a497d34b" prot="public" static="no">
         <name>tCH</name>
@@ -296,10 +314,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Chip select hold time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="44" column="9" bodyfile="firmware/include/defines.h" bodystart="44" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="63" column="9" bodyfile="firmware/include/defines.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1adef42a1825691ebd7ff3d5c469063316" prot="public" static="no">
         <name>tDB</name>
@@ -307,10 +326,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Device busy time in microseconds </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="45" column="9" bodyfile="firmware/include/defines.h" bodystart="45" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="65" column="9" bodyfile="firmware/include/defines.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a593ce8267503fc4f887c4b604fd309aa" prot="public" static="no">
         <name>tWC</name>
@@ -318,10 +338,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Write cycle time in milliseconds. Note: This value is in milliseconds, not microseconds like the rest of these timing parameters. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="46" column="9" bodyfile="firmware/include/defines.h" bodystart="46" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="68" column="9" bodyfile="firmware/include/defines.h" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1aaba07841c3e227bc8bdd8ccdad149349" prot="public" static="no">
         <name>MAX_ADDRESS</name>
@@ -329,10 +350,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Max address default. This will potentially be overidable in software. This default value if for a 28C64 EEPROM (8KB) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="50" column="9" bodyfile="firmware/include/defines.h" bodystart="50" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="71" column="9" bodyfile="firmware/include/defines.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a9963735b77f69bc98bafdc000b6f5551" prot="public" static="no">
         <name>DEBUG_DATA</name>
@@ -340,10 +362,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Debug data value to write during address test loop </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="53" column="9" bodyfile="firmware/include/defines.h" bodystart="53" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="75" column="9" bodyfile="firmware/include/defines.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1ad2979c59efeeb3591b34ca1d3a711b88" prot="public" static="no">
         <name>DEBUG_DELAY</name>
@@ -351,10 +374,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Delay in milliseconds for debugging loops to allow visual verification of blinkenlights </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="54" column="9" bodyfile="firmware/include/defines.h" bodystart="54" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="77" column="9" bodyfile="firmware/include/defines.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="defines_8h_1a94df10e7efe7613d074c105099c7fd0e" prot="public" static="no">
         <name>SERIAL_BAUD</name>
@@ -362,14 +386,15 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Baud rate for serial communication with Python control script </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/defines.h" line="57" column="9" bodyfile="firmware/include/defines.h" bodystart="57" bodyend="-1"/>
+        <location file="firmware/include/defines.h" line="81" column="9" bodyfile="firmware/include/defines.h" bodystart="81" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Pin definitions and timing constants for 28Cx EEPROM programmer. </para>
+<para>Definitions and constants for the 28C EEPROM programmer firmware. </para>
     </briefdescription>
     <detaileddescription>
 <para>Configure these values based on your hardware design and EEPROM requirements. Pin assignments: Update based on your Arduino connections. Timing parameters: Consult the specific EEPROM datasheet for accurate values. </para>
@@ -381,53 +406,51 @@
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFINES_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>EEPROM<sp/>Control<sp/>Pins</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROM_WE<sp/>14<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D14<sp/>(A0)<sp/>connected<sp/>to<sp/>EEPROM<sp/>/WE<sp/>(active<sp/>low)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROM_OE<sp/>15<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D15<sp/>(A1)<sp/>connected<sp/>to<sp/>EEPROM<sp/>/OE<sp/>(active<sp/>low)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROM_CE<sp/>16<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D16<sp/>(A2)<sp/>connected<sp/>to<sp/>EEPROM<sp/>/CE<sp/>(active<sp/>low)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>EEPROM<sp/>Data<sp/>Pins</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D0<sp/>2<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D2<sp/>connected<sp/>to<sp/>EEPROM<sp/>D0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D7<sp/>9<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D9<sp/>connected<sp/>to<sp/>EEPROM<sp/>D7</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>74HC595<sp/>Shift<sp/>Register<sp/>Control<sp/>Pins</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SRCLK<sp/>12<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D12<sp/>connected<sp/>to<sp/>74HC595<sp/>SRCLK<sp/>-<sp/>pin<sp/>11</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SRCLR<sp/>17<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D17<sp/>(A3)<sp/>connected<sp/>to<sp/>74HC595<sp/>SRCLR<sp/>-<sp/>pin<sp/>10<sp/>(active<sp/>low)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RCLK<sp/>10<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D10<sp/>connected<sp/>to<sp/>74HC595<sp/>RCLK<sp/>-<sp/>pin<sp/>12</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SEROE<sp/>18<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D18<sp/>(A4)<sp/>connected<sp/>to<sp/>74HC595<sp/>SEROE<sp/>-<sp/>pin<sp/>13<sp/>(active<sp/>low)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATA<sp/>11<sp/></highlight><highlight class="comment">//<sp/>Arduino<sp/>pin<sp/>D11<sp/>connected<sp/>to<sp/>74HC595<sp/>SER<sp/>-<sp/>pin<sp/>14</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Timing<sp/>Parameters</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WRITE_DELAY<sp/>10<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>microseconds<sp/>for<sp/>programming<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>READ_DELAY<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>microseconds<sp/>for<sp/>read<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADDR_DELAY<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>microseconds<sp/>for<sp/>address<sp/>setup</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATA_DELAY<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>microseconds<sp/>for<sp/>data<sp/>setup</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GEN_DELAY<sp/>10<sp/></highlight><highlight class="comment">//<sp/>General<sp/>delay<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>More<sp/>timing<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tAS<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Address<sp/>setup<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tOES<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Output<sp/>enable<sp/>setup<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tAH<sp/>5<sp/></highlight><highlight class="comment">//<sp/>Address<sp/>hold<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tWP<sp/>10<sp/></highlight><highlight class="comment">//<sp/>Write<sp/>pulse<sp/>width<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tDS<sp/>5<sp/></highlight><highlight class="comment">//<sp/>Data<sp/>setup<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tDH<sp/>5<sp/></highlight><highlight class="comment">//<sp/>Data<sp/>hold<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tOEH<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Output<sp/>enable<sp/>hold<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tCS<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Chip<sp/>select<sp/>setup<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tCH<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Chip<sp/>select<sp/>hold<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tDB<sp/>5<sp/></highlight><highlight class="comment">//<sp/>Device<sp/>busy<sp/>time<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tWC<sp/>2<sp/></highlight><highlight class="comment">//<sp/>Write<sp/>cycle<sp/>time<sp/>in<sp/>miliseconds<sp/>(!!!)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>MAX_ADDRESS<sp/>0x7FFF<sp/>//<sp/>Maximum<sp/>address<sp/>for<sp/>28C512<sp/>EEPROM<sp/>(32KB)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_ADDRESS<sp/>0x2000<sp/></highlight><highlight class="comment">//<sp/>Maximum<sp/>address<sp/>for<sp/>28C64<sp/>EEPROM<sp/>(8KB)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Debug<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_DATA<sp/>0xA9<sp/></highlight><highlight class="comment">//<sp/>Test<sp/>data<sp/>value<sp/>to<sp/>write<sp/>during<sp/>address<sp/>test<sp/>loop</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_DELAY<sp/>250<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>milliseconds<sp/>for<sp/>debugging<sp/>loops<sp/>to<sp/>allow<sp/>visual<sp/>verification<sp/>of<sp/>blinkenlights</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Serial<sp/>comms<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERIAL_BAUD<sp/>115200<sp/></highlight><highlight class="comment">//<sp/>Baud<sp/>rate<sp/>for<sp/>serial<sp/>communication<sp/>with<sp/>Python<sp/>control<sp/>script</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>DEFINES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROM_WE<sp/>14</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROM_OE<sp/>15</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROM_CE<sp/>16</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>EEPROM<sp/>Data<sp/>Pins</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="defines_8h_1ae0b2360d4b8e961bf2709b0663fd9f2a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D0<sp/>2</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="defines_8h_1a2ba78f059a7ebebc95e7beef690e88d6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D7<sp/>9</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>74HC595<sp/>Shift<sp/>Register<sp/>Control<sp/>Pins</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="defines_8h_1aac4e779549d986cb2818b94d2a1a2931" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SRCLK<sp/>12</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="defines_8h_1a2037a623db91c076c583aa722e11153f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SRCLR<sp/>17</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="defines_8h_1a44a1ca2c7678c780de06d4c9afc2e610" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RCLK<sp/>10</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="defines_8h_1a4dd916025fc4a52e475a927a9b589ccb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SEROE<sp/>18</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="defines_8h_1aad9ae913bdfab20dd94ad04ee2d5b045" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATA<sp/>11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Timing<sp/>Parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WRITE_DELAY<sp/>10<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>microseconds<sp/>for<sp/>programming<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>READ_DELAY<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>microseconds<sp/>for<sp/>read<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADDR_DELAY<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>microseconds<sp/>for<sp/>address<sp/>setup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATA_DELAY<sp/>1<sp/></highlight><highlight class="comment">//<sp/>Delay<sp/>in<sp/>microseconds<sp/>for<sp/>data<sp/>setup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GEN_DELAY<sp/>10<sp/></highlight><highlight class="comment">//<sp/>General<sp/>delay<sp/>in<sp/>microseconds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>More<sp/>timing<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="defines_8h_1ac56760c658182c144e058ffd559c3c78" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tAS<sp/>1</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="defines_8h_1ac2d0aecafd254acad7a67f4bd47d1f26" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tOES<sp/>1</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="defines_8h_1af550844e8e2c57129820ae56d4901688" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tAH<sp/>5</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="defines_8h_1ab734baf489cce373bd1e3ae5362c6392" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tWP<sp/>10</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="defines_8h_1a38a490adc454917fca46c648660b0a89" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tDS<sp/>5</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="defines_8h_1adb37363e220e083a2c2d4d4538ad116e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tDH<sp/>5</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="defines_8h_1a2674a2997c54ccd37fbd9e634ccceb52" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tOEH<sp/>1</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="defines_8h_1aeea102f16b04db8bc42b25d3723f3bbc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tCS<sp/>1</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="defines_8h_1af58d3d5c2bb19d2c231b8b97a497d34b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tCH<sp/>1</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="defines_8h_1adef42a1825691ebd7ff3d5c469063316" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tDB<sp/>5</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="defines_8h_1a593ce8267503fc4f887c4b604fd309aa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>tWC<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="defines_8h_1aaba07841c3e227bc8bdd8ccdad149349" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_ADDRESS<sp/>0x2000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Debug<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="defines_8h_1a9963735b77f69bc98bafdc000b6f5551" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_DATA<sp/>0xA9</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="defines_8h_1ad2979c59efeeb3591b34ca1d3a711b88" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_DELAY<sp/>250</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Serial<sp/>comms<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="defines_8h_1a94df10e7efe7613d074c105099c7fd0e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERIAL_BAUD<sp/>115200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>DEFINES_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="firmware/include/defines.h"/>
   </compounddef>

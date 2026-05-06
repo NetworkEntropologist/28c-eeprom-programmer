@@ -1,6 +1,6 @@
 /**
  * @file defines.h
- * @brief Pin definitions and timing constants for 28Cx EEPROM programmer
+ * @brief Definitions and constants for the 28C EEPROM programmer firmware
  * @details Configure these values based on your hardware design and EEPROM requirements.
  *          Pin assignments: Update based on your Arduino connections.
  *          Timing parameters: Consult the specific EEPROM datasheet for accurate values.
@@ -10,20 +10,30 @@
 #define DEFINES_H
 
 // EEPROM Control Pins
-#define ROM_WE 14 // Arduino pin D14 (A0) connected to EEPROM /WE (active low)
-#define ROM_OE 15 // Arduino pin D15 (A1) connected to EEPROM /OE (active low)
-#define ROM_CE 16 // Arduino pin D16 (A2) connected to EEPROM /CE (active low)
+/** EEPROM /WE (Write Enable) pin, defaults to Arduino pin D14 (A0) */
+#define ROM_WE 14
+/** EEPROM /OE (Output Enable) pin, defaults to Arduino pin D15 (A1) */
+#define ROM_OE 15
+/** EEPROM /CE (Chip Enable) pin, defaults to Arduino pin D16 (A2) */
+#define ROM_CE 16
 
 // EEPROM Data Pins
-#define D0 2 // Arduino pin D2 connected to EEPROM D0
-#define D7 9 // Arduino pin D9 connected to EEPROM D7
+/** EEPROM data bus pin D0, defaults to Arduino pin D2 */
+#define D0 2
+/** EEPROM data bus pin D7, defaults to Arduino pin D9 */
+#define D7 9
 
 // 74HC595 Shift Register Control Pins
-#define SRCLK 12 // Arduino pin D12 connected to 74HC595 SRCLK - pin 11
-#define SRCLR 17 // Arduino pin D17 (A3) connected to 74HC595 SRCLR - pin 10 (active low)
-#define RCLK 10 // Arduino pin D10 connected to 74HC595 RCLK - pin 12
-#define SEROE 18 // Arduino pin D18 (A4) connected to 74HC595 SEROE - pin 13 (active low)
-#define DATA 11 // Arduino pin D11 connected to 74HC595 SER - pin 14
+/** 74HC595 shift register clock pin, defaults to Arduino pin D12 */
+#define SRCLK 12
+/** 74HC595 shift register clear pin, defaults to Arduino pin D17 (A3) */
+#define SRCLR 17
+/** 74HC595 shift register latch pin, defaults to Arduino pin D10 */
+#define RCLK 10
+/** 74HC595 shift register output enable pin, defaults to Arduino pin D18 (A4) */
+#define SEROE 18
+/** 74HC595 shift register data pin, defaults to Arduino pin D11 */
+#define DATA 11
 
 // Timing Parameters
 #define WRITE_DELAY 10 // Delay in microseconds for programming operations
@@ -33,27 +43,41 @@
 #define GEN_DELAY 10 // General delay in microseconds
 
 // More timing parameters
-#define tAS 1 // Address setup time in microseconds
-#define tOES 1 // Output enable setup time in microseconds
-#define tAH 5 // Address hold time in microseconds
-#define tWP 10 // Write pulse width in microseconds
-#define tDS 5 // Data setup time in microseconds
-#define tDH 5 // Data hold time in microseconds
-#define tOEH 1 // Output enable hold time in microseconds
-#define tCS 1 // Chip select setup time in microseconds
-#define tCH 1 // Chip select hold time in microseconds
-#define tDB 5 // Device busy time in microseconds
-#define tWC 2 // Write cycle time in miliseconds (!!!)
+/** Address setup time in microseconds */
+#define tAS 1
+/** Output enable setup time in microseconds */
+#define tOES 1
+/** Address hold time in microseconds */
+#define tAH 5
+/** Write pulse width in microseconds */
+#define tWP 10
+/** Data setup time in microseconds */
+#define tDS 5
+/** Data hold time in microseconds */
+#define tDH 5
+/** Output enable hold time in microseconds */
+#define tOEH 1
+/** Chip select setup time in microseconds */
+#define tCS 1
+/** Chip select hold time in microseconds */
+#define tCH 1
+/** Device busy time in microseconds */
+#define tDB 5
+/** Write cycle time in milliseconds. Note: This value is in milliseconds, not microseconds like the rest of these timing parameters.
+*/
+#define tWC 2
 
-
-//#define MAX_ADDRESS 0x7FFF // Maximum address for 28C512 EEPROM (32KB)
-#define MAX_ADDRESS 0x2000 // Maximum address for 28C64 EEPROM (8KB)
+/** Max address default. This will potentially be overidable in software. This default value if for a 28C64 EEPROM (8KB) */
+#define MAX_ADDRESS 0x2000
 
 // Debug parameters
-#define DEBUG_DATA 0xA9 // Test data value to write during address test loop
-#define DEBUG_DELAY 250 // Delay in milliseconds for debugging loops to allow visual verification of blinkenlights
+/** Debug data value to write during address test loop */
+#define DEBUG_DATA 0xA9
+/** Delay in milliseconds for debugging loops to allow visual verification of blinkenlights */
+#define DEBUG_DELAY 250
 
 // Serial comms parameters
-#define SERIAL_BAUD 115200 // Baud rate for serial communication with Python control script
+/** Baud rate for serial communication with Python control script */
+#define SERIAL_BAUD 115200
 
 #endif // DEFINES_H

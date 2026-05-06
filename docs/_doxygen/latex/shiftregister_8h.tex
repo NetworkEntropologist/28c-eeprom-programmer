@@ -1,20 +1,17 @@
-\doxysection{firmware/\+include/\+shiftregister.h File Reference}
+\doxysection{firmware/include/shiftregister.h File Reference}
 \hypertarget{shiftregister_8h}{}\label{shiftregister_8h}\index{firmware/include/shiftregister.h@{firmware/include/shiftregister.h}}
 
 
 Shift register control logic for 28Cx EEPROM programmer.  
 
 
-{\ttfamily \+\#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{shiftregister_8h_a230620afa578b202c7084b4a19222987}{setup\+Shift\+Register\+Pins}} ()
+void \mbox{\hyperlink{shiftregister_8h_a230620afa578b202c7084b4a19222987}{setup\+Shift\+Register\+Pins}} ()
 \begin{DoxyCompactList}\small\item\em Initialize all 74HC595 shift register control pins. \end{DoxyCompactList}\item 
-\Hypertarget{shiftregister_8h_a2c6522a8020bbb8f1642f3d20b2ef720}\label{shiftregister_8h_a2c6522a8020bbb8f1642f3d20b2ef720} 
-void {\bfseries clear\+Shift\+Register} ()
-\item 
-void \doxymbox{\hyperlink{shiftregister_8h_af768db025489be1159ec18a8fc4edb7d}{set\+Address}} (uint16\+\_\+t address)
+void \mbox{\hyperlink{shiftregister_8h_af768db025489be1159ec18a8fc4edb7d}{set\+Address}} (uint16\+\_\+t address)
 \begin{DoxyCompactList}\small\item\em Set the address lines on the EEPROM using the shift register. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -54,6 +51,3 @@ Initialize all 74HC595 shift register control pins.
 Sets all shift register pins to OUTPUT mode and initializes them to safe states. Clears the shift register on startup to ensure a known state. This function should be called once during system initialization. \begin{DoxyNote}{Note}
 Must be called before any shift register operations 
 \end{DoxyNote}
-\begin{DoxySeeAlso}{See also}
-clear\+Shift\+Register() 
-\end{DoxySeeAlso}

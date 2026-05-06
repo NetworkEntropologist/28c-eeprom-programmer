@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="dir_c898ccd6027d5da3247aa855d21ca2cf" kind="dir">
     <compoundname>firmware/src</compoundname>
     <innerfile refid="debugging_8cpp">debugging.cpp</innerfile>
     <innerfile refid="eeprom_8cpp">eeprom.cpp</innerfile>
-    <innerfile refid="io_8cpp">io.cpp</innerfile>
     <innerfile refid="main_8cpp">main.cpp</innerfile>
     <innerfile refid="shiftregister_8cpp">shiftregister.cpp</innerfile>
     <innerfile refid="wozmon_8cpp">wozmon.cpp</innerfile>

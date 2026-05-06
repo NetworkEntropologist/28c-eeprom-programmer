@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="eeprom_8cpp" kind="file" language="C++">
     <compoundname>eeprom.cpp</compoundname>
     <includes local="no">Arduino.h</includes>
@@ -41,14 +41,16 @@
     </incdepgraph>
     <sectiondef kind="var">
       <memberdef kind="variable" id="eeprom_8cpp_1ae62b40760e005390fc65e89b57b7b9b4" prot="public" static="no" mutable="no">
-        <type>ROMMode</type>
+        <type><ref refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6" kindref="member">ROMMode</ref></type>
         <definition>ROMMode currentMode</definition>
         <argsstring></argsstring>
         <name>currentMode</name>
         <initializer>= STANDBY</initializer>
         <briefdescription>
+<para>Global variable to track the current mode of the EEPROM (READ, WRITE, or STANDBY) </para>
         </briefdescription>
         <detaileddescription>
+<para>This variable is used to keep track of the current mode of the EEPROM so that the setMode function can avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
@@ -69,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/src/eeprom.cpp" line="23" column="6" bodyfile="firmware/src/eeprom.cpp" bodystart="23" bodyend="39"/>
+        <location file="firmware/src/eeprom.cpp" line="16" column="6" bodyfile="firmware/src/eeprom.cpp" bodystart="16" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="eeprom_8cpp_1a4a0157ee152fdd69de5c7814bff993a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -81,12 +83,23 @@
           <declname>direction</declname>
         </param>
         <briefdescription>
+<para>Set the data bus direction (input or output) </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired direction for the data bus pins (INPUT or OUTPUT - default Arduino constants)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function will set the pin modes for the data bus pins (D0-D7) based on the specified direction. If the direction is OUTPUT, the pins will be configured as outputs to allow writing data to the EEPROM. If the direction is INPUT, the pins will be configured as inputs to allow reading data from the EEPROM. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/src/eeprom.cpp" line="41" column="6" bodyfile="firmware/src/eeprom.cpp" bodystart="41" bodyend="47"/>
+        <location file="firmware/src/eeprom.cpp" line="34" column="6" bodyfile="firmware/src/eeprom.cpp" bodystart="34" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -94,11 +107,11 @@
         <argsstring>(ROMMode mode)</argsstring>
         <name>setMode</name>
         <param>
-          <type>ROMMode</type>
+          <type><ref refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6" kindref="member">ROMMode</ref></type>
           <declname>mode</declname>
         </param>
         <briefdescription>
-<para>Set the current mode of the EEPROM (READ, WRITE, or STANDBY). </para>
+<para>Set the current mode of the EEPROM (READ, WRITE, or STANDBY) </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -106,15 +119,16 @@
 <parametername>mode</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The desired mode to set the EEPROM to (READ, WRITE, or STANDBY)</para>
+<para>The desired mode to set the EEPROM to (See enum <ref refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6" kindref="member">ROMMode</ref> for details).</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-This function will configure the control lines and data bus pins based on the desired mode. For WRITE mode, it will set the data bus pins as outputs and configure the control lines for writing. For READ mode, it will set the data bus pins as inputs and configure the control lines for reading. For STANDBY mode, it will set the control lines to disable both reading and writing, effectively putting the EEPROM in a low-power standby state. The function also checks the current mode to avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode. </para>
+This function will configure the control lines and data bus pins based on the desired mode. For WRITE mode, it will set the data bus pins as outputs and configure the control lines for writing.</para>
+<para>For READ mode, it will set the data bus pins as inputs and configure the control lines for reading. For STANDBY mode, it will set the control lines to disable both reading and writing, effectively putting the EEPROM in a low-power standby state. The function also checks the current mode to avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/src/eeprom.cpp" line="60" column="6" bodyfile="firmware/src/eeprom.cpp" bodystart="60" bodyend="106"/>
+        <location file="firmware/src/eeprom.cpp" line="42" column="6" bodyfile="firmware/src/eeprom.cpp" bodystart="42" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -142,7 +156,7 @@ This function will set the data bus pins (D0-D7) to the corresponding bits of th
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/src/eeprom.cpp" line="115" column="6" bodyfile="firmware/src/eeprom.cpp" bodystart="115" bodyend="121"/>
+        <location file="firmware/src/eeprom.cpp" line="90" column="6" bodyfile="firmware/src/eeprom.cpp" bodystart="90" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="eeprom_8cpp_1ab8c7bee711ce247da5790015bc621418" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint8_t</type>
@@ -150,16 +164,12 @@ This function will set the data bus pins (D0-D7) to the corresponding bits of th
         <argsstring>()</argsstring>
         <name>readBus</name>
         <briefdescription>
-<para>Read the current value on the data bus pins. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The 8-bit value currently present on the data bus pins (D0-D7)</para>
-</simplesect>
-This function will read the state of the data bus pins (D0-D7) and construct an 8-bit value based on their states. It will iterate through each data pin, read its state (HIGH or LOW), and set the corresponding bit in the returned byte accordingly. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/src/eeprom.cpp" line="130" column="9" bodyfile="firmware/src/eeprom.cpp" bodystart="130" bodyend="136"/>
+        <location file="firmware/src/eeprom.cpp" line="98" column="9" bodyfile="firmware/src/eeprom.cpp" bodystart="98" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="eeprom_8cpp_1a70bc2a24525a4bde9cde19e084c72b38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint8_t</type>
@@ -173,6 +183,23 @@ This function will read the state of the data bus pins (D0-D7) and construct an 
         <param>
           <type>byte</type>
           <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/src/eeprom.cpp" line="106" column="9" bodyfile="firmware/src/eeprom.cpp" bodystart="106" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="eeprom_8cpp_1a9b1a788dd1d21e36076b29ac34f93d63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t readByte</definition>
+        <argsstring>(uint16_t address)</argsstring>
+        <name>readByte</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>address</declname>
         </param>
         <briefdescription>
 <para>Write a byte of data to the EEPROM at the specified address. </para>
@@ -199,37 +226,7 @@ This function will set the address lines using the shift register, set the data 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/src/eeprom.cpp" line="148" column="9" bodyfile="firmware/src/eeprom.cpp" bodystart="148" bodyend="196"/>
-      </memberdef>
-      <memberdef kind="function" id="eeprom_8cpp_1a9b1a788dd1d21e36076b29ac34f93d63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>uint8_t</type>
-        <definition>uint8_t readByte</definition>
-        <argsstring>(uint16_t address)</argsstring>
-        <name>readByte</name>
-        <param>
-          <type>uint16_t</type>
-          <declname>address</declname>
-        </param>
-        <briefdescription>
-<para>Read a byte of data from the EEPROM at the specified address. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>address</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The 16-bit address to read from </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>The 8-bit data value read from the EEPROM at the specified address</para>
-</simplesect>
-This function will set the address lines using the shift register, configure the control lines for reading, and then read the value present on the data bus to return it as the result of the read operation. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="firmware/src/eeprom.cpp" line="206" column="9" bodyfile="firmware/src/eeprom.cpp" bodystart="206" bodyend="220"/>
+        <location file="firmware/src/eeprom.cpp" line="156" column="9" bodyfile="firmware/src/eeprom.cpp" bodystart="156" bodyend="170"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -247,164 +244,164 @@ This function will set the address lines using the shift register, configure the
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="shiftregister_8h" kindref="compound">shiftregister.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="eeprom_8h" kindref="compound">eeprom.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal">ROMMode<sp/>currentMode<sp/>=<sp/>STANDBY;<sp/></highlight><highlight class="comment">//<sp/>Global<sp/>variable<sp/>to<sp/>track<sp/>the<sp/>current<sp/>mode<sp/>of<sp/>the<sp/>EEPROM<sp/>(read/write/standby)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6" kindref="member">ROMMode</ref><sp/><ref refid="eeprom_8h_1ae62b40760e005390fc65e89b57b7b9b4" kindref="member">currentMode</ref><sp/>=<sp/>STANDBY;<sp/></highlight><highlight class="comment">//<sp/>Global<sp/>variable<sp/>to<sp/>track<sp/>the<sp/>current<sp/>mode<sp/>of<sp/>the<sp/>EEPROM<sp/>(read/write/standby)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1af9f53f8812ee3b5268b0df847be5225a" kindref="member">setupEEPROMPins</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Setup<sp/>control<sp/>pins<sp/>as<sp/>outputs</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(ROM_WE,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(ROM_OE,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(ROM_CE,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>control<sp/>lines<sp/>to<sp/>inactive<sp/>state.<sp/>These<sp/>are<sp/>active<sp/>low,<sp/>so<sp/>setting<sp/>to<sp/>HIGH<sp/>means<sp/>inactive.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(ROM_WE,<sp/>HIGH);<sp/></highlight><highlight class="comment">//<sp/>/WE<sp/>inactive,<sp/>so<sp/>cannot<sp/>write<sp/>until<sp/>this<sp/>line<sp/>is<sp/>taken<sp/>low</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(ROM_OE,<sp/>HIGH);<sp/></highlight><highlight class="comment">//<sp/>/OE<sp/>defaults<sp/>to<sp/>low,<sp/>as<sp/>this<sp/>is<sp/>active<sp/>low,<sp/>and<sp/>indicates<sp/>a<sp/>read<sp/>cycle</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(ROM_CE,<sp/>LOW);<sp/></highlight><highlight class="comment">//<sp/>/CE<sp/>inactive<sp/>and<sp/>chip<sp/>not<sp/>selected</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Setup<sp/>data<sp/>bus<sp/>pins<sp/>as<sp/>outputs</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(0x00);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>data<sp/>bus<sp/>on<sp/>startup</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal">}<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDataDirection(uint8_t<sp/>direction)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>true<sp/>for<sp/>output,<sp/>false<sp/>for<sp/>input</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pinMode(D0<sp/>+<sp/>i,<sp/>direction);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(ROMMode<sp/>mode)<sp/>{<sp/></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(0x0000);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>address<sp/>lines<sp/>when<sp/>changing<sp/>modes<sp/>to<sp/>avoid<sp/>unintended<sp/>writes<sp/>or<sp/>reads<sp/>during<sp/>mode<sp/>transitions</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(mode)</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>WRITE:</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_CE,<sp/>LOW);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_OE,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_WE,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setDataDirection(OUTPUT);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentMode<sp/>=<sp/>WRITE;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>READ:</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentMode<sp/>!=<sp/>READ)<sp/>{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setDataDirection(INPUT);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_CE,<sp/>LOW);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_OE,<sp/>LOW);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_WE,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentMode<sp/>=<sp/>READ;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>STANDBY:<sp/></highlight><highlight class="comment">//<sp/>Default<sp/>to<sp/>standby<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(0x00);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>data<sp/>bus<sp/>when<sp/>going<sp/>to<sp/>standby</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setDataDirection(INPUT);<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>data<sp/>bus<sp/>to<sp/>input<sp/>to<sp/>avoid<sp/>driving<sp/>the<sp/>lines</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_OE,<sp/>LOW);</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_CE,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(ROM_WE,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentMode<sp/>=<sp/>STANDBY;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1af9f53f8812ee3b5268b0df847be5225a" kindref="member">setupEEPROMPins</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Setup<sp/>control<sp/>pins<sp/>as<sp/>outputs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(<ref refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" kindref="member">ROM_WE</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(<ref refid="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" kindref="member">ROM_OE</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(<ref refid="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" kindref="member">ROM_CE</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>control<sp/>lines<sp/>to<sp/>inactive<sp/>state.<sp/>These<sp/>are<sp/>active<sp/>low,<sp/>so<sp/>setting<sp/>to<sp/>HIGH<sp/>means<sp/>inactive.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" kindref="member">ROM_WE</ref>,<sp/>HIGH);<sp/></highlight><highlight class="comment">//<sp/>/WE<sp/>inactive,<sp/>so<sp/>cannot<sp/>write<sp/>until<sp/>this<sp/>line<sp/>is<sp/>taken<sp/>low</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" kindref="member">ROM_OE</ref>,<sp/>HIGH);<sp/></highlight><highlight class="comment">//<sp/>/OE<sp/>defaults<sp/>to<sp/>low,<sp/>as<sp/>this<sp/>is<sp/>active<sp/>low,<sp/>and<sp/>indicates<sp/>a<sp/>read<sp/>cycle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" kindref="member">ROM_CE</ref>,<sp/>LOW);<sp/></highlight><highlight class="comment">//<sp/>/CE<sp/>inactive<sp/>and<sp/>chip<sp/>not<sp/>selected</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Setup<sp/>data<sp/>bus<sp/>pins<sp/>as<sp/>outputs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(0x00);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>data<sp/>bus<sp/>on<sp/>startup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1a4a0157ee152fdd69de5c7814bff993a6" kindref="member">setDataDirection</ref>(uint8_t<sp/>direction)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>true<sp/>for<sp/>output,<sp/>false<sp/>for<sp/>input</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pinMode(<ref refid="defines_8h_1ae0b2360d4b8e961bf2709b0663fd9f2a" kindref="member">D0</ref><sp/>+<sp/>i,<sp/>direction);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(<ref refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6" kindref="member">ROMMode</ref><sp/>mode)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(0x0000);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>address<sp/>lines<sp/>when<sp/>changing<sp/>modes<sp/>to<sp/>avoid<sp/>unintended<sp/>writes<sp/>or<sp/>reads<sp/>during<sp/>mode<sp/>transitions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(mode)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>WRITE:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" kindref="member">ROM_CE</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" kindref="member">ROM_OE</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" kindref="member">ROM_WE</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a4a0157ee152fdd69de5c7814bff993a6" kindref="member">setDataDirection</ref>(OUTPUT);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8h_1ae62b40760e005390fc65e89b57b7b9b4" kindref="member">currentMode</ref><sp/>=<sp/>WRITE;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>READ:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="eeprom_8h_1ae62b40760e005390fc65e89b57b7b9b4" kindref="member">currentMode</ref><sp/>!=<sp/>READ)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a4a0157ee152fdd69de5c7814bff993a6" kindref="member">setDataDirection</ref>(INPUT);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" kindref="member">ROM_CE</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" kindref="member">ROM_OE</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" kindref="member">ROM_WE</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8h_1ae62b40760e005390fc65e89b57b7b9b4" kindref="member">currentMode</ref><sp/>=<sp/>READ;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>STANDBY:<sp/></highlight><highlight class="comment">//<sp/>Default<sp/>to<sp/>standby<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(0x00);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>data<sp/>bus<sp/>when<sp/>going<sp/>to<sp/>standby</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a4a0157ee152fdd69de5c7814bff993a6" kindref="member">setDataDirection</ref>(INPUT);<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>data<sp/>bus<sp/>to<sp/>input<sp/>to<sp/>avoid<sp/>driving<sp/>the<sp/>lines</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" kindref="member">ROM_OE</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" kindref="member">ROM_CE</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" kindref="member">ROM_WE</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="eeprom_8h_1ae62b40760e005390fc65e89b57b7b9b4" kindref="member">currentMode</ref><sp/>=<sp/>STANDBY;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(uint8_t<sp/>data)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1ae0b2360d4b8e961bf2709b0663fd9f2a" kindref="member">D0</ref><sp/>+<sp/>i,<sp/>(data<sp/>&gt;&gt;<sp/>i)<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">uint8_t<sp/>readBus()<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>data<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>|=<sp/>(digitalRead(<ref refid="defines_8h_1ae0b2360d4b8e961bf2709b0663fd9f2a" kindref="member">D0</ref><sp/>+<sp/>i)<sp/>&lt;&lt;<sp/>i);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(uint8_t<sp/>data)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">uint8_t<sp/><ref refid="eeprom_8h_1a9af545f680d306617989f152a7d5a0bd" kindref="member">writeByte</ref>(uint16_t<sp/>address,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>data)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Excuse<sp/>the<sp/>verbosity<sp/>of<sp/>the<sp/>comments<sp/>in<sp/>this<sp/>method,<sp/>the<sp/>timing<sp/>on<sp/>this<sp/>is<sp/>very<sp/>sensitive<sp/>and<sp/>complex.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>by<sp/>making<sp/>sure<sp/>we<sp/>are<sp/>in<sp/>standby<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(STANDBY);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>sure<sp/>the<sp/>data<sp/>lines<sp/>are<sp/>set<sp/>to<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a4a0157ee152fdd69de5c7814bff993a6" kindref="member">setDataDirection</ref>(OUTPUT);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(0x00);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>data<sp/>bus<sp/>before<sp/>starting<sp/>the<sp/>write<sp/>operation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(D0<sp/>+<sp/>i,<sp/>(data<sp/>&gt;&gt;<sp/>i)<sp/>&amp;<sp/>1);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal">uint8_t<sp/><ref refid="eeprom_8cpp_1ab8c7bee711ce247da5790015bc621418" kindref="member">readBus</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>data<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>|=<sp/>(digitalRead(D0<sp/>+<sp/>i)<sp/>&lt;&lt;<sp/>i);</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
-<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" kindref="member">ROM_OE</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(<ref refid="defines_8h_1ac2d0aecafd254acad7a67f4bd47d1f26" kindref="member">tOES</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>set<sp/>the<sp/>address<sp/>and<sp/>wait<sp/>tAS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(address);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(<ref refid="defines_8h_1ac56760c658182c144e058ffd559c3c78" kindref="member">tAS</ref>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Next,<sp/>take<sp/>CE<sp/>low<sp/>to<sp/>enable<sp/>and<sp/>wake<sp/>up<sp/>the<sp/>chip</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" kindref="member">ROM_CE</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(<ref refid="defines_8h_1aeea102f16b04db8bc42b25d3723f3bbc" kindref="member">tCS</ref>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>take<sp/>WE<sp/>low</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>fact,<sp/>if<sp/>we<sp/>read<sp/>the<sp/>datasheet<sp/>correctly,<sp/>it<sp/>seems<sp/>that<sp/>the<sp/>data<sp/>should<sp/>be<sp/>set<sp/>about<sp/>halfway<sp/>through<sp/>tWP,<sp/>which<sp/>is<sp/>100-1000<sp/>ns<sp/>according<sp/>to<sp/>the<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>datasheet,<sp/>so<sp/>we<sp/>can<sp/>set<sp/>the<sp/>data<sp/>after<sp/>waiting<sp/>for<sp/>tAH,<sp/>which<sp/>is<sp/>50ns,<sp/>and<sp/>then<sp/>wait<sp/>for<sp/>the<sp/>remainder<sp/>of<sp/>tWP<sp/>before<sp/>taking<sp/>WE<sp/>high<sp/>again.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" kindref="member">ROM_WE</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(<ref refid="defines_8h_1af550844e8e2c57129820ae56d4901688" kindref="member">tAH</ref>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>set<sp/>the<sp/>data<sp/>bus<sp/>and<sp/>wait<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(data);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(<ref refid="defines_8h_1a38a490adc454917fca46c648660b0a89" kindref="member">tDS</ref>);</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal">uint8_t<sp/><ref refid="eeprom_8cpp_1a70bc2a24525a4bde9cde19e084c72b38" kindref="member">writeByte</ref>(uint16_t<sp/>address,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>data)<sp/>{</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Excuse<sp/>the<sp/>verbosity<sp/>of<sp/>the<sp/>comments<sp/>in<sp/>this<sp/>method,<sp/>the<sp/>timing<sp/>on<sp/>this<sp/>is<sp/>very<sp/>sensitive<sp/>and<sp/>complex.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" kindref="member">ROM_WE</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(<ref refid="defines_8h_1adb37363e220e083a2c2d4d4538ad116e" kindref="member">tDH</ref>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>One<sp/>last<sp/>delay,<sp/>just<sp/>to<sp/>make<sp/>sure<sp/>the<sp/>chip<sp/>is<sp/>done</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>reset<sp/>both<sp/>busses<sp/>back<sp/>to<sp/>defaults</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(0x00);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(STANDBY);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a4a0157ee152fdd69de5c7814bff993a6" kindref="member">setDataDirection</ref>(INPUT);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(0x0000);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>by<sp/>making<sp/>sure<sp/>we<sp/>are<sp/>in<sp/>standby<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(STANDBY);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1a9b1a788dd1d21e36076b29ac34f93d63" kindref="member">readByte</ref>(address);</highlight></codeline>
 <codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>sure<sp/>the<sp/>data<sp/>lines<sp/>are<sp/>set<sp/>to<sp/>output</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>setDataDirection(OUTPUT);</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(0x00);<sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>data<sp/>bus<sp/>before<sp/>starting<sp/>the<sp/>write<sp/>operation</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(ROM_OE,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(tOES);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">uint8_t<sp/><ref refid="eeprom_8cpp_1a9b1a788dd1d21e36076b29ac34f93d63" kindref="member">readByte</ref>(uint16_t<sp/>address)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(READ);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(address);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(10);</highlight></codeline>
 <codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>set<sp/>the<sp/>address<sp/>and<sp/>wait<sp/>tAS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(address);</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(tAS);</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Next,<sp/>take<sp/>CE<sp/>low<sp/>to<sp/>enable<sp/>and<sp/>wake<sp/>up<sp/>the<sp/>chip</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(ROM_CE,<sp/>LOW);</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(tCS);</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>take<sp/>WE<sp/>low</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>fact,<sp/>if<sp/>we<sp/>read<sp/>the<sp/>datasheet<sp/>correctly,<sp/>it<sp/>seems<sp/>that<sp/>the<sp/>data<sp/>should<sp/>be<sp/>set<sp/>about<sp/>halfway<sp/>through<sp/>tWP,<sp/>which<sp/>is<sp/>100-1000<sp/>ns<sp/>according<sp/>to<sp/>the<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>datasheet,<sp/>so<sp/>we<sp/>can<sp/>set<sp/>the<sp/>data<sp/>after<sp/>waiting<sp/>for<sp/>tAH,<sp/>which<sp/>is<sp/>50ns,<sp/>and<sp/>then<sp/>wait<sp/>for<sp/>the<sp/>remainder<sp/>of<sp/>tWP<sp/>before<sp/>taking<sp/>WE<sp/>high<sp/>again.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(ROM_WE,<sp/>LOW);</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(tAH);</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>set<sp/>the<sp/>data<sp/>bus<sp/>and<sp/>wait<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(data);</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(tDS);</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(ROM_WE,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(tDH);</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>One<sp/>last<sp/>delay,<sp/>just<sp/>to<sp/>make<sp/>sure<sp/>the<sp/>chip<sp/>is<sp/>done</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>reset<sp/>both<sp/>busses<sp/>back<sp/>to<sp/>defaults</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kindref="member">setDataBus</ref>(0x00);</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(STANDBY);</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>setDataDirection(INPUT);</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(0x0000);</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(GEN_DELAY);</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="eeprom_8cpp_1a9b1a788dd1d21e36076b29ac34f93d63" kindref="member">readByte</ref>(address);</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"></highlight></codeline>
-<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"></highlight></codeline>
-<codeline lineno="206"><highlight class="normal">uint8_t<sp/><ref refid="eeprom_8cpp_1a9b1a788dd1d21e36076b29ac34f93d63" kindref="member">readByte</ref>(uint16_t<sp/>address)<sp/>{</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(READ);</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(address);</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>delayMicroseconds(10);</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>val<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>|=<sp/>(digitalRead(D0<sp/>+<sp/>i)<sp/>&lt;&lt;<sp/>i);</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(STANDBY);</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="218"><highlight class="normal"></highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val;</highlight></codeline>
-<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>val<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>|=<sp/>(digitalRead(<ref refid="defines_8h_1ae0b2360d4b8e961bf2709b0663fd9f2a" kindref="member">D0</ref><sp/>+<sp/>i)<sp/>&lt;&lt;<sp/>i);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kindref="member">setMode</ref>(STANDBY);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="firmware/src/eeprom.cpp"/>
   </compounddef>

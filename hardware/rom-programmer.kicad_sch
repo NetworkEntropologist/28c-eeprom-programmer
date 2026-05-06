@@ -5,8 +5,8 @@
 	(uuid "cf7391cf-fbcd-4ad5-8927-06aae5137319")
 	(paper "A4")
 	(title_block
-		(title "28Cxxx EEROM Programmer")
-		(rev "0")
+		(title "28Cx EEROM Programmer")
+		(rev "A")
 		(company "The Network Entropologist")
 	)
 	(lib_symbols

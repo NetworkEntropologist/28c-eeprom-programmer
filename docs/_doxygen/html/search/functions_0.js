@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['addresstestloop_0',['addressTestLoop',['../debugging_8h.html#a59e1e24701095ec3ce6364dcebedcf4e',1,'addressTestLoop():&#160;debugging.cpp'],['../debugging_8cpp.html#a59e1e24701095ec3ce6364dcebedcf4e',1,'addressTestLoop():&#160;debugging.cpp']]]
+  ['readbyte_0',['readByte',['../eeprom_8h.html#a9b1a788dd1d21e36076b29ac34f93d63',1,'readByte(uint16_t address):&#160;eeprom.cpp'],['../eeprom_8cpp.html#a9b1a788dd1d21e36076b29ac34f93d63',1,'readByte(uint16_t address):&#160;eeprom.cpp']]]
 ];

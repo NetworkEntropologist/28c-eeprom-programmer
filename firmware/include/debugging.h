@@ -5,6 +5,9 @@
  * @details Contains functions for debugging and testing the EEPROM programmer firmware.
  *          This may include functions for testing pin states, timing, and communication with the Python control script.
  *          These functions can be called from the main loop or setup to verify correct operation of the hardware and firmware.
+ * @note These functions (w)ere used while debugging the initial release of this firmware and as such is provided as-is, without
+ * any further documentation or comments. They may be useful for future debugging and testing, but are not intended for regular 
+ * use in the main firmware operation.
  */
 
 #ifndef DEBUGGING_H

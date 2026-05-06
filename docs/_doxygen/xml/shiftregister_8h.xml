@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.16.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="shiftregister_8h" kind="file" language="C++">
     <compoundname>shiftregister.h</compoundname>
     <includes local="no">Arduino.h</includes>
@@ -60,26 +60,11 @@
         <detaileddescription>
 <para>Sets all shift register pins to OUTPUT mode and initializes them to safe states. Clears the shift register on startup to ensure a known state. This function should be called once during system initialization. <simplesect kind="note"><para>Must be called before any shift register operations </para>
 </simplesect>
-<simplesect kind="see"><para>clearShiftRegister() </para>
-</simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/shiftregister.h" line="13" column="6" bodyfile="firmware/src/shiftregister.cpp" bodystart="20" bodyend="40" declfile="firmware/include/shiftregister.h" declline="13" declcolumn="6"/>
-      </memberdef>
-      <memberdef kind="function" id="shiftregister_8h_1a2c6522a8020bbb8f1642f3d20b2ef720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void clearShiftRegister</definition>
-        <argsstring>()</argsstring>
-        <name>clearShiftRegister</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="firmware/include/shiftregister.h" line="14" column="6" declfile="firmware/include/shiftregister.h" declline="14" declcolumn="6"/>
+        <location file="firmware/include/shiftregister.h" line="20" column="6" bodyfile="firmware/src/shiftregister.cpp" bodystart="12" bodyend="32" declfile="firmware/include/shiftregister.h" declline="20" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -107,7 +92,7 @@ This function shifts out the address to the 74HC595 shift register(s) to set the
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="firmware/include/shiftregister.h" line="15" column="6" bodyfile="firmware/src/shiftregister.cpp" bodystart="48" bodyend="65" declfile="firmware/include/shiftregister.h" declline="15" declcolumn="6"/>
+        <location file="firmware/include/shiftregister.h" line="28" column="6" bodyfile="firmware/src/shiftregister.cpp" bodystart="34" bodyend="53" declfile="firmware/include/shiftregister.h" declline="28" declcolumn="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -124,11 +109,11 @@ This function shifts out the address to the 74HC595 shift register(s) to set the
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="shiftregister_8h_1a230620afa578b202c7084b4a19222987" kindref="member">setupShiftRegisterPins</ref>();</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clearShiftRegister();</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(uint16_t<sp/>address);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SHIFTREGISTER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="shiftregister_8h_1a230620afa578b202c7084b4a19222987" kindref="member">setupShiftRegisterPins</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kindref="member">setAddress</ref>(uint16_t<sp/>address);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SHIFTREGISTER_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="firmware/include/shiftregister.h"/>
   </compounddef>

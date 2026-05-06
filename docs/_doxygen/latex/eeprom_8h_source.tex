@@ -1,6 +1,6 @@
 \doxysection{eeprom.\+h}
 \hypertarget{eeprom_8h_source}{}\label{eeprom_8h_source}\index{firmware/include/eeprom.h@{firmware/include/eeprom.h}}
-\doxymbox{\hyperlink{eeprom_8h}{Go to the documentation of this file.}}
+\mbox{\hyperlink{eeprom_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00007\ }
@@ -10,22 +10,28 @@
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{enum}\ ROMMode\ \{\ \textcolor{comment}{//\ Current\ EEPROM\ mode}}
-\DoxyCodeLine{00015\ \ \ \ \ STANDBY,}
-\DoxyCodeLine{00016\ \ \ \ \ READ,}
-\DoxyCodeLine{00017\ \ \ \ \ WRITE}
-\DoxyCodeLine{00018\ \};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{eeprom_8h_af9f53f8812ee3b5268b0df847be5225a}{setupEEPROMPins}}();}
-\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{eeprom_8h_a293f70ed7a84e05cbd673f22782fe19f}{setMode}}(ROMMode\ mode);}
-\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{eeprom_8h_acc77748500a9050a21642ec9fe66a379}{setDataBus}}(uint8\_t\ data);}
-\DoxyCodeLine{00023\ uint8\_t\ writeByte(uint16\_t\ address,\ uint8\_t\ data);}
-\DoxyCodeLine{00024\ uint8\_t\ \doxymbox{\hyperlink{eeprom_8h_a9b1a788dd1d21e36076b29ac34f93d63}{readByte}}(uint16\_t\ address);}
-\DoxyCodeLine{00025\ uint8\_t\ writeTimingTest(uint16\_t\ address,\ uint8\_t\ data);}
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ setDataDirection(uint8\_t\ direction);}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{extern}\ ROMMode\ currentMode;}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ EEPROM\_H}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{eeprom_8h_aa45819052ed50f125c644ff22066b7d6}{ROMMode}}\ \mbox{\hyperlink{eeprom_8h_ae62b40760e005390fc65e89b57b7b9b4}{currentMode}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{eeprom_8h_aa45819052ed50f125c644ff22066b7d6}{ROMMode}}\ \{\ \textcolor{comment}{//\ Current\ EEPROM\ mode}}
+\DoxyCodeLine{00030\ \ \ \ \ STANDBY,}
+\DoxyCodeLine{00031\ \ \ \ \ READ,}
+\DoxyCodeLine{00032\ \ \ \ \ WRITE}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eeprom_8h_af9f53f8812ee3b5268b0df847be5225a}{setupEEPROMPins}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eeprom_8h_a293f70ed7a84e05cbd673f22782fe19f}{setMode}}(\mbox{\hyperlink{eeprom_8h_aa45819052ed50f125c644ff22066b7d6}{ROMMode}}\ mode);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eeprom_8h_acc77748500a9050a21642ec9fe66a379}{setDataBus}}(uint8\_t\ data);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00074\ uint8\_t\ \mbox{\hyperlink{eeprom_8h_a9af545f680d306617989f152a7d5a0bd}{writeByte}}(uint16\_t\ address,\ uint8\_t\ data);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00086\ uint8\_t\ \mbox{\hyperlink{eeprom_8h_a9b1a788dd1d21e36076b29ac34f93d63}{readByte}}(uint16\_t\ address);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00096\ uint8\_t\ \mbox{\hyperlink{eeprom_8h_ac5e9c815cef4531d7fa762a6861828af}{writeTimingTest}}(uint16\_t\ address,\ uint8\_t\ data);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{eeprom_8h_a4a0157ee152fdd69de5c7814bff993a6}{setDataDirection}}(uint8\_t\ direction);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ EEPROM\_H}}
 
 \end{DoxyCode}

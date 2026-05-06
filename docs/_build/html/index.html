@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="EEPROM Module" href="api_eeprom.html" /> 
+    <link rel="next" title="Defines and Constants" href="defines.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,14 +41,13 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Hardware Reference:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api_eeprom.html">EEPROM Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_io.html">I/O Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_shiftregister.html">Shift Register Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_wozmon.html">WozMon Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_debugging.html">Debugging Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_defines.html">Defines and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="defines.html">Defines and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shiftregister.html">Shift Register Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eeprom.html">EEPROM Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wozmon.html">WozMon Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Module</a></li>
 </ul>
 
         </div>
@@ -77,76 +76,77 @@
              
   <section id="c-eeprom-programmer-documentation">
 <h1>28C EEPROM Programmer documentation<a class="headerlink" href="#c-eeprom-programmer-documentation" title="Link to this heading"></a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
-documentation for details.</p>
+<p>An Aurduino-based programmer for the AT28Cx family of EEPROMS, including the AT28C16, AT28C64 and AT28C256. Currently no support
+is planned for the AT28C512, but this may change in future. However, this will require a hardware redesign, as this IC has a different
+(and incompatible) pinout compared to the rest of the family.</p>
+<p>This project started as a way to learn more about EEPROM programming, but also as a simple, cost-effective tool to read and write these
+EEPROMs for use in various projects, including retro computing and hardware hacking. One of the core design goals of this project was
+to be easy enough that any hobbyist would be able to build.</p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Hardware Reference:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api_eeprom.html">EEPROM Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv47ROMMode"><code class="docutils literal notranslate"><span class="pre">ROMMode</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv415setupEEPROMPinsv"><code class="docutils literal notranslate"><span class="pre">setupEEPROMPins()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv47setMode7ROMMode"><code class="docutils literal notranslate"><span class="pre">setMode()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv410setDataBus7uint8_t"><code class="docutils literal notranslate"><span class="pre">setDataBus()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv49writeByte8uint16_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">writeByte()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv48readByte8uint16_t"><code class="docutils literal notranslate"><span class="pre">readByte()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv415writeTimingTest8uint16_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">writeTimingTest()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv416setDataDirection7uint8_t"><code class="docutils literal notranslate"><span class="pre">setDataDirection()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_eeprom.html#_CPPv411currentMode"><code class="docutils literal notranslate"><span class="pre">currentMode</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="defines.html">Defines and Constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.ROM_WE"><code class="docutils literal notranslate"><span class="pre">ROM_WE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.ROM_OE"><code class="docutils literal notranslate"><span class="pre">ROM_OE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.ROM_CE"><code class="docutils literal notranslate"><span class="pre">ROM_CE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.D0"><code class="docutils literal notranslate"><span class="pre">D0</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.D7"><code class="docutils literal notranslate"><span class="pre">D7</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.SRCLK"><code class="docutils literal notranslate"><span class="pre">SRCLK</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.SRCLR"><code class="docutils literal notranslate"><span class="pre">SRCLR</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.RCLK"><code class="docutils literal notranslate"><span class="pre">RCLK</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.SEROE"><code class="docutils literal notranslate"><span class="pre">SEROE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.DATA"><code class="docutils literal notranslate"><span class="pre">DATA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.WRITE_DELAY"><code class="docutils literal notranslate"><span class="pre">WRITE_DELAY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.READ_DELAY"><code class="docutils literal notranslate"><span class="pre">READ_DELAY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.ADDR_DELAY"><code class="docutils literal notranslate"><span class="pre">ADDR_DELAY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.DATA_DELAY"><code class="docutils literal notranslate"><span class="pre">DATA_DELAY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.GEN_DELAY"><code class="docutils literal notranslate"><span class="pre">GEN_DELAY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tAS"><code class="docutils literal notranslate"><span class="pre">tAS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tOES"><code class="docutils literal notranslate"><span class="pre">tOES</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tAH"><code class="docutils literal notranslate"><span class="pre">tAH</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tWP"><code class="docutils literal notranslate"><span class="pre">tWP</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tDS"><code class="docutils literal notranslate"><span class="pre">tDS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tDH"><code class="docutils literal notranslate"><span class="pre">tDH</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tOEH"><code class="docutils literal notranslate"><span class="pre">tOEH</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tCS"><code class="docutils literal notranslate"><span class="pre">tCS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tCH"><code class="docutils literal notranslate"><span class="pre">tCH</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tDB"><code class="docutils literal notranslate"><span class="pre">tDB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.tWC"><code class="docutils literal notranslate"><span class="pre">tWC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.MAX_ADDRESS"><code class="docutils literal notranslate"><span class="pre">MAX_ADDRESS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.DEBUG_DATA"><code class="docutils literal notranslate"><span class="pre">DEBUG_DATA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.DEBUG_DELAY"><code class="docutils literal notranslate"><span class="pre">DEBUG_DELAY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="defines.html#c.SERIAL_BAUD"><code class="docutils literal notranslate"><span class="pre">SERIAL_BAUD</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api_io.html">I/O Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_shiftregister.html">Shift Register Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api_shiftregister.html#_CPPv422setupShiftRegisterPinsv"><code class="docutils literal notranslate"><span class="pre">setupShiftRegisterPins()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_shiftregister.html#_CPPv418clearShiftRegisterv"><code class="docutils literal notranslate"><span class="pre">clearShiftRegister()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_shiftregister.html#_CPPv410setAddress8uint16_t"><code class="docutils literal notranslate"><span class="pre">setAddress()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="shiftregister.html">Shift Register Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shiftregister.html#_CPPv422setupShiftRegisterPinsv"><code class="docutils literal notranslate"><span class="pre">setupShiftRegisterPins()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shiftregister.html#_CPPv410setAddress8uint16_t"><code class="docutils literal notranslate"><span class="pre">setAddress()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api_wozmon.html">WozMon Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api_wozmon.html#_CPPv411writeWozMonv"><code class="docutils literal notranslate"><span class="pre">writeWozMon()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_wozmon.html#_CPPv420WOZMON_START_ADDRESS"><code class="docutils literal notranslate"><span class="pre">WOZMON_START_ADDRESS</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_wozmon.html#_CPPv411WOZMON_CODE"><code class="docutils literal notranslate"><span class="pre">WOZMON_CODE</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="eeprom.html">EEPROM Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv47ROMMode"><code class="docutils literal notranslate"><span class="pre">ROMMode</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv415setupEEPROMPinsv"><code class="docutils literal notranslate"><span class="pre">setupEEPROMPins()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv47setMode7ROMMode"><code class="docutils literal notranslate"><span class="pre">setMode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv410setDataBus7uint8_t"><code class="docutils literal notranslate"><span class="pre">setDataBus()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv49writeByte8uint16_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">writeByte()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv48readByte8uint16_t"><code class="docutils literal notranslate"><span class="pre">readByte()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv415writeTimingTest8uint16_t7uint8_t"><code class="docutils literal notranslate"><span class="pre">writeTimingTest()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv416setDataDirection7uint8_t"><code class="docutils literal notranslate"><span class="pre">setDataDirection()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="eeprom.html#_CPPv411currentMode"><code class="docutils literal notranslate"><span class="pre">currentMode</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api_debugging.html">Debugging Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api_debugging.html#_CPPv415addressTestLoopv"><code class="docutils literal notranslate"><span class="pre">addressTestLoop()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_debugging.html#_CPPv415addressWalkReadv"><code class="docutils literal notranslate"><span class="pre">addressWalkRead()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_debugging.html#_CPPv413quickReadTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">quickReadTest()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_debugging.html#_CPPv49writeTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">writeTest()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_debugging.html#_CPPv49eraseTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">eraseTest()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="wozmon.html">WozMon Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wozmon.html#_CPPv411writeWozMonv"><code class="docutils literal notranslate"><span class="pre">writeWozMon()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="wozmon.html#_CPPv420WOZMON_START_ADDRESS"><code class="docutils literal notranslate"><span class="pre">WOZMON_START_ADDRESS</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="wozmon.html#_CPPv411WOZMON_CODE"><code class="docutils literal notranslate"><span class="pre">WOZMON_CODE</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api_defines.html">Defines and Constants</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.ROM_WE"><code class="docutils literal notranslate"><span class="pre">ROM_WE</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.ROM_OE"><code class="docutils literal notranslate"><span class="pre">ROM_OE</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.ROM_CE"><code class="docutils literal notranslate"><span class="pre">ROM_CE</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.D0"><code class="docutils literal notranslate"><span class="pre">D0</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.D7"><code class="docutils literal notranslate"><span class="pre">D7</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.SRCLK"><code class="docutils literal notranslate"><span class="pre">SRCLK</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.SRCLR"><code class="docutils literal notranslate"><span class="pre">SRCLR</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.RCLK"><code class="docutils literal notranslate"><span class="pre">RCLK</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.SEROE"><code class="docutils literal notranslate"><span class="pre">SEROE</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.DATA"><code class="docutils literal notranslate"><span class="pre">DATA</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.WRITE_DELAY"><code class="docutils literal notranslate"><span class="pre">WRITE_DELAY</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.READ_DELAY"><code class="docutils literal notranslate"><span class="pre">READ_DELAY</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.ADDR_DELAY"><code class="docutils literal notranslate"><span class="pre">ADDR_DELAY</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.DATA_DELAY"><code class="docutils literal notranslate"><span class="pre">DATA_DELAY</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.GEN_DELAY"><code class="docutils literal notranslate"><span class="pre">GEN_DELAY</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tAS"><code class="docutils literal notranslate"><span class="pre">tAS</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tOES"><code class="docutils literal notranslate"><span class="pre">tOES</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tAH"><code class="docutils literal notranslate"><span class="pre">tAH</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tWP"><code class="docutils literal notranslate"><span class="pre">tWP</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tDS"><code class="docutils literal notranslate"><span class="pre">tDS</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tDH"><code class="docutils literal notranslate"><span class="pre">tDH</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tOEH"><code class="docutils literal notranslate"><span class="pre">tOEH</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tCS"><code class="docutils literal notranslate"><span class="pre">tCS</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tCH"><code class="docutils literal notranslate"><span class="pre">tCH</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tDB"><code class="docutils literal notranslate"><span class="pre">tDB</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.tWC"><code class="docutils literal notranslate"><span class="pre">tWC</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.MAX_ADDRESS"><code class="docutils literal notranslate"><span class="pre">MAX_ADDRESS</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.DEBUG_DATA"><code class="docutils literal notranslate"><span class="pre">DEBUG_DATA</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.DEBUG_DELAY"><code class="docutils literal notranslate"><span class="pre">DEBUG_DELAY</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_defines.html#c.SERIAL_BAUD"><code class="docutils literal notranslate"><span class="pre">SERIAL_BAUD</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#_CPPv415addressTestLoopv"><code class="docutils literal notranslate"><span class="pre">addressTestLoop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#_CPPv415addressWalkReadv"><code class="docutils literal notranslate"><span class="pre">addressWalkRead()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#_CPPv413quickReadTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">quickReadTest()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#_CPPv49writeTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">writeTest()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#_CPPv49eraseTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">eraseTest()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -157,7 +157,7 @@ documentation for details.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="api_eeprom.html" class="btn btn-neutral float-right" title="EEPROM Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="defines.html" class="btn btn-neutral float-right" title="Defines and Constants" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -9,14 +9,6 @@
 #include "shiftregister.h"
 #include "defines.h"
 
-/**
-* @brief Initialize all 74HC595 shift register control pins
-* @details Sets all shift register pins to OUTPUT mode and initializes them to safe states.
-*          Clears the shift register on startup to ensure a known state.
-*          This function should be called once during system initialization.
-* @note Must be called before any shift register operations
-* @see clearShiftRegister()
-*/
 void setupShiftRegisterPins() {
 
     // Set shift register control pins as outputs
@@ -39,14 +31,10 @@ void setupShiftRegisterPins() {
 
 }
 
-/**
-* @brief Set the address lines on the EEPROM using the shift register
-* @param address The 16-bit address to set on the EEPROM
-* @details This function shifts out the address to the 74HC595 shift register(s) to set the address lines on the EEPROM.
-*          The implementation depends on the hardware configuration and how the shift registers are connected to the EEPROM address lines.
-*/
 void setAddress(uint16_t address) {
     // Shift out the address to the shift registers.
+
+    // TODO: Add error handling to check the address is in range.
 
     // Disable output
     digitalWrite(SEROE, HIGH);
