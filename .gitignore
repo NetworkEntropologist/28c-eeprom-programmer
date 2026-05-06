@@ -1,6 +1,7 @@
 .pio
 .vscode
 *.code-workspace
+*.lck
 
 .DS_Store
 
