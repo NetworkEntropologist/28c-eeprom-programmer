@@ -32,17 +32,33 @@ void setup() {
   setupShiftRegisterPins();
 
   // These are some testing methods used during debugging. Leaving them here, as they are useful for debugging purposes.
-  //writeTest(0x00, 0x2000);
+  //writeTest(0xaa, 0x8);
   //eraseTest(0x00, 0x000f);
   //delay(5000);
   //writeWozMon();
-  //quickReadTest(0x00, 0x2000);
+  // Read the EEPROM from WOZMON to the end of the address space
+  //quickReadTest(0x0000, 0x2000); 
 
 }
 
 void loop() {
 
+  if (Serial.available() > 0) {
   
+    String command = Serial.readStringUntil('\n');
+    command.trim(); // Remove any leading/trailing whitespace
+
+    if (command.equalsIgnoreCase("D")) {
+
+      // Read the entire EEPROM and send the raw bytes back over serial
+      for (uint16_t addr = 0; addr < 0x2000; addr++) {
+        uint8_t data = readByte(addr);
+        Serial.write(data);            
+      }
+
+    }
   
+  }
+
 }
 

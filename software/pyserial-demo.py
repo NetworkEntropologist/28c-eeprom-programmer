@@ -1,25 +1,42 @@
 
-import serial
+
+import sys
 import time
 
-ser = serial.Serial('/dev/cu.usbmodem141301', 115200)
+from serial import Serial
+from serial.tools import list_ports
 
-while not ser.in_waiting:
+port = Serial()
+port.port = '/dev/cu.usbserial-14310'
+port.baudrate = 115200
+port.bytesize = 8           # 8 data bits (standard)
+port.parity = 'N'           # No parity
+port.stopbits = 1           # 1 stop bit
+port.timeout = 1
+port.dtr = False            # Prevents Arduino from resetting when opening the port
+port.rts = False            # Disable RTS
+
+
+print('Opening port')
+port.open()
+
+print('Port opened')
+while not port.is_open:
     pass
+
+# Give the Arduino time to initialize after opening the port
+time.sleep(2)
+
+char_byte = bytes('D', 'utf-8')
+port.write(char_byte)
+port.flush()  # Ensure data is sent immediately
+
+time.sleep(0.05)  # Give Arduino time to echo back
 
 while True:
 
-    ser.write(b'A')
-    while not ser.in_waiting:
-        pass
-    return_line = ser.readline().decode('utf-8').rstrip()
-    print(return_line)
-
-    # ser.write(b'Hellorld!')
-    # while not ser.in_waiting:
-    #     pass
-    # return_line = ser.readline().decode('utf-8').rstrip()
-    # print(return_line)
-
-
+    if port.in_waiting > 0:
+        in_char = port.read()
+        print(f'{in_char}')
+        # print(f'{in_char.decode("utf-8")}')  # Print received character without newline
 

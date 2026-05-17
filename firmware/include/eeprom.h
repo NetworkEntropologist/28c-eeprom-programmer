@@ -12,13 +12,6 @@
 #include <Arduino.h>
 
 /**
- * @brief Global variable to track the current mode of the EEPROM (READ, WRITE, or STANDBY)
- * @details This variable is used to keep track of the current mode of the EEPROM so that the setMode function can 
- *          avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode.
- */
-extern ROMMode currentMode;
-
-/**
  * @brief Enumeration for the different modes the EEPROM can be in (READ, WRITE, STANDBY)
  * @details This enum is used to track the current mode of the EEPROM and to configure the control lines and data bus pins accordingly when changing modes. 
  *          The modes are:
@@ -31,6 +24,13 @@ enum ROMMode { // Current EEPROM mode
     READ,
     WRITE
 };
+
+/**
+ * @brief Global variable to track the current mode of the EEPROM (READ, WRITE, or STANDBY)
+ * @details This variable is used to keep track of the current mode of the EEPROM so that the setMode function can 
+ *          avoid unnecessary pin reconfigurations if the EEPROM is already in the desired mode.
+ */
+extern ROMMode currentMode;
 
 /**
  * @brief Initialize the EEPROM control and data pins
