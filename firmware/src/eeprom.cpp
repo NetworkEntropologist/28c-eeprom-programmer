@@ -11,7 +11,7 @@
 #include "shiftregister.h"
 #include "eeprom.h"
 
-ROMMode currentMode = STANDBY; // Global variable to track the current mode of the EEPROM (read/write/standby)
+ROMMode currentMode = ROMMode::STANDBY; // Global variable to track the current mode of the EEPROM (read/write/standby)
 
 void setupEEPROMPins() {
 
@@ -45,7 +45,7 @@ void setMode(ROMMode mode) {
     
     switch (mode)
     {
-    case WRITE:
+    case ROMMode::WRITE:
         digitalWrite(ROM_CE, LOW);
         digitalWrite(ROM_OE, HIGH);
         digitalWrite(ROM_WE, HIGH);
@@ -53,12 +53,12 @@ void setMode(ROMMode mode) {
         setDataDirection(OUTPUT);
         
         delayMicroseconds(GEN_DELAY);
-        currentMode = WRITE;
+        currentMode = ROMMode::WRITE;
         delayMicroseconds(GEN_DELAY);
         break;
 
-    case READ:
-        if (currentMode != READ) {
+    case ROMMode::READ:
+        if (currentMode != ROMMode::READ) {
             setDataDirection(INPUT);
 
             digitalWrite(ROM_CE, LOW);
@@ -66,11 +66,11 @@ void setMode(ROMMode mode) {
             digitalWrite(ROM_WE, HIGH);
 
             delayMicroseconds(GEN_DELAY);
-            currentMode = READ;
+            currentMode = ROMMode::READ;
         }
         break;
 
-    case STANDBY: // Default to standby mode
+    case ROMMode::STANDBY: // Default to standby mode
         setDataBus(0x00); // Clear the data bus when going to standby
         setDataDirection(INPUT); // Set data bus to input to avoid driving the lines
 
@@ -79,7 +79,7 @@ void setMode(ROMMode mode) {
         digitalWrite(ROM_WE, HIGH);
 
         delayMicroseconds(GEN_DELAY);
-        currentMode = STANDBY;
+        currentMode = ROMMode::STANDBY;
 
         break;
         
@@ -107,7 +107,7 @@ uint8_t writeByte(uint16_t address, byte data) {
     // Excuse the verbosity of the comments in this method, the timing on this is very sensitive and complex.
     
     // Start by making sure we are in standby mode
-    setMode(STANDBY);
+    setMode(ROMMode::STANDBY);
 
     // Make sure the data lines are set to output
     setDataDirection(OUTPUT);
@@ -143,7 +143,7 @@ uint8_t writeByte(uint16_t address, byte data) {
 
     // Now reset both busses back to defaults
     setDataBus(0x00);
-    setMode(STANDBY);
+    setMode(ROMMode::STANDBY);
     setDataDirection(INPUT);
     setAddress(0x0000);
     delayMicroseconds(GEN_DELAY);
@@ -155,7 +155,7 @@ uint8_t writeByte(uint16_t address, byte data) {
 
 uint8_t readByte(uint16_t address) {
     
-    setMode(READ);
+    setMode(ROMMode::READ);
     setAddress(address);
     delayMicroseconds(10);
 
@@ -163,7 +163,7 @@ uint8_t readByte(uint16_t address) {
     for (unsigned int i = 0; i < 8; i++) {
         val |= (digitalRead(D0 + i) << i);
     }
-    setMode(STANDBY);
+    setMode(ROMMode::STANDBY);
     
 
     return val;

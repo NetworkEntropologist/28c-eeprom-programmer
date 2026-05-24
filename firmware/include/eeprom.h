@@ -19,7 +19,7 @@
  *          - READ: The EEPROM is configured for reading, with control lines set to enable reading and data bus pins set as inputs.
  *          - WRITE: The EEPROM is configured for writing, with control lines set to enable writing and data bus pins set as outputs.
  */
-enum ROMMode { // Current EEPROM mode
+enum class ROMMode { // Current EEPROM mode
     STANDBY,
     READ,
     WRITE
