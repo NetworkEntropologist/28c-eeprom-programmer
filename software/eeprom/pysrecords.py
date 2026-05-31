@@ -3,6 +3,22 @@ from enum import Enum
 from struct import pack
 
 class SRecordType(Enum):
+    """
+    Enum representing valid S-record types.
+    
+    S-record types are used to categorize different types of records in the
+    Motorola S-record format, used for encoding programs and data.
+    
+    Attributes:
+        S0: Header record containing file metadata and description.
+        S1: Data record with 16-bit address.
+        S2: Data record with 24-bit address.
+        S3: Data record with 32-bit address.
+        S5: Count record specifying the number of S1/S2/S3 records.
+        S7: Start address record with 32-bit address (execution start point).
+        S8: Start address record with 24-bit address (execution start point).
+        S9: Start address record with 16-bit address (execution start point).
+    """
     S0 = 0
     S1 = 1
     S2 = 2
@@ -29,7 +45,7 @@ class SRecord:
         self._address = value
 
     @property
-    def data(self) -> bytearray:
+    def data(self) -> bytes:
         return self._data
     @data.setter
     def data(self, value: bytearray):
@@ -43,7 +59,16 @@ class SRecord:
     def packet(self) -> bytes:
         return self._packet
 
-    def __init__(self, record_type: SRecordType, address: int, data: bytearray):
+
+    def __init__(self, record_type: SRecordType, address: int, data: bytes):
+        """
+        Initialize an S-record with the given parameters.
+        
+        Args:
+            record_type (SRecordType): The type of S-record.
+            address (int): The start address for this record.
+            data (bytearray): The data bytes to store in this record.
+        """
 
         self._record_type = record_type
         self._address = address
