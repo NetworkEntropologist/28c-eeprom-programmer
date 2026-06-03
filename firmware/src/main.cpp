@@ -34,7 +34,7 @@ void setup() {
   //writeTest(0x00, 0x2000);
   eraseTest(0x00, 0x000f);
   //delay(5000);
-  //writeWozMon();
+  writeWozMon();
   quickReadTest(0x00, 0x2000);
 
 }
