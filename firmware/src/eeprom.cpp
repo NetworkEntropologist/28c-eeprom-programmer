@@ -218,9 +218,9 @@ uint8_t writeByte(uint16_t address, byte data) {
     digitalWrite(ROM_WE, HIGH);
     delayMicroseconds(tDH);
 
-    // One last delay, just to make sure the chip is done
-    //delay(tWC);
-    delayMicroseconds(GEN_DELAY);
+    // Wait for tWC (write cycle time), which is the time the EEPROM needs to internally program the cell.
+    // This is typically 10ms for 28C64, much longer than the pulse width itself!
+    delayMicroseconds(tWC);
 
     // Now reset both busses back to defaults
     setDataBus(0x00);
@@ -266,23 +266,6 @@ uint8_t writeTimingTest(uint16_t address, byte data) {
  *          result of the read operation.
  */
 uint8_t readByte(uint16_t address) {
-    // byte data = 0;
-
-    // setAddress(address);
-    // delayMicroseconds(ADDR_DELAY);
-
-    // setMode(READ);
-    // delayMicroseconds(GEN_DELAY);
-    // digitalWrite(ROM_CE, LOW);
-    // delayMicroseconds(READ_DELAY);
-    // digitalWrite(ROM_OE, LOW);
-    // delayMicroseconds(READ_DELAY);
-
-    // for (int pin = D0; pin <= D7; pin++) {
-    //     data |= (digitalRead(pin) << pin);
-    // }
-
-    // setMode(STANDBY);
 
     setMode(READ);
     setAddress(address);

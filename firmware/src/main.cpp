@@ -21,6 +21,7 @@
 #include "shiftregister.h"
 #include "debugging.h"
 #include "wozmon.h"
+#include "serialio.h"
 
 void setup() {
   
@@ -32,16 +33,35 @@ void setup() {
   setupShiftRegisterPins();
 
   //writeTest(0x00, 0x2000);
-  eraseTest(0x00, 0x000f);
+  //eraseTest(0x00, 0x2000);
   //delay(5000);
-  writeWozMon();
-  quickReadTest(0x00, 0x2000);
+  //writeWozMon();
+  //quickReadTest(0x00, 0x2000);
 
 }
 
 void loop() {
 
+  if (Serial.available() > 0) {
+    digitalWrite(ACTIVITY_LED, HIGH); // LED on to indicate a serial command is being processed
+
+    byte buffer[MAX_PAYLOAD];
+
+    const int len = serialReceive(buffer, sizeof(buffer), false);
+
+    if (len > 0) {
+      int command_valid = verifyCommand(buffer);
+      if (command_valid != 0) { // Invalid command packet received
+        sendErrorResponse();
+      }
+      else { // Valid command packet received
+        processSerialCommand();
+      }
+    }
+
+    digitalWrite(ACTIVITY_LED, LOW);
   
+  }
   
 }
 

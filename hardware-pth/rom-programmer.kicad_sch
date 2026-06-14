@@ -4703,7 +4703,7 @@
 		)
 		(uuid "35d8da69-a9fe-4c68-a6f4-f40cbaf79400")
 	)
-	(label "CRCLR"
+	(label "~{SRCLR}"
 		(at 99.06 46.99 0)
 		(effects
 			(font
@@ -4733,7 +4733,7 @@
 		)
 		(uuid "3b101207-ba0a-4cb1-a126-10563bce2723")
 	)
-	(label "CRCLR"
+	(label "~{SRCLR}"
 		(at 151.13 46.99 0)
 		(effects
 			(font
@@ -4973,7 +4973,7 @@
 		)
 		(uuid "a8c4756b-c6af-4321-b1c2-335ebad4a759")
 	)
-	(label "~{SER_OE}"
+	(label "~{SEROE}"
 		(at 99.06 54.61 0)
 		(effects
 			(font
@@ -5043,7 +5043,7 @@
 		)
 		(uuid "c50da53a-ee26-4684-ab36-e00652734291")
 	)
-	(label "~{SER_OE}"
+	(label "~{SEROE}"
 		(at 151.13 54.61 0)
 		(effects
 			(font
@@ -6480,7 +6480,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "2.2uF"
 			(at 195.58 38.1062 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6787,7 +6787,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "2.2uF"
 			(at 203.2 59.6962 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7885,7 +7885,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "2.2uF"
 			(at 78.74 35.5662 0)
 			(show_name no)
 			(do_not_autoplace no)

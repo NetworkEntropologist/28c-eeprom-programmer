@@ -30,23 +30,23 @@ time.sleep(2)
 
 def build_read_command(address: int) -> bytes:
 
-    # Command format: Big Endian, start byte, command byte, address (2 bytes)
-    format_string = '>BBH'
+    # Command format: Big Endian, start byte, length, command byte, address (2 bytes)
+    format_string = '>BBBH'
 
     cmd_byte = 'R'.encode('utf-8')[0]
-    return pack(format_string, 0x01, cmd_byte, address)    
+    return pack(format_string, 0x01, 0x03, cmd_byte, address)    
 
 def build_write_command(address: int, data: int) -> bytes:
     
-    # Command format: Big Endian, start byte, command byte, address (2 bytes), data byte
-    format_string = '>BBHB'
+    # Command format: Big Endian, start byte, length, command byte, address (2 bytes), data byte
+    format_string = '>BBBHB'
 
     cmd_byte = 'W'.encode('utf-8')[0]
-    return pack(format_string, 0x01, cmd_byte, address, data)
+    return pack(format_string, 0x01, 0x04, cmd_byte, address, data)
 
 while True:
     
-    command = input('Enter command (R=read, W=write, D=dump, E=erase, L=load, X=reset, Q=quit): ').strip().upper()
+    command = input('Enter command (R=read, W=write, Q=quit): ').strip().upper()
 
     cmd = bytearray()
 
@@ -57,7 +57,6 @@ while True:
     elif command == 'W':
         address = int(input('Enter address to write (hex): '), 16)
         data = int(input('Enter data to write (hex): '), 16)
-        print(data)
         cmd = build_write_command(address=address, data=data)
         
     elif command == 'R':

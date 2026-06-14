@@ -1,0 +1,4 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"C1, C6, C9",0805,3,1uF,
+"C10, C11, C2, C3, C4, C5, C7, C8",0402,8,0.1uF,
+"U1, U2",SOP-16_4.55x10.3mm_P1.27mm,2,74HC595,

@@ -9,6 +9,10 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
+#define ACTIVITY_LED 13 // Arduino pin D13 connected to activity LED
+#define MAX_PAYLOAD 8
+
+
 // EEPROM Control Pins
 #define ROM_WE 14 // Arduino pin D14 (A0) connected to EEPROM /WE (active low)
 #define ROM_OE 15 // Arduino pin D15 (A1) connected to EEPROM /OE (active low)
@@ -37,14 +41,15 @@
 #define tOES 1 // Output enable setup time in microseconds
 #define tAH 5 // Address hold time in microseconds
 #define tWP 10 // Write pulse width in microseconds
-#define tDS 5 // Data setup time in microseconds
+#define tDS 5 // Data setup time in microseconds (reverted to 5)
 #define tDH 5 // Data hold time in microseconds
 #define tOEH 1 // Output enable hold time in microseconds
 #define tCS 1 // Chip select setup time in microseconds
 #define tCH 1 // Chip select hold time in microseconds
 #define tDB 5 // Device busy time in microseconds
-#define tWC 2 // Write cycle time in miliseconds (!!!)
-
+// The datasheet specifies a tWC between 200us andd 1ms. Setting this to 3ms to give a good margin for reliable
+// operation, as anything lower starts introducing glitches and incorrectly written bytes.
+#define tWC 5000 // Write cycle time in microseconds
 
 //#define MAX_ADDRESS 0x7FFF // Maximum address for 28C512 EEPROM (32KB)
 #define MAX_ADDRESS 0x2000 // Maximum address for 28C64 EEPROM (8KB)
