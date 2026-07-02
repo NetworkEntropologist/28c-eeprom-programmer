@@ -8,7 +8,7 @@ errorCode error = errorCode::OK;
 validCommands current_command;
 byte packet_data[MAX_PAYLOAD - 1];
 
-byte in_buffer[MAX_PAYLOAD]; // +1 for the command byte
+// byte in_buffer[MAX_PAYLOAD]; // +1 for the command byte
 byte out_buffer[MAX_PAYLOAD]; // +1 for the length byte, +1 for the command byte
 
 bool respond = false;
@@ -21,43 +21,55 @@ uint8_t calcChecksum(byte* data, uint8_t length) {
     return ~checksum; // Return the one's complement of the sum
 }
 
-uint8_t serialReceive(uint8_t length, bool Ack) {
-    int l;
+uint8_t serialReceive(byte *buffer, uint8_t length, bool Ack) {
+    int frameStart;
     
+    // Read and validate frame start byte (0x01)
     do {
-        l = Serial.readBytes(in_buffer, 24);
-    } while (l == -1); 
-
-    if (l > 0) {
-        if (Serial.readBytes(in_buffer, min(l, length)) != 1) {
-            error = errorCode::CORRUPT;
-            return -1;
-        }
+        frameStart = Serial.read();
+    } while (frameStart == -1);  // Wait for frame start
+    
+    if (frameStart != 0x01) {
+        error = errorCode::CORRUPT;
+        return -1;  // Invalid frame start
     }
-
-    if (Ack && serialSend(false) == -1) {
-        error = errorCode::UNEXPECTED;
+    
+    // Frame start is valid, store it in buffer
+    buffer[0] = frameStart;
+    
+    // Read the rest of the packet (command + payload)
+    // We expect: command (1 byte) + up to (length - 1) bytes of payload
+    int bytesRead = Serial.readBytes(&buffer[1], length - 1);
+    
+    if (bytesRead <= 0) {
+        error = errorCode::CORRUPT;
         return -1;
     }
-
-    // Serial.write(l); // Echo the length of the received packet back to the sender for verification
-    return l;
+    
+    // Send ACK if requested
+    if (Ack) {
+        byte ackByte = 0x06;  // ACK
+        Serial.write(&ackByte, 1);
+    }
+    
+    // Return total bytes read (frame start + payload)
+    return bytesRead + 1;
 }
 
-uint8_t serialSend(bool Ack) {
+uint8_t serialSend(byte *buffer, uint8_t length, bool Ack) {
     // uint8_t length = out_buffer[0]; // Get length from the first byte of the buffer
     // if (length > 0) {
     //     Serial.write(out_buffer, length + 1);
     // }
 
-    Serial.write(out_buffer, 24);
+    Serial.write(buffer, length); // Write the buffer to the UART
 
-    if (Ack) {
-        byte ackByte = 0x06; // ACK
-        Serial.write(&ackByte, 1);
-    }
+    // if (Ack) {
+    //     byte ackByte = 0x06; // ACK
+    //     Serial.write(&ackByte, 1);
+    // }
     // Clear the output buffer after sending
-    memset(out_buffer, 0, sizeof(out_buffer));
+    // memset(out_buffer, 0, sizeof(out_buffer));
     return 0;
 }
 
@@ -66,51 +78,40 @@ uint8_t sendErrorResponse() {
     byte errorByte = static_cast<byte>(error);
     out_buffer[0] = error_command;
     out_buffer[1] = errorByte;
-    return serialSend(false);
+    return serialSend(out_buffer, 2, false);
 }
 
-uint8_t parseCommand() {
+uint8_t verifyCommand(byte *buffer) {
 
     // Start by extracting the length byte and command bytes
-    uint8_t start_char = in_buffer[0];
-    byte command = in_buffer[1];
+    // uint8_t start_char = buffer[0];
+    byte command = buffer[2];
     
-
-    // First check - is the packet length below the max payload size?
-    // if (length > MAX_PAYLOAD) {
-    //     error = errorCode::CORRUPT;
-    //     return -1; // Invalid packet length
-    // }
-
-    // Now check if the command is valid and the payload length is correct
-    // uint8_t packet_length = sizeof(in_buffer) - 2; // Total packet length minus startchar and length byte
-
-    // if (length != packet_length) {
-    //     error = errorCode::CORRUPT;
-    //     return -1; // Invalid packet length
-    // }
-
-    // Last check - is the command byte valid?
     switch (command) {
         case static_cast<byte>(validCommands::READ):
+            current_command = static_cast<validCommands>(command);
+            memcpy(packet_data, &buffer[3], 2);
             break;
         case static_cast<byte>(validCommands::WRITE):
+            current_command = static_cast<validCommands>(command);
+            memcpy(packet_data, &buffer[3], 3);
             break;
         case static_cast<byte>(validCommands::DUMP):
+            current_command = static_cast<validCommands>(command);
             break;
         case static_cast<byte>(validCommands::ERASE):
+            current_command = static_cast<validCommands>(command);
             break;
         case static_cast<byte>(validCommands::LOAD):
+            current_command = static_cast<validCommands>(command);
             break;
         case static_cast<byte>(validCommands::RESET):
+            current_command = static_cast<validCommands>(command);
             break; 
         default:
             error = errorCode::UNEXPECTED;
             return -1; // Invalid command byte
     }
-
-    current_command = static_cast<validCommands>(command);
-    memcpy(packet_data, &in_buffer[2], 23);
 
     return 0; // Valid packet
 }
@@ -153,48 +154,39 @@ uint8_t processSerialCommand() {
 
 uint8_t processReadCommand() {
 
-    uint16_t address = (packet_data[3] << 8) | packet_data[4]; // Big-endian address from packet
+    uint16_t address = (packet_data[0] << 8) | packet_data[1]; // Big-endian address from packet
     uint8_t data = readByte(address);
 
-    out_buffer[0] = 0x01; // Length byte for response (1 byte of data)
-    out_buffer[1] = 0x06; // ACK byte for response
-    out_buffer[2] = 0x53; // Start of response in S Record format
-    out_buffer[3] = 0x01; // S-Record type
-    out_buffer[4] = 4; // Response byte count
-    out_buffer[5] = address >> 8; // High byte of the address
-    out_buffer[6] = address & 0xFF; // Low byte of the address
-    out_buffer[7] = data; // Data byte
+    byte buffer[5];
 
-    for (int i = 8; i < 22; i++) {
-        out_buffer[i] = 0; // The rest of the response is set to 0
-    }
-
-    // Checksums will be implemented in the future. For now we can simply set this to 0
-    out_buffer[22] = 0;
-
-    return serialSend(false); // Send response with ACK
+    buffer[0] = 0x01; // Start byte
+    buffer[1] = 0x03; // Payload length
+    buffer[2] = address >> 8; // High byte of the address
+    buffer[3] = address & 0xFF; // Low byte of the address
+    buffer[4] = data; // Data byte read from the EEPROM
+    
+    return serialSend(buffer, 5, false); // Send response with ACK
 
 }
 
 uint8_t processWriteCommand() {
 
-    uint16_t address = (packet_data[3] << 8) | packet_data[4]; // Big-endian address from packet
-    uint8_t data = packet_data[5]; // Data byte to write
+    uint16_t address = (packet_data[0] << 8) | packet_data[1]; // Big-endian address from packet
+    uint8_t data = packet_data[2]; // Data byte to write
     writeByte(address, data);
-    uint8_t written_data = readByte(address); // Read back the written data for verification
-    if (written_data != data) {
-        error = errorCode::CORRUPT;
-        sendErrorResponse();
-        return -1; // Write verification failed
-    }
+    
+    // Add delay to allow EEPROM to stabilize after write before verification read
+    delayMicroseconds(1000); // 1ms additional delay for data stabilization
     
     // Build the response packet with the written data
-    out_buffer[0] = 3; // Length byte for response, 2 byte for the address, 1 byte for the data at that address
-    out_buffer[1] = address >> 8; // High byte of the address
-    out_buffer[2] = address & 0xFF; // Low byte of the address
-    out_buffer[3] = data; // Data byte
+    byte buffer[5];
+    buffer[0] = 0x01; // Start byte
+    buffer[1] = 0x03; // Payload length
+    buffer[2] = address >> 8; // High byte of the address
+    buffer[3] = address & 0xFF; // Low byte of the address
+    buffer[4] = data; // Data byte
 
-    return serialSend(true); // Send response with ACK
+    return serialSend(buffer, 5, false); // Send response with ACK
 
 }
 

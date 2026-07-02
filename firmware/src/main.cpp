@@ -19,34 +19,24 @@
 #include "defines.h"
 #include "eeprom.h"
 #include "shiftregister.h"
-#include "serialio.h"
 #include "debugging.h"
 #include "wozmon.h"
+#include "serialio.h"
 
 void setup() {
   
   Serial.begin(SERIAL_BAUD);
-  Serial.setTimeout(SERIAL_TIMEOUT);
-  pinMode(ACTIVITY_LED, OUTPUT);
 
   setupEEPROMPins();
 
   // Setup the shift register control pins
   setupShiftRegisterPins();
 
-  // Clear the serial buffers
-  memset(in_buffer, 0, sizeof(in_buffer));
-  memset(out_buffer, 0, sizeof(out_buffer));
-
-  //Serial.println("READY");
-
-  // These are some testing methods used during debugging. Leaving them here, as they are useful for debugging purposes.
-  //writeTest(0xaa, 0x8);
-  //eraseTest(0x00, 0x000f);
+  //writeTest(0x00, 0x2000);
+  //eraseTest(0x00, 0x2000);
   //delay(5000);
   //writeWozMon();
-  // Read the EEPROM from WOZMON to the end of the address space
-  //quickReadTest(0x0000, 0x2000); 
+  //quickReadTest(0x00, 0x2000);
 
 }
 
@@ -55,10 +45,12 @@ void loop() {
   if (Serial.available() > 0) {
     digitalWrite(ACTIVITY_LED, HIGH); // LED on to indicate a serial command is being processed
 
-    const int len = serialReceive(sizeof(in_buffer), true);
+    byte buffer[MAX_PAYLOAD];
+
+    const int len = serialReceive(buffer, sizeof(buffer), false);
 
     if (len > 0) {
-      int command_valid = parseCommand();
+      int command_valid = verifyCommand(buffer);
       if (command_valid != 0) { // Invalid command packet received
         sendErrorResponse();
       }
@@ -67,15 +59,9 @@ void loop() {
       }
     }
 
-    // Clear the input buffer
-    memset(in_buffer, 0, sizeof(in_buffer));
-      
-    // String command = Serial.readStringUntil('\n');
-    // command.trim(); // Remove any leading/trailing whitespace
-
     digitalWrite(ACTIVITY_LED, LOW);
   
   }
-
+  
 }
 

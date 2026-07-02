@@ -28,7 +28,7 @@ enum class validCommands {
 extern errorCode error;
 extern validCommands current_command;
 extern byte packet_data[MAX_PAYLOAD -1];
-extern byte in_buffer[MAX_PAYLOAD]; // Serial input buffer
+// extern byte in_buffer[MAX_PAYLOAD]; // Serial input buffer
 extern byte out_buffer[MAX_PAYLOAD]; // Serial output buffer
 
 extern bool respond; // Should the Arduino respond after receiving a command?
@@ -42,14 +42,14 @@ extern bool respond; // Should the Arduino respond after receiving a command?
  *          The serial communication is designed to be robust, with error codes defined for various failure scenarios.
  *          The activity LED on the Arduino is used to indicate when a serial command is being processed, providing visual feedback during programming operations.
  */
-uint8_t serialReceive(uint8_t length, bool Ack);
+uint8_t serialReceive(byte *buffer, uint8_t length, bool Ack);
 
 /**
  * @brief Send data over the serial connection to the Python control script
  * @param Ack If true, the Arduino will send an ACK byte (0x06) after sending the data. If false, no ACK will be sent.
  * @return Returns 0 on success, or -1 on failure (e.g. if the serial connection is not available). In case of failure, the global error variable will be set to an appropriate error code. 
  */
-uint8_t serialSend(bool Ack);
+uint8_t serialSend(byte *buffer, uint8_t length, bool Ack);
 
 /**
  * @brief Send an error response over the serial connection to the Python control script
@@ -59,11 +59,11 @@ uint8_t serialSend(bool Ack);
 uint8_t sendErrorResponse();
 
 /**
- * @brief Parse a received command from the Python control script to confirm it is a valid command packet
+ * @brief Verify a received command from the Python control script to confirm it is a valid command packet
  * @param buffer Pointer to the buffer containing the received command and its payload
  * @return Returns 0 if valid packet and -1 if invalid
  */
-uint8_t parseCommand();
+uint8_t verifyCommand(byte *buffer);
 
 /**
  * @brief Build a response packet to send back to the Python control script after processing a command
