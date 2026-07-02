@@ -1,0 +1,53 @@
+\doxysection{firmware/include/shiftregister.h File Reference}
+\hypertarget{shiftregister_8h}{}\label{shiftregister_8h}\index{firmware/include/shiftregister.h@{firmware/include/shiftregister.h}}
+
+
+Shift register control logic for 28Cx EEPROM programmer.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{shiftregister_8h_a230620afa578b202c7084b4a19222987}{setup\+Shift\+Register\+Pins}} ()
+\begin{DoxyCompactList}\small\item\em Initialize all 74HC595 shift register control pins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shiftregister_8h_af768db025489be1159ec18a8fc4edb7d}{set\+Address}} (uint16\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Set the address lines on the EEPROM using the shift register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Shift register control logic for 28Cx EEPROM programmer. 
+
+Contains functions for setting up and controlling the shift register. This includes pin initialization and any low-\/level control functions needed to interface with the shift register. 
+
+\label{doc-func-members}
+\Hypertarget{shiftregister_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{shiftregister_8h_af768db025489be1159ec18a8fc4edb7d}\index{shiftregister.h@{shiftregister.h}!setAddress@{setAddress}}
+\index{setAddress@{setAddress}!shiftregister.h@{shiftregister.h}}
+\doxysubsubsection{\texorpdfstring{setAddress()}{setAddress()}}
+{\footnotesize\ttfamily \label{shiftregister_8h_af768db025489be1159ec18a8fc4edb7d} 
+void set\+Address (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Set the address lines on the EEPROM using the shift register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The 16-\/bit address to set on the EEPROM\\
+\hline
+\end{DoxyParams}
+This function shifts out the address to the 74HC595 shift register(s) to set the address lines on the EEPROM. The implementation depends on the hardware configuration and how the shift registers are connected to the EEPROM address lines. \Hypertarget{shiftregister_8h_a230620afa578b202c7084b4a19222987}\index{shiftregister.h@{shiftregister.h}!setupShiftRegisterPins@{setupShiftRegisterPins}}
+\index{setupShiftRegisterPins@{setupShiftRegisterPins}!shiftregister.h@{shiftregister.h}}
+\doxysubsubsection{\texorpdfstring{setupShiftRegisterPins()}{setupShiftRegisterPins()}}
+{\footnotesize\ttfamily \label{shiftregister_8h_a230620afa578b202c7084b4a19222987} 
+void setup\+Shift\+Register\+Pins (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize all 74HC595 shift register control pins. 
+
+Sets all shift register pins to OUTPUT mode and initializes them to safe states. Clears the shift register on startup to ensure a known state. This function should be called once during system initialization. \begin{DoxyNote}{Note}
+Must be called before any shift register operations 
+\end{DoxyNote}

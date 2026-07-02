@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debugging Module &mdash; 28C EEPROM Programmer  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="WozMon Module" href="wozmon.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            28C EEPROM Programmer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Hardware Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="defines.html">Defines and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shiftregister.html">Shift Register Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eeprom.html">EEPROM Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wozmon.html">WozMon Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Debugging Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv415addressTestLoopv"><code class="docutils literal notranslate"><span class="pre">addressTestLoop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv415addressWalkReadv"><code class="docutils literal notranslate"><span class="pre">addressWalkRead()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv413quickReadTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">quickReadTest()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv49writeTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">writeTest()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv49eraseTest8uint16_t8uint16_t"><code class="docutils literal notranslate"><span class="pre">eraseTest()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">28C EEPROM Programmer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Debugging Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="debugging-module">
+<h1>Debugging Module<a class="headerlink" href="#debugging-module" title="Link to this heading"></a></h1>
+<p>Debugging utilities for 28Cx EEPROM programmer firmware. </p>
+<p>EEPROM Programmer Firmware</p>
+<p>Contains functions for debugging and testing the EEPROM programmer firmware. This may include functions for testing pin states, timing, and communication with the Python control script. These functions can be called from the main loop or setup to verify correct operation of the hardware and firmware. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These functions (w)ere used while debugging the initial release of this firmware and as such is provided as-is, without any further documentation or comments. They may be useful for future debugging and testing, but are not intended for regular use in the main firmware operation. </p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415addressTestLoopv">
+<span id="_CPPv315addressTestLoopv"></span><span id="_CPPv215addressTestLoopv"></span><span id="addressTestLoop"></span><span class="target" id="debugging_8h_1a59e1e24701095ec3ce6364dcebedcf4e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addressTestLoop</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415addressTestLoopv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415addressWalkReadv">
+<span id="_CPPv315addressWalkReadv"></span><span id="_CPPv215addressWalkReadv"></span><span id="addressWalkRead"></span><span class="target" id="debugging_8h_1a20d5ed84fb218add21cd2274a38f0b11"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addressWalkRead</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415addressWalkReadv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413quickReadTest8uint16_t8uint16_t">
+<span id="_CPPv313quickReadTest8uint16_t8uint16_t"></span><span id="_CPPv213quickReadTest8uint16_t8uint16_t"></span><span id="quickReadTest__uint16_t.uint16_t"></span><span class="target" id="debugging_8h_1ae196f049c3a0b207119caca684b601c7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">quickReadTest</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">startAddress</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">endAddress</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413quickReadTest8uint16_t8uint16_t" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49writeTest8uint16_t8uint16_t">
+<span id="_CPPv39writeTest8uint16_t8uint16_t"></span><span id="_CPPv29writeTest8uint16_t8uint16_t"></span><span id="writeTest__uint16_t.uint16_t"></span><span class="target" id="debugging_8h_1a3c3c673380892f0e4194b3c9333fbe73"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">writeTest</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">startAddress</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">endAddress</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49writeTest8uint16_t8uint16_t" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49eraseTest8uint16_t8uint16_t">
+<span id="_CPPv39eraseTest8uint16_t8uint16_t"></span><span id="_CPPv29eraseTest8uint16_t8uint16_t"></span><span id="eraseTest__uint16_t.uint16_t"></span><span class="target" id="debugging_8h_1aad14d0618a2d4850fb39276cf292c4ad"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">eraseTest</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">startAddress</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">endAddress</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49eraseTest8uint16_t8uint16_t" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="wozmon.html" class="btn btn-neutral float-left" title="WozMon Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, The Network Entropologist.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

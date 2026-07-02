@@ -10,8 +10,21 @@
 
 #include <Arduino.h>
 
+/**
+* @brief Initialize all 74HC595 shift register control pins
+* @details Sets all shift register pins to OUTPUT mode and initializes them to safe states.
+*          Clears the shift register on startup to ensure a known state.
+*          This function should be called once during system initialization.
+* @note Must be called before any shift register operations
+*/
 void setupShiftRegisterPins();
-void clearShiftRegister();
+
+/**
+* @brief Set the address lines on the EEPROM using the shift register
+* @param address The 16-bit address to set on the EEPROM
+* @details This function shifts out the address to the 74HC595 shift register(s) to set the address lines on the EEPROM.
+*          The implementation depends on the hardware configuration and how the shift registers are connected to the EEPROM address lines.
+*/
 void setAddress(uint16_t address);
 
 #endif // SHIFTREGISTER_H

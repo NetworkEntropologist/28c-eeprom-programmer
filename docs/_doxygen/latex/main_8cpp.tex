@@ -1,0 +1,34 @@
+\doxysection{firmware/src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{firmware/src/main.cpp@{firmware/src/main.cpp}}
+
+
+Arduino Nano firmware for 28Cx EEPROM programmer.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}defines.\+h"{}}\newline
+{\ttfamily \#include "{}eeprom.\+h"{}}\newline
+{\ttfamily \#include "{}shiftregister.\+h"{}}\newline
+{\ttfamily \#include "{}debugging.\+h"{}}\newline
+{\ttfamily \#include "{}wozmon.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void {\bfseries setup} ()
+\item 
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void {\bfseries loop} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Arduino Nano firmware for 28Cx EEPROM programmer. 
+
+\begin{DoxyAuthor}{Author}
+The Network Entropologist 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1
+\end{DoxyVersion}
+Supports programming of 28C16, 28C64, 28C256, and 28C512 EEPROMs. Hardware\+: Arduino Nano with 74HC595 shift registers. Driven by Python control script. Inspired by \href{https://github.com/beneater/eeprom-programmer}{\texttt{https\+://github.\+com/beneater/eeprom-\/programmer}} Pin assignments and timing parameters are defined in \doxylink{defines_8h}{include/defines.\+h}. Update pin assignments based on your own hardware design. Update timing parameters as needed for reliable programming. Best to consult the datasheet of the specific EEPROM being programmed for timing requirements. Suggest 100us as a starting point for programming timing. @license MIT License (See LICENSE-\/\+MIT file in project root) 

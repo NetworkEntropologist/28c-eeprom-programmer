@@ -1,0 +1,57 @@
+\doxysection{defines.\+h}
+\hypertarget{defines_8h_source}{}\label{defines_8h_source}\index{firmware/include/defines.h@{firmware/include/defines.h}}
+\mbox{\hyperlink{defines_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ DEFINES\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ DEFINES\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ EEPROM\ Control\ Pins}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ ROM\_WE\ 14}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ROM\_OE\ 15}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ ROM\_CE\ 16}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ EEPROM\ Data\ Pins}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ D0\ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ D7\ 9}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ 74HC595\ Shift\ Register\ Control\ Pins}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ SRCLK\ 12}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ SRCLR\ 17}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ RCLK\ 10}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ SEROE\ 18}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ DATA\ 11}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ Timing\ Parameters}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ WRITE\_DELAY\ 10\ }\textcolor{comment}{//\ Delay\ in\ microseconds\ for\ programming\ operations}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ READ\_DELAY\ 1\ }\textcolor{comment}{//\ Delay\ in\ microseconds\ for\ read\ operations}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ ADDR\_DELAY\ 1\ }\textcolor{comment}{//\ Delay\ in\ microseconds\ for\ address\ setup}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ DATA\_DELAY\ 1\ }\textcolor{comment}{//\ Delay\ in\ microseconds\ for\ data\ setup}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ GEN\_DELAY\ 10\ }\textcolor{comment}{//\ General\ delay\ in\ microseconds}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ More\ timing\ parameters}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ tAS\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ tOES\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ tAH\ 5}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ tWP\ 10}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ tDS\ 5}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ tDH\ 5}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ tOEH\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ tCS\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ tCH\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ tDB\ 5}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ tWC\ 2}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ MAX\_ADDRESS\ 0x2000}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ Debug\ parameters}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ DEBUG\_DATA\ 0xA9}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ DEBUG\_DELAY\ 250}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ Serial\ comms\ parameters}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ SERIAL\_BAUD\ 115200}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DEFINES\_H}}
+
+\end{DoxyCode}

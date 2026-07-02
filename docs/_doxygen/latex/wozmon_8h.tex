@@ -1,0 +1,63 @@
+\doxysection{firmware/include/wozmon.h File Reference}
+\hypertarget{wozmon_8h}{}\label{wozmon_8h}\index{firmware/include/wozmon.h@{firmware/include/wozmon.h}}
+
+
+Header file for WOZMON monitor code and related functions.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{wozmon_8h_ab64f1beee79bed2a4dbfca110a0febd9}{write\+Woz\+Mon}} ()
+\begin{DoxyCompactList}\small\item\em Write the WOZMON monitor code to the EEPROM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{wozmon_8h_ad44708fa7044c849654b2aa0301e49f2}{WOZMON\+\_\+\+START\+\_\+\+ADDRESS}} = 0x1\+F01
+\item 
+const byte \mbox{\hyperlink{wozmon_8h_ad5e94373f42ba39c9bf6180056c66969}{WOZMON\+\_\+\+CODE}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for WOZMON monitor code and related functions. 
+
+This file contains the declaration of the \doxylink{wozmon_8h_ab64f1beee79bed2a4dbfca110a0febd9}{write\+Woz\+Mon()} function, which is responsible for writing the WOZMON monitor code to the EEPROM. It also defines the starting address for the WOZMON code in the EEPROM. 
+
+\label{doc-func-members}
+\Hypertarget{wozmon_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{wozmon_8h_ab64f1beee79bed2a4dbfca110a0febd9}\index{wozmon.h@{wozmon.h}!writeWozMon@{writeWozMon}}
+\index{writeWozMon@{writeWozMon}!wozmon.h@{wozmon.h}}
+\doxysubsubsection{\texorpdfstring{writeWozMon()}{writeWozMon()}}
+{\footnotesize\ttfamily \label{wozmon_8h_ab64f1beee79bed2a4dbfca110a0febd9} 
+void write\+Woz\+Mon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Write the WOZMON monitor code to the EEPROM. 
+
+Write the WOZMON monitor code to the EEPROM starting at the address defined by WOZMON\+\_\+\+START\+\_\+\+ADDRESS. \begin{DoxySeeAlso}{See also}
+\doxylink{wozmon_8h_ad44708fa7044c849654b2aa0301e49f2}{WOZMON\+\_\+\+START\+\_\+\+ADDRESS} 
+
+\doxylink{wozmon_8h_ad5e94373f42ba39c9bf6180056c66969}{WOZMON\+\_\+\+CODE} 
+\end{DoxySeeAlso}
+
+
+\label{doc-var-members}
+\Hypertarget{wozmon_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{wozmon_8h_ad5e94373f42ba39c9bf6180056c66969}\index{wozmon.h@{wozmon.h}!WOZMON\_CODE@{WOZMON\_CODE}}
+\index{WOZMON\_CODE@{WOZMON\_CODE}!wozmon.h@{wozmon.h}}
+\doxysubsubsection{\texorpdfstring{WOZMON\_CODE}{WOZMON\_CODE}}
+{\footnotesize\ttfamily \label{wozmon_8h_ad5e94373f42ba39c9bf6180056c66969} 
+const byte WOZMON\+\_\+\+CODE\mbox{[}$\,$\mbox{]}}
+
+WOZMON monitor code to be written to the EEPROM \Hypertarget{wozmon_8h_ad44708fa7044c849654b2aa0301e49f2}\index{wozmon.h@{wozmon.h}!WOZMON\_START\_ADDRESS@{WOZMON\_START\_ADDRESS}}
+\index{WOZMON\_START\_ADDRESS@{WOZMON\_START\_ADDRESS}!wozmon.h@{wozmon.h}}
+\doxysubsubsection{\texorpdfstring{WOZMON\_START\_ADDRESS}{WOZMON\_START\_ADDRESS}}
+{\footnotesize\ttfamily \label{wozmon_8h_ad44708fa7044c849654b2aa0301e49f2} 
+const uint16\+\_\+t WOZMON\+\_\+\+START\+\_\+\+ADDRESS = 0x1\+F01}
+
+Starting address for the WOZMON monitor code in the EEPROM 

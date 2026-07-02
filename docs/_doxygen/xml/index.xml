@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.14.0" xml:lang="en-US">
+  <compound refid="debugging_8h" kind="file"><name>debugging.h</name>
+    <member refid="debugging_8h_1a59e1e24701095ec3ce6364dcebedcf4e" kind="function"><name>addressTestLoop</name></member>
+    <member refid="debugging_8h_1a20d5ed84fb218add21cd2274a38f0b11" kind="function"><name>addressWalkRead</name></member>
+    <member refid="debugging_8h_1ae196f049c3a0b207119caca684b601c7" kind="function"><name>quickReadTest</name></member>
+    <member refid="debugging_8h_1a3c3c673380892f0e4194b3c9333fbe73" kind="function"><name>writeTest</name></member>
+    <member refid="debugging_8h_1aad14d0618a2d4850fb39276cf292c4ad" kind="function"><name>eraseTest</name></member>
+  </compound>
+  <compound refid="defines_8h" kind="file"><name>defines.h</name>
+    <member refid="defines_8h_1afae8930bb534ee26131ed1798c00b8d6" kind="define"><name>ROM_WE</name></member>
+    <member refid="defines_8h_1ad64529dc156c3bdcd452cd47569b77d0" kind="define"><name>ROM_OE</name></member>
+    <member refid="defines_8h_1aa0bb35b764716f7a257cfa18efeee763" kind="define"><name>ROM_CE</name></member>
+    <member refid="defines_8h_1ae0b2360d4b8e961bf2709b0663fd9f2a" kind="define"><name>D0</name></member>
+    <member refid="defines_8h_1a2ba78f059a7ebebc95e7beef690e88d6" kind="define"><name>D7</name></member>
+    <member refid="defines_8h_1aac4e779549d986cb2818b94d2a1a2931" kind="define"><name>SRCLK</name></member>
+    <member refid="defines_8h_1a2037a623db91c076c583aa722e11153f" kind="define"><name>SRCLR</name></member>
+    <member refid="defines_8h_1a44a1ca2c7678c780de06d4c9afc2e610" kind="define"><name>RCLK</name></member>
+    <member refid="defines_8h_1a4dd916025fc4a52e475a927a9b589ccb" kind="define"><name>SEROE</name></member>
+    <member refid="defines_8h_1aad9ae913bdfab20dd94ad04ee2d5b045" kind="define"><name>DATA</name></member>
+    <member refid="defines_8h_1ae5c06dba796c468f3d219d4850c7afa2" kind="define"><name>WRITE_DELAY</name></member>
+    <member refid="defines_8h_1a9718811a51e9aca0b2cef22ca84435cc" kind="define"><name>READ_DELAY</name></member>
+    <member refid="defines_8h_1a732f20b030f83c0583fce0305e3e9ff7" kind="define"><name>ADDR_DELAY</name></member>
+    <member refid="defines_8h_1a2040ced0a42073c0cc97fd87ffc7a3aa" kind="define"><name>DATA_DELAY</name></member>
+    <member refid="defines_8h_1a3f33bf77abbf35c245956489f8f7e3a7" kind="define"><name>GEN_DELAY</name></member>
+    <member refid="defines_8h_1ac56760c658182c144e058ffd559c3c78" kind="define"><name>tAS</name></member>
+    <member refid="defines_8h_1ac2d0aecafd254acad7a67f4bd47d1f26" kind="define"><name>tOES</name></member>
+    <member refid="defines_8h_1af550844e8e2c57129820ae56d4901688" kind="define"><name>tAH</name></member>
+    <member refid="defines_8h_1ab734baf489cce373bd1e3ae5362c6392" kind="define"><name>tWP</name></member>
+    <member refid="defines_8h_1a38a490adc454917fca46c648660b0a89" kind="define"><name>tDS</name></member>
+    <member refid="defines_8h_1adb37363e220e083a2c2d4d4538ad116e" kind="define"><name>tDH</name></member>
+    <member refid="defines_8h_1a2674a2997c54ccd37fbd9e634ccceb52" kind="define"><name>tOEH</name></member>
+    <member refid="defines_8h_1aeea102f16b04db8bc42b25d3723f3bbc" kind="define"><name>tCS</name></member>
+    <member refid="defines_8h_1af58d3d5c2bb19d2c231b8b97a497d34b" kind="define"><name>tCH</name></member>
+    <member refid="defines_8h_1adef42a1825691ebd7ff3d5c469063316" kind="define"><name>tDB</name></member>
+    <member refid="defines_8h_1a593ce8267503fc4f887c4b604fd309aa" kind="define"><name>tWC</name></member>
+    <member refid="defines_8h_1aaba07841c3e227bc8bdd8ccdad149349" kind="define"><name>MAX_ADDRESS</name></member>
+    <member refid="defines_8h_1a9963735b77f69bc98bafdc000b6f5551" kind="define"><name>DEBUG_DATA</name></member>
+    <member refid="defines_8h_1ad2979c59efeeb3591b34ca1d3a711b88" kind="define"><name>DEBUG_DELAY</name></member>
+    <member refid="defines_8h_1a94df10e7efe7613d074c105099c7fd0e" kind="define"><name>SERIAL_BAUD</name></member>
+  </compound>
+  <compound refid="eeprom_8h" kind="file"><name>eeprom.h</name>
+    <member refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6" kind="enum"><name>ROMMode</name></member>
+    <member refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6ae4634ae4352b512b38c5da9dc1610ca6" kind="enumvalue"><name>STANDBY</name></member>
+    <member refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6acb9be765f361bb7efb9073730aac92c6" kind="enumvalue"><name>READ</name></member>
+    <member refid="eeprom_8h_1aa45819052ed50f125c644ff22066b7d6a61aa7ff70b76bff0fda378cf61d6afbc" kind="enumvalue"><name>WRITE</name></member>
+    <member refid="eeprom_8h_1ae62b40760e005390fc65e89b57b7b9b4" kind="variable"><name>currentMode</name></member>
+    <member refid="eeprom_8h_1af9f53f8812ee3b5268b0df847be5225a" kind="function"><name>setupEEPROMPins</name></member>
+    <member refid="eeprom_8h_1a293f70ed7a84e05cbd673f22782fe19f" kind="function"><name>setMode</name></member>
+    <member refid="eeprom_8h_1acc77748500a9050a21642ec9fe66a379" kind="function"><name>setDataBus</name></member>
+    <member refid="eeprom_8h_1a9af545f680d306617989f152a7d5a0bd" kind="function"><name>writeByte</name></member>
+    <member refid="eeprom_8h_1a9b1a788dd1d21e36076b29ac34f93d63" kind="function"><name>readByte</name></member>
+    <member refid="eeprom_8h_1ac5e9c815cef4531d7fa762a6861828af" kind="function"><name>writeTimingTest</name></member>
+    <member refid="eeprom_8h_1a4a0157ee152fdd69de5c7814bff993a6" kind="function"><name>setDataDirection</name></member>
+  </compound>
+  <compound refid="shiftregister_8h" kind="file"><name>shiftregister.h</name>
+    <member refid="shiftregister_8h_1a230620afa578b202c7084b4a19222987" kind="function"><name>setupShiftRegisterPins</name></member>
+    <member refid="shiftregister_8h_1af768db025489be1159ec18a8fc4edb7d" kind="function"><name>setAddress</name></member>
+  </compound>
+  <compound refid="wozmon_8h" kind="file"><name>wozmon.h</name>
+    <member refid="wozmon_8h_1ad44708fa7044c849654b2aa0301e49f2" kind="variable"><name>WOZMON_START_ADDRESS</name></member>
+    <member refid="wozmon_8h_1ad5e94373f42ba39c9bf6180056c66969" kind="variable"><name>WOZMON_CODE</name></member>
+    <member refid="wozmon_8h_1ab64f1beee79bed2a4dbfca110a0febd9" kind="function"><name>writeWozMon</name></member>
+  </compound>
+  <compound refid="debugging_8cpp" kind="file"><name>debugging.cpp</name>
+    <member refid="debugging_8cpp_1a59e1e24701095ec3ce6364dcebedcf4e" kind="function"><name>addressTestLoop</name></member>
+    <member refid="debugging_8cpp_1a20d5ed84fb218add21cd2274a38f0b11" kind="function"><name>addressWalkRead</name></member>
+    <member refid="debugging_8cpp_1ae196f049c3a0b207119caca684b601c7" kind="function"><name>quickReadTest</name></member>
+    <member refid="debugging_8cpp_1a3c3c673380892f0e4194b3c9333fbe73" kind="function"><name>writeTest</name></member>
+    <member refid="debugging_8cpp_1aad14d0618a2d4850fb39276cf292c4ad" kind="function"><name>eraseTest</name></member>
+  </compound>
+  <compound refid="eeprom_8cpp" kind="file"><name>eeprom.cpp</name>
+    <member refid="eeprom_8cpp_1ae62b40760e005390fc65e89b57b7b9b4" kind="variable"><name>currentMode</name></member>
+    <member refid="eeprom_8cpp_1af9f53f8812ee3b5268b0df847be5225a" kind="function"><name>setupEEPROMPins</name></member>
+    <member refid="eeprom_8cpp_1a4a0157ee152fdd69de5c7814bff993a6" kind="function"><name>setDataDirection</name></member>
+    <member refid="eeprom_8cpp_1a293f70ed7a84e05cbd673f22782fe19f" kind="function"><name>setMode</name></member>
+    <member refid="eeprom_8cpp_1acc77748500a9050a21642ec9fe66a379" kind="function"><name>setDataBus</name></member>
+    <member refid="eeprom_8cpp_1ab8c7bee711ce247da5790015bc621418" kind="function"><name>readBus</name></member>
+    <member refid="eeprom_8cpp_1a70bc2a24525a4bde9cde19e084c72b38" kind="function"><name>writeByte</name></member>
+    <member refid="eeprom_8cpp_1a9b1a788dd1d21e36076b29ac34f93d63" kind="function"><name>readByte</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" kind="function"><name>setup</name></member>
+    <member refid="main_8cpp_1afe461d27b9c48d5921c00d521181f12f" kind="function"><name>loop</name></member>
+  </compound>
+  <compound refid="shiftregister_8cpp" kind="file"><name>shiftregister.cpp</name>
+    <member refid="shiftregister_8cpp_1a230620afa578b202c7084b4a19222987" kind="function"><name>setupShiftRegisterPins</name></member>
+    <member refid="shiftregister_8cpp_1af768db025489be1159ec18a8fc4edb7d" kind="function"><name>setAddress</name></member>
+  </compound>
+  <compound refid="wozmon_8cpp" kind="file"><name>wozmon.cpp</name>
+    <member refid="wozmon_8cpp_1ab64f1beee79bed2a4dbfca110a0febd9" kind="function"><name>writeWozMon</name></member>
+  </compound>
+  <compound refid="dir_d9edf6c004b4a7ff14fe9ae7a92214ee" kind="dir"><name>firmware</name>
+  </compound>
+  <compound refid="dir_e8eb43238681f7e6a184956a147fbc3b" kind="dir"><name>firmware/include</name>
+  </compound>
+  <compound refid="dir_c898ccd6027d5da3247aa855d21ca2cf" kind="dir"><name>firmware/src</name>
+  </compound>
+</doxygenindex>

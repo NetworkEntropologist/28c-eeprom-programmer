@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="dir_e8eb43238681f7e6a184956a147fbc3b" kind="dir">
+    <compoundname>firmware/include</compoundname>
+    <innerfile refid="debugging_8h">debugging.h</innerfile>
+    <innerfile refid="defines_8h">defines.h</innerfile>
+    <innerfile refid="eeprom_8h">eeprom.h</innerfile>
+    <innerfile refid="shiftregister_8h">shiftregister.h</innerfile>
+    <innerfile refid="wozmon_8h">wozmon.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="firmware/include/"/>
+  </compounddef>
+</doxygen>
