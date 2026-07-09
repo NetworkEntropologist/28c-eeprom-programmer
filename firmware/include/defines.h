@@ -49,7 +49,7 @@
 #define tDB 5 // Device busy time in microseconds
 // The datasheet specifies a tWC between 200us andd 1ms. Setting this to 3ms to give a good margin for reliable
 // operation, as anything lower starts introducing glitches and incorrectly written bytes.
-#define tWC 5000 // Write cycle time in microseconds
+#define tWC 300 // Write cycle time in microseconds
 
 //#define MAX_ADDRESS 0x7FFF // Maximum address for 28C512 EEPROM (32KB)
 #define MAX_ADDRESS 0x2000 // Maximum address for 28C64 EEPROM (8KB)

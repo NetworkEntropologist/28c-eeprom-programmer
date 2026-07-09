@@ -33,10 +33,10 @@ void setup() {
   setupShiftRegisterPins();
 
   //writeTest(0x00, 0x2000);
-  //eraseTest(0x00, 0x2000);
-  //delay(5000);
-  //writeWozMon();
-  //quickReadTest(0x00, 0x2000);
+  eraseTest(0x00, 0x2000);
+  delay(1000);
+  writeWozMon();
+  quickReadTest(0x00, 0x2000);
 
 }
 
