@@ -4,6 +4,8 @@
 ![Firmware & Software: MIT](https://img.shields.io/badge/firmware%20%26%20software-MIT-green)
 ![Python 3.10.19](https://img.shields.io/badge/python-3.10.19-blue?logo=python&logoColor=white)
 
+<a href="https://www.buymeacoffee.com/thenetworkentropologist" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 A parallel EEPROM programmer for the 28C family, built around an Arduino Nano. Simply drop an EEPROM into the ZIF socket, connect the Nano over USB, and burn a ROM image onto it from your computer.
 
 If you've watched Ben Eater's 8-bit computer series, this will look familiar. That's where the idea came from. I wanted a proper PCB instead of the breadboard version, and a ZIF socket so I'm not bending chip pins every time I swap an EEPROM.
