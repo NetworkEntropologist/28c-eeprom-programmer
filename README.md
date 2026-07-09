@@ -2,6 +2,7 @@
 
 ![Hardware: CERN-OHL-S v2](https://img.shields.io/badge/hardware-CERN--OHL--S%20v2-blue)
 ![Firmware & Software: MIT](https://img.shields.io/badge/firmware%20%26%20software-MIT-green)
+![Python 3.10.19](https://img.shields.io/badge/python-3.10.19-blue?logo=python&logoColor=white)
 
 A parallel EEPROM programmer for the 28C family, built around an Arduino Nano. Simply drop an EEPROM into the ZIF socket, connect the Nano over USB, and burn a ROM image onto it from your computer.
 
