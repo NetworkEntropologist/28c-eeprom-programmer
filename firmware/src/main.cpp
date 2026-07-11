@@ -33,7 +33,7 @@ void setup() {
   setupShiftRegisterPins();
 
   // Uncomment these lines to perform tests on device startup.
-  //writeTest(0x00, 0x2000);
+  // writeTest(0x00, 0x2000);
   // eraseTest(0x00, 0x2000);
   // delay(1000);
   // writeWozMon();

@@ -40,8 +40,10 @@ data = 0
 cmd_bytes = b''
 file_mode = False
 max_address = 0
+length = 0
 
 file_contents = {}
+read_contents = {}
 
 def get_port() -> str:
     ports = list_ports.comports()
@@ -82,6 +84,8 @@ def get_port() -> str:
         except ValueError:
             print(f"Invalid input. Please enter a number between 1 and {len(ports_dict)} or Q to quit.")
 
+    return ''
+
 def get_type() -> EEPROMType:
 
     print('Please specify the EEPROM type to use (Q to quit):')
@@ -103,6 +107,8 @@ def get_type() -> EEPROMType:
         except ValueError:
             print(f'Invalid selection.')
 
+    return EEPROMType.EEPROM_28C64
+
 def get_command() -> str:
     
     print('Please specify the command to execute (Q to quit):')
@@ -123,6 +129,8 @@ def get_command() -> str:
         else:
             print(f'Invalid selection. Please enter R or W.')
 
+    return ''
+
 def get_address() -> int:
     valid_selection = False
     while not valid_selection:
@@ -137,6 +145,8 @@ def get_address() -> int:
         except ValueError:
             print(f'Invalid selection. Please enter a valid hex address.')
 
+    return 0
+
 def get_data() -> int:
     valid_selection = False
     while not valid_selection:
@@ -150,9 +160,31 @@ def get_data() -> int:
             return data
         except ValueError:
             print(f'Invalid selection. Please enter a valid hex data byte.')
+    
+    return 0
+
+def get_length() -> int:
+    valid_selection = False
+    while not valid_selection:
+        selection = input('Enter the number of bytes to read (or Q to quit): ')
+        if selection.upper() == 'Q':
+            sys.exit(0)
+        try:
+            length = int(selection)
+            if length <= 0:
+                print(f'Invalid selection. Please enter a positive integer.')
+                continue
+            print(f'Selected length: {length}')
+            valid_selection = True
+            return length
+        except ValueError:
+            print(f'Invalid selection. Please enter a positive integer.')
+    
+    return 1
 
 def set_max_address(eeprom_type: EEPROMType) -> int:
-    
+    global max_address
+
     if eeprom_type.value == '28C256':
         max_address = 0x7FFF
     elif eeprom_type.value == '28C64':
@@ -260,7 +292,7 @@ def build_write_command(address: int, data: int) -> bytes:
 
 def format_hex_output(hex_dict: dict):
 
-    current_address = 0
+    current_address = list(hex_dict.keys())[0]
     formatted_output = ''
 
     total_bytes = len(hex_dict)
@@ -300,11 +332,11 @@ def do_read(port: Serial, address: int) -> bool:
     """
 
     cmd_bytes = build_read_command(address)
-    print(f'Sending read command: {cmd_bytes.hex()}...')
+    # print(f'Sending read command: {cmd_bytes.hex()}...')
     port.write(cmd_bytes)
     port.flush()  # Ensure data is sent immediately
 
-    time.sleep(0.5)  # Give Arduino time to process the command
+    # time.sleep(0.5)  # Give Arduino time to process the command
 
     while not port.in_waiting:
         pass
@@ -326,11 +358,46 @@ def do_write(port: Serial, address: int, data: int) -> bool:
     port.write(cmd_bytes)
     port.flush()  # Ensure data is sent immediately
 
-    time.sleep(0.5)  # Give Arduino time to process the command
+    # time.sleep(0.25)  # Give Arduino time to process the command
 
     while not port.in_waiting:
         pass
 
+    return True
+
+def process_read(port: Serial, address: int = 0, length: int = 1) -> bool:
+    global read_contents
+
+    print('Opening serial port...')
+    port.open()
+    time.sleep(2)  # Give the Arduino time to initialize after opening the port
+    print('Serial port opened.')
+
+    with alive_bar(length, title='Reading from EEPROM', bar='blocks', stats=False, monitor=False) as bar:
+        for addr in range(address, address + length):
+            bar.text(f'Reading byte from address 0x{addr:04X}')
+            bar()
+            if not do_read(port, addr):
+                port.close()
+                print('Serial port closed.')
+                return False
+            
+            if port.in_waiting > 0:
+                response = port.read(port.in_waiting)
+                read_contents[addr] = response[4]
+                bar.text(f'Byte 0x{response[4]:02X} read from address 0x{addr:04X}')
+                bar()
+            else:
+                print('No response received (timeout)')
+                port.close()
+                print('Serial port closed.')
+                return False
+
+    port.close()
+    print('Serial port closed.')
+
+    print(f'Read complete. {len(read_contents)} bytes read.')
+    print(format_hex_output(read_contents))
     return True
 
 def process_write(port: Serial, mode: str, address: int = 0, data: int = 0, file_contents: dict = {}) -> bool:
@@ -352,7 +419,7 @@ def process_write(port: Serial, mode: str, address: int = 0, data: int = 0, file
                     return False
                 if port.in_waiting > 0:
                     response = port.read(port.in_waiting)
-                    print(f'Response: {response.hex()}')
+                    # print(f'Response: {response.hex()}')
                     bar.text(f'Byte 0x{byte:02X} written to address 0x{addr:04X}. Response: {response.hex()}')
                     bar()
                 else:
@@ -370,7 +437,7 @@ def process_write(port: Serial, mode: str, address: int = 0, data: int = 0, file
             return False
         if port.in_waiting > 0:
             response = port.read(port.in_waiting)
-            print(f'Response: {response.hex()}')
+            # print(f'Response: {response.hex()}')
         else:
             print('No response received (timeout)')
             port.close()
@@ -381,10 +448,10 @@ def process_write(port: Serial, mode: str, address: int = 0, data: int = 0, file
     print('Serial port closed.')
     return True
 
-def process_command(addr: int, data: int) -> bool:
+def process_command(addr: int, data: int, length: int) -> bool:
     match command:
         case 'READ' | 'R':
-            return do_read(port, addr)
+            return process_read(port, addr, length)
         case 'WRITE' | 'W':
             return process_write(port, 'file' if file_mode else 'single', addr, data, file_contents)
         case _:
@@ -392,7 +459,7 @@ def process_command(addr: int, data: int) -> bool:
             sys.exit(1)
 
 def parse_args(args):
-    global command, addr, data, eeprom_type, file_mode, file_contents, max_address
+    global command, addr, data, eeprom_type, file_mode, file_contents, max_address, length
 
     # No args specified so switch to interactive mode
     if len(sys.argv) == 1:
@@ -426,7 +493,6 @@ def parse_args(args):
         print(f'Using specified command: {cmd}')
         command = cmd
 
-
     addr = args.address
     if command == 'R' or command == 'READ' or ((command == 'W' or command == 'WRITE') and not args.file):
         if not addr or not valid_address(eeprom_type, addr):
@@ -435,6 +501,12 @@ def parse_args(args):
         else:
             addr = int(addr, 16)
             print(f'Using specified address: {hex(addr)}')
+            length = args.length
+            if not length or length <= 0:
+                print('No valid length specified. Switching to interactive mode.')
+                length = get_length()
+            else:
+                print(f'Using specified length: {length}')
 
     if command == 'W' or command == 'WRITE':
         data_arg = args.data
@@ -464,6 +536,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--command', type=str, required=False, help='Command to execute')
     parser.add_argument('-t', '--type', type=str, required=False, help='EEPROM type (e.g., 28C256, 28C64, etc.)')
     parser.add_argument('-a', '--address', type=str, required=False, help='Address to read/write (hex)')
+    parser.add_argument('-l', '--length', type=int, required=False, help='Number of bytes to read')
     parser.add_argument('-d', '--data', type=str, required=False, help='Data byte to write (hex)')
 
     cmds = parser.add_subparsers(dest='command', help='Available commands')
@@ -474,14 +547,15 @@ if __name__ == '__main__':
     
     parse_args(parser.parse_args())
 
-    proceed_input = input('Press enter to proceed or Q to quit: ')
-    if proceed_input.upper() == 'Q':
-        print('User aborted. Exiting.')
-        sys.exit(0)
+    if command == 'W' or command == 'WRITE':
+        proceed_input = input('Press enter to proceed or Q to quit: ')
+        if proceed_input.upper() == 'Q':
+            print('User aborted. Exiting.')
+            sys.exit(0)
 
     # print(f'Command: {command}, Address: {hex(addr)}, Data: {hex(data) if command == "W" else "N/A"}')
 
-    process_command(addr, data)
+    process_command(addr, data, length)
 
     # match command:
     #     case 'READ' | 'R':

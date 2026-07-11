@@ -12,3 +12,4 @@ hardware/plots
 hardware/rom-programmer-backups
 hardware/*.zip
 .history
+0eeprom/

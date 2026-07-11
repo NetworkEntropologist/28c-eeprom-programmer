@@ -21,39 +21,52 @@ uint8_t calcChecksum(byte* data, uint8_t length) {
     return ~checksum; // Return the one's complement of the sum
 }
 
-uint8_t serialReceive(byte *buffer, uint8_t length, bool Ack) {
+uint8_t serialReceive(byte *buffer, uint8_t bufferSize, bool Ack) {
     int frameStart;
-    
+
     // Read and validate frame start byte (0x01)
     do {
         frameStart = Serial.read();
     } while (frameStart == -1);  // Wait for frame start
-    
+
     if (frameStart != 0x01) {
         error = errorCode::CORRUPT;
         return -1;  // Invalid frame start
     }
-    
+
     // Frame start is valid, store it in buffer
     buffer[0] = frameStart;
-    
-    // Read the rest of the packet (command + payload)
-    // We expect: command (1 byte) + up to (length - 1) bytes of payload
-    int bytesRead = Serial.readBytes(&buffer[1], length - 1);
-    
-    if (bytesRead <= 0) {
+
+    // Read the length byte, which tells us exactly how many bytes follow
+    // (command + payload). Packets are variable length depending on command
+    // (e.g. read sends 3, write sends 4), so this must be read before we
+    // know how many more bytes to wait for.
+    if (Serial.readBytes(&buffer[1], 1) != 1) {
         error = errorCode::CORRUPT;
         return -1;
     }
-    
+
+    uint8_t payloadLength = buffer[1];
+    if (payloadLength > bufferSize - 2) {
+        error = errorCode::CORRUPT;
+        return -1;  // Payload too large for the provided buffer
+    }
+
+    int bytesRead = Serial.readBytes(&buffer[2], payloadLength);
+
+    if (bytesRead != payloadLength) {
+        error = errorCode::CORRUPT;
+        return -1;
+    }
+
     // Send ACK if requested
     if (Ack) {
         byte ackByte = 0x06;  // ACK
         Serial.write(&ackByte, 1);
     }
-    
-    // Return total bytes read (frame start + payload)
-    return bytesRead + 1;
+
+    // Return total bytes read (frame start + length byte + payload)
+    return bytesRead + 2;
 }
 
 uint8_t serialSend(byte *buffer, uint8_t length, bool Ack) {
